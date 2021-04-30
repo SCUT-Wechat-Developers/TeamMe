@@ -1,0 +1,5 @@
+/**app.wxss**/
+/* 引入colorUI css样式 */
+@import "colorui/icon.wxss";
+@import "colorui/main.wxss";
+@import "colorui/animation.wxss";
