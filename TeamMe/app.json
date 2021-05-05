@@ -1,15 +1,72 @@
 {
   "pages":[
+    "pages/_teamUP/_teamUP",
+    
+    "pages/_cooperate/_cooperate",
+    "pages/_square/_square",
+    
+    "pages/_inf/_inf",
     "pages/index/index",
     "pages/logs/logs"
   ],
+
   "window":{
-    "navigationStyle": "custom",
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#232323",
+    "navigationBarTitleText": "TeamMe",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":true,
+    "backgroundColor":"#00aaff"
+    
   },
+  "tabBar": {
+    "selectedColor": "#33eedd",
+    
+    "color": "#000000",
+    "backgroundColor": "#aaaaaa",
+    "borderStyle": "black",
+    "position": "bottom",
+    
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "_more",
+      "iconPath": "img/xinxi1.png",
+      "selectedIconPath": "img/xinxi.png"
+    }
+    ,
+    {
+      "pagePath": "pages/_cooperate/_cooperate",
+      "text": "_cooperate",
+      "iconPath": "img/mission1.png",
+      "selectedIconPath": "img/mission.png"
+    }
+    ,
+    {
+      "pagePath": "pages/_teamUP/_teamUP",
+      "text": "_teamUP",
+      "iconPath": "img/plus1.png",
+      "selectedIconPath": "img/plus.png"
+    },
+    {
+      "pagePath": "pages/_square/_square",
+      "text": "_square",
+      "iconPath": "img/collect1.png",
+      "selectedIconPath": "img/collect.png"
+    }
+    ,
+    
+    {
+      "pagePath": "pages/_inf/_inf",
+      "text": "_inf",
+      "iconPath": "img/wo1.png",
+      "selectedIconPath": "img/wo.png"
+    }
+    
+    
+
+  ]
+  },
+
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
   },
