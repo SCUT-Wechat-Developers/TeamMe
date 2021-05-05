@@ -21,9 +21,9 @@ Page({
 
     educationLevel:0,
 
-    awards:[""],
+   // awards:[""],
     _awards:"",
-
+    _skill:"",
     text:"",
     _text:"",
     person:{
@@ -34,6 +34,7 @@ Page({
       categories:"",
       education:"",
       awards:[""],
+      skill:[""],
       text:""
     }
 
@@ -88,6 +89,14 @@ Page({
     })
     //console.log(this.data._gender);
   },
+  skillInput:function(e){
+    //console.log(e);
+    //console.log(e.detail.value);
+    this.setData({
+      _skill:e.detail.value
+    })
+    //console.log(this.data._gender);
+  },
   textInput:function(e){
     //console.log(e);
     //console.log(e.detail.value);
@@ -105,6 +114,7 @@ Page({
     var categories ="person.categories";
     var education ="person.education";
     var awards ="person.awards";
+    var skill ="person.skill";
     var text ="person.text";
     if(this.data._name.length == 0 || this.data._gender.length == 0){
       this.setData({
@@ -119,17 +129,25 @@ Page({
         [categories]:this.data._categories,
         [education]:this.data._education,
         [awards]:this.data._awards,
+        [skill]:this.data._skill,
         [text]:this.data._text,
         
       })
-      console.log('名字：'+this.data.name);
-      console.log('性别：'+this.data.gender);
-      console.log('专业：'+this.data.major);
-      console.log('学科：'+this.data.categories);
-      console.log('学历：'+this.data.education);
-      console.log('奖项：'+this.data.awards);
-      console.log('简介：'+this.data.text);
+      // console.log('名字：'+this.data.name);
+      // console.log('性别：'+this.data.gender);
+      // console.log('专业：'+this.data.major);
+      // console.log('学科：'+this.data.categories);
+      // console.log('学历：'+this.data.education);
+      // console.log('奖项：'+this.data.awards);
+      // console.log('技能：'+this.data.skill);
+      // console.log('简介：'+this.data.text);
       wx.setStorageSync("personinf",this.data.person);
+      wx.getStorage({
+        key: 'personinf',
+        success: function(res) {
+          console.log(res.data)
+        }
+       })
     }
   }
 

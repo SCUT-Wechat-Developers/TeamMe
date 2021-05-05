@@ -9,6 +9,8 @@ Page({
     const userinfo=wx.getStorageSync("userinfo");
     const collect=wx.getStorageSync("collect")||[];
     //console.log(1); console.log(userinfo);
+    //console.log({{personinf.name}});
+
     this.setData({userinfo,collectNums:collect.length});
       
   }

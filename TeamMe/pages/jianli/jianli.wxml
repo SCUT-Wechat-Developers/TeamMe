@@ -26,6 +26,10 @@
     <input class="input"  placeholder="请输入奖项"
      bindinput="awardsInput" />
   </view>
+  <view class="itemView">技    能：
+    <input class="input"  placeholder="请输入奖项"
+     bindinput="skillInput" />
+  </view>
   <view class="itemView">简    介：
     <input class="input"  placeholder="请输入简介"
      bindinput="textInput" />
