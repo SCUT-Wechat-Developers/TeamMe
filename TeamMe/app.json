@@ -1,22 +1,23 @@
 {
   "pages":[
-    "pages/_teamUP/_teamUP",
+    "pages/_inf/_inf",
     
+    "pages/_teamUP/_teamUP",
     "pages/_cooperate/_cooperate",
     "pages/_square/_square",
+    "pages/login/login",
     
-    "pages/_inf/_inf",
     "pages/index/index",
     "pages/logs/logs"
   ],
 
   "window":{
-    "backgroundTextStyle":"dark",
+    "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#232323",
     "navigationBarTitleText": "TeamMe",
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh":true,
-    "backgroundColor":"#00aaff"
+    "backgroundColor":"#004488"
     
   },
   "tabBar": {
