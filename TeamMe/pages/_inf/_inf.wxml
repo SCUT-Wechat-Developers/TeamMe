@@ -1,4 +1,4 @@
-<!--    -->
+<!--  userinfo.avatarUrl  -->
 <view class="user_info_wrap">
   <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
     <image class="user_bg" src="{{userinfo.avatarUrl}}" ></image>
@@ -37,11 +37,11 @@
     <view class="orders_wrap">
       <view class="orders_title">我的信息管理</view>
       <view class="order_content">
-        <navigator url="/pages/order/index?type=1">
+        <navigator url="/pages/jianli/jianli">
           <view class="iconfont icon-ding_dan"></view>
           <view class="order_name">简历填写</view>
         </navigator>
-        <navigator url="/pages/order/index?type=2">
+        <navigator url="/pages/123/123">
           <view class="iconfont icon-fukuantongzhi"></view>
           <view class="order_name">简历查看</view>
         </navigator>

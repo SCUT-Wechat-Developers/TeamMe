@@ -1,0 +1,39 @@
+<!--pages/jianli/jianli.wxml-->
+<!-- <text>pages/jianli/jianli.wxml</text> -->
+<view class="itemView">姓名：
+    <input class="input" name="userName" placeholder="请输入姓名" 
+    bindinput="userNameInput"/>
+  </view>
+  <!-- password -->
+<view class="itemView">性    别：
+    <input class="input"  placeholder="请输入性别"
+     bindinput="passWdInput" />
+  </view>
+  <view class="itemView">专    业：
+    <input class="input"  placeholder="请输入专业"
+     bindinput="majorInput" />
+  </view>
+  <view class="itemView">学    科：
+    <input class="input"  placeholder="请输入学科"
+     bindinput="categoriesInput" />
+  </view>
+
+  <view class="itemView">学    历：
+    <input class="input"  placeholder="请输入学历"
+     bindinput="educationInput" />
+  </view>
+  <view class="itemView">奖    项：
+    <input class="input"  placeholder="请输入奖项"
+     bindinput="awardsInput" />
+  </view>
+  <view class="itemView">简    介：
+    <input class="input"  placeholder="请输入简介"
+     bindinput="textInput" />
+  </view>
+<view class="viewName" style="background-color:#fbf9fe">
+  <button class="loginBtn" bindtap="loginBtnClick">登录</button>
+  <button class="resetBtn" bindtap="resetBtnClick">清除</button>
+</view>
+<view>{{infoMess}}</view>
+<view>{{userName}}</view>
+<view>{{passWd}}</view>

@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/_inf/_inf",
+    "pages/jianli/jianli",
     
     "pages/_teamUP/_teamUP",
     "pages/_cooperate/_cooperate",
@@ -8,7 +9,9 @@
     "pages/login/login",
     
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/123/123"
+
   ],
 
   "window":{

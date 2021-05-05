@@ -12,7 +12,10 @@ page {
 }
 .user_info_wrap .user_img_wrap .user_bg {
   height: 50vh;
+  left: 50%;
   filter: blur(10rpx);
+  transform: translateX(-50%);
+  
 }
 .user_info_wrap .user_img_wrap .user_info {
   position: absolute;
@@ -24,7 +27,7 @@ page {
 .user_info_wrap .user_img_wrap .user_info .user_icon {
   width: 150rpx;
   height: 150rpx;
-  border-radius: 50%;
+  
 }
 .user_info_wrap .user_img_wrap .user_info .user_name {
   color: #fff;
