@@ -9,7 +9,7 @@ Page({
     _name:"",//杠号是未确认的数据存缓
     // gender:"",
     _gender:"",
-
+    conLists: [],
     genderNum:0,
 
     major:"",
@@ -50,64 +50,62 @@ Page({
     //console.log(this.data._name);
   },
   passWdInput:function(e){
-    //console.log(e);
-    //console.log(e.detail.value);
     this.setData({
       _gender:e.detail.value
     })
-    //console.log(this.data._gender);
   },
+  bandleChange(e){
+    // 1 获取单选框中的值
+    let gender = e.detail.value;
+    // 2 把值赋值给 data 中的数据
+    this.setData({
+      // gender:gender
+      gender
+    })
+  },
+
   majorInput:function(e){
-    //console.log(e);
-    //console.log(e.detail.value);
     this.setData({
       _major:e.detail.value
     })
-    //console.log(this.data._gender);
   },
   categoriesInput:function(e){
-    //console.log(e);
-    //console.log(e.detail.value);
     this.setData({
       _categories:e.detail.value
     })
-    //console.log(this.data._gender);
   },
   educationInput:function(e){
-    //console.log(e);
-    //console.log(e.detail.value);
     this.setData({
       _education:e.detail.value
     })
-    //console.log(this.data._gender);
   },
   awardsInput:function(e){
-    //console.log(e);
-    //console.log(e.detail.value);
     this.setData({
       _awards:e.detail.value
     })
-    //console.log(this.data._gender);
   },
   skillInput:function(e){
-    //console.log(e);
-    //console.log(e.detail.value);
     this.setData({
       _skill:e.detail.value
     })
-    //console.log(this.data._gender);
   },
   textInput:function(e){
-    //console.log(e);
-    //console.log(e.detail.value);
     this.setData({
       _text:e.detail.value
     })
-    //console.log(this.data._gender);
   },
-
+  resetBtnClick:function(e){
+    console.log(this.data._name);
+    this.setData({
+      _name:'',
+      infoMess: '',
+      userName: '',
+      userN:'',
+      passWd: '',
+      passW:'',
+    })
+  },
   loginBtnClick:function(){
-    //console.log(this.data.name);
     var name ="person.name";
     var gender ="person.gender";
     var major ="person.major";
@@ -116,7 +114,23 @@ Page({
     var awards ="person.awards";
     var skill ="person.skill";
     var text ="person.text";
-    if(this.data._name.length == 0 || this.data._gender.length == 0){
+    var genderNum=0;
+    // || this.data._gender.length == 0
+    // var StorageData = wx.getStorageSync("userinfo")
+    // console.log(StorageData)
+    var genderNum = wx.getStorageSync("userinfo")
+    console.log(genderNum)
+    // wx.getStorage({
+    //   key: 'userinfo',
+    //   success: function(res) {
+
+    //     console.log(res.data)
+    //     genderNum=res.data.gender;
+    //     console.log(genderNum)
+    //   }
+    //  })
+     
+    if(this.data._name.length == 0 ){
       this.setData({
         infoMess:'温馨提示：用户名和密码不能为空！',
       })
@@ -124,23 +138,27 @@ Page({
       this.setData({
         //infoMess:'',
         [name]:this.data._name,
-        [gender]:this.data._gender,
+        //[gender]:this.data._gender,
+        [gender]:genderNum.gender,
+        
         [major]:this.data._major,
         [categories]:this.data._categories,
         [education]:this.data._education,
-        [awards]:this.data._awards,
+        // [awards]:this.data._awards,
+        [awards]:this.data.conLists,
         [skill]:this.data._skill,
         [text]:this.data._text,
         
       })
       // console.log('名字：'+this.data.name);
-      // console.log('性别：'+this.data.gender);
+      // console.log('性别：'+this.data.person.gender);
       // console.log('专业：'+this.data.major);
       // console.log('学科：'+this.data.categories);
       // console.log('学历：'+this.data.education);
       // console.log('奖项：'+this.data.awards);
       // console.log('技能：'+this.data.skill);
       // console.log('简介：'+this.data.text);
+      //console.log('简介：'+this.data.person.text);
       wx.setStorageSync("personinf",this.data.person);
       wx.getStorage({
         key: 'personinf',
@@ -149,6 +167,73 @@ Page({
         }
        })
     }
-  }
+  },
 
+
+      /**
+   * 添加内容
+   */
+  add(e) {
+    // 点击添加按钮，就往数组里添加一条空数据
+    var _list = this.data.conLists;
+    _list.push("")
+    this.setData({
+      conLists: _list
+    })
+  },
+
+  /**
+   * 删除内容
+   */
+  del(e) {
+    var idx = e.currentTarget.dataset.index;
+    var _list = this.data.conLists;
+    console.log(idx)
+    for (let i = 0; i < _list.length; i++) {
+      if (idx == i) {
+        _list.splice(idx, 1)
+      }
+    }
+    this.setData({
+      conLists: _list
+    })
+  },
+
+  /**
+  * 获取输入的内容标题
+  */
+  changeConTitle(e) {
+    var idx = e.currentTarget.dataset.index; //当前下标
+    var val = e.detail.value; //当前输入的值
+    var _list = this.data.conLists; //data中存放的数据
+    for (let i = 0; i < _list.length; i++) {
+      if (idx == i) {
+         _list[i] =  val//{ modelLabel: } //将当前输入的值放到数组中对应的位置
+      }
+    }
+    this.setData({
+      conLists: _list
+    })
+  },
+
+  /**
+  * 下一步
+  */
+  next(e) {
+    var _conLists = this.data.conLists;
+    console.log('这是模板内容标题数组', _conLists)
+    for (let i = 0; i < _conLists.length; i++) {
+      if (!_conLists[i]) {
+        wx.showToast({
+          title: '请输入第' + `${i * 1 + 1}` + '条的模板内容标题！',
+          icon: 'none'
+        })
+        return;
+      }
+    }
+  }
 })
+
+
+
+

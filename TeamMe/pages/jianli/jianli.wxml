@@ -1,43 +1,92 @@
 <!--pages/jianli/jianli.wxml-->
 <!-- <text>pages/jianli/jianli.wxml</text> -->
 <view class="itemView">姓名：
-    <input class="input" name="userName" placeholder="请输入姓名" 
+    <input class="input" name="userName" placeholder="请填入姓名" 
     bindinput="userNameInput"/>
   </view>
   <!-- password -->
-<view class="itemView">性    别：
-    <input class="input"  placeholder="请输入性别"
-     bindinput="passWdInput" />
+  <view class="itemView">性    别：
+    <radio-group bindchange="bandleChange">
+      <radio color="green" value="{{1}}"> ——男</radio>
+
+      <radio color="green" value="{{0}}"> ——女</radio>
+      </radio-group>
+      <!-- <view>--您选中的是:{{ gender }}</view> -->
   </view>
+<!-- <view class="itemView">性    别：
+    <input class="input"  placeholder="请填入性别（男/女）"
+     bindinput="passWdInput" />
+  </view> -->
   <view class="itemView">专    业：
-    <input class="input"  placeholder="请输入专业"
+    <input class="input"  placeholder="请填入专业（软件工程、临床医学等）"
      bindinput="majorInput" />
   </view>
   <view class="itemView">学    科：
-    <input class="input"  placeholder="请输入学科"
+    <input class="input"  placeholder="请填入学科（理学、哲学、医学等）"
      bindinput="categoriesInput" />
   </view>
 
   <view class="itemView">学    历：
-    <input class="input"  placeholder="请输入学历"
+    <input class="input"  placeholder="请填入学历（本科生、研究生）"
      bindinput="educationInput" />
   </view>
-  <view class="itemView">奖    项：
-    <input class="input"  placeholder="请输入奖项"
+
+  <!-- <view class="itemView">奖    项：
+    <input class="input"  placeholder="请填入奖项"
      bindinput="awardsInput" />
-  </view>
+  </view> -->
+
   <view class="itemView">技    能：
-    <input class="input"  placeholder="请输入奖项"
+    <input class="input"  placeholder="请填入个人长处与技能"
      bindinput="skillInput" />
   </view>
   <view class="itemView">简    介：
-    <input class="input"  placeholder="请输入简介"
+    <input class="input"  placeholder="请填入简介"
      bindinput="textInput" />
   </view>
+
+  
+  <view class="container">
+  <view class='template_title1 flex-x '>
+    <view>奖项填写</view>
+  </view>
+
+  <block wx:for="{{conLists}}" wx:key="index">
+    <view class='template_title_list flex-x'>
+      <view class="del" bindtap='del' data-index='{{index}}'>-</view>
+
+      <input placeholder='请填写内容标题' bindinput='changeConTitle' data-index='{{index}}'></input>
+    </view>
+  </block>
+
+  <view class='template_title flex-x' bindtap='add'>
+    <view class='add_con flex-x'>
+      <text>+</text>
+      <view>添加奖项</view>
+    </view>
+  </view>
+
+  <!-- <button class="btn" type="primary" bindtap="next">下一步</button> -->
+</view>
 <view class="viewName" style="background-color:#fbf9fe">
   <button class="loginBtn" bindtap="loginBtnClick">登录</button>
+  <view>{{infoMess}}</view>
   <button class="resetBtn" bindtap="resetBtnClick">清除</button>
+  
 </view>
-<view>{{infoMess}}</view>
+
 <view>{{userName}}</view>
 <view>{{passWd}}</view>
+
+
+<!--index.wxml-->
+
+
+
+
+
+
+
+
+
+
