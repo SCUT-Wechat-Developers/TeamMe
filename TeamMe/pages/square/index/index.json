@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "ec-canvas": "/ec-canvas/ec-canvas",
+    "searchHistory": "/components/searchBar/SearchbarWithHistory",
+    "teamInsCard": "/components/card/card"
+  }
+}

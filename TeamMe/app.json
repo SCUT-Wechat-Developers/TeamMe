@@ -1,6 +1,7 @@
 {
   "pages":[
-    "pages/index/index",
+    "pages/square/index/index",
+    "pages/square/teamInfo/teamInfo",
     "pages/logs/logs"
   ],
   "window":{
@@ -12,6 +13,10 @@
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
+  },
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

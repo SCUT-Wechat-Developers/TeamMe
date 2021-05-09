@@ -3,3 +3,4 @@
 @import "colorui/icon.wxss";
 @import "colorui/main.wxss";
 @import "colorui/animation.wxss";
+
