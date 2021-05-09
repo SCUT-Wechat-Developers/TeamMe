@@ -4,13 +4,18 @@
     "pages/jianli/jianli",
     
     "pages/_teamUP/_teamUP",
+    "pages/team_regis1/register",
+    "pages/team_regis2/register",
+    "pages/team_regis3/register",
+
     "pages/_cooperate/_cooperate",
     "pages/_square/_square",
     "pages/login/login",
-    
+
     "pages/index/index",
     "pages/logs/logs",
     "pages/123/123"
+
 
   ],
 
@@ -46,7 +51,7 @@
     }
     ,
     {
-      "pagePath": "pages/_teamUP/_teamUP",
+      "pagePath": "pages/team_regis1/register",
       "text": "_teamUP",
       "iconPath": "img/plus1.png",
       "selectedIconPath": "img/plus.png"

@@ -1,0 +1,34 @@
+<!--pages/team_regis/register.wxml-->
+
+<form>
+  <cu-custom bgColor="bg-gradual-pink" >
+	<view slot="content">组建队伍</view>
+</cu-custom>
+  <view>队伍基本信息填写</view>
+	<view class="cu-form-group margin-top">
+		<view class="title" >队伍名称</view>
+		<input bindinput="teamNameInput">teamName</input>
+  </view>
+  <view class="cu-form-group margin-top">
+		<view class="title">组队宣言（口号）</view>
+		<input bindinput="titleInput">title</input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">队长</view>
+    <input bindinput="captainInput">captain</input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">组队卡图片</view>
+		<button bindtap='handleChooseAlbum'>选中图片</button>
+		<image src="{{group.teamImg}}" mode="widthFix"/>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">队伍简介</view>
+		<textarea maxlength="400" placeholder="字数不超过400" auto-height="true" bindinput="contentInput" ></textarea>
+	</view>
+
+</form>
+
+<button class="cu-btn bg-green shadow" bindtap="jumpToRegis2">下一步</button>
+
+

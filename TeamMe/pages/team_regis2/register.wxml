@@ -1,0 +1,30 @@
+<!--pages/team_regis2/register.wxml-->
+<form>
+  <cu-custom bgColor="bg-gradual-pink" >
+  <view slot="content">组建队伍</view>
+</cu-custom>
+  <view>比赛信息填写</view>
+	<view class="cu-form-group margin-top">
+		<view class="title">比赛类型</view>
+		<input placeholder="或者以选择的方式" bindinput="tagInput">tag</input>
+  </view>
+  <view class="cu-form-group" >
+    <view class="flex-wrp" style="flex-direction:row;">
+    <picker class="weui-btn" mode="date" value="{{date}}" start="{{date}}" end="2030-09-01" bindchange="bindDateChange">
+      <view class="picker">
+      截止日期: {{group.endTime}}
+    </view>
+
+    </picker>
+    </view>
+
+    
+  </view>
+  
+
+
+
+
+</form>
+
+<button class="cu-btn bg-green shadow" bindtap="jumpToRegis3">下一步</button>
