@@ -1,0 +1,6 @@
+<!--teamUP.wxml-->
+<navigator url="/pages/team_regis1/register">
+  <view>
+    生成组队卡片
+  </view>
+</navigator>

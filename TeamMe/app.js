@@ -1,5 +1,8 @@
 // app.js
 App({
+
+
+
   onLaunch: function() {
     wx.getSystemInfo({
       success: e => {
@@ -11,6 +14,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+
   }
 })

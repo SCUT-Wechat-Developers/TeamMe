@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "组队主页面",
+          "pathName": "pages/_teamUP/_teamUP",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "队伍注册3",
+          "pathName": "pages/team_regis3/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "队伍注册1",
+          "pathName": "pages/team_regis1/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "队伍注册2",
+          "pathName": "pages/team_regis2/register",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
