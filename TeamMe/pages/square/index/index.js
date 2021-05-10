@@ -10,21 +10,24 @@ Page({
     tagIndex: null,
     teamList: [
         // 测试数据
-      {
-        captain: '队长1',
-        teamId: '0',
-        teamName: '队伍1',
-        teamImg: 'https://img3.doubanio.com/view/group_topic/l/public/p276827851.webp',
-        title: '微信小程序竞赛队友',
-        content: '2021微信小程序应用开发赛（以下简称“大赛”）是由清华大学与腾讯公司微信事业群联合主办。',
-        needNum: 2,
-        candidateNum: 1,
-        tag: '微信小程序竞赛',
-        endTime: new Date('2021-05-20'),
-        updateTime: '2021-05-07',
-        likeNum: 0,
-        isLiked: false
-      },
+        {
+          teamId: '0',
+          captainid:"",
+          memberid:[],
+          
+          teamName: '队伍1',
+          teamImg: 'https://img3.doubanio.com/view/group_topic/l/public/p276827851.webp',
+          captain: '队长1',
+          title: '微信小程序竞赛队友',
+          content: '2021微信小程序应用开发赛（以下简称“大赛”）是由清华大学与腾讯公司微信事业群联合主办。',
+          needNum: 2,
+          candidateNum: 1,
+          tag: '微信小程序竞赛',
+          endTime: new Date('2021-05-20'),
+          updateTime: '2021-05-07',
+          likeNum: 0,
+          isLiked: false
+        },
       {
         captain: '队长2',
         teamId: '1',
@@ -35,6 +38,21 @@ Page({
         needNum: 3,
         candidateNum: 0,
         tag: '字节跳动杯',
+        endTime: new Date('2021-05-20'),
+        updateTime: '2021-05-07',
+        likeNum: 0,
+        isLiked: false
+      },
+      {
+        captain: '队长1',
+        teamId: '0',
+        teamName: '队伍1',
+        teamImg: 'https://img3.doubanio.com/view/group_topic/l/public/p276827851.webp',
+        title: '微信小程序竞赛队友',
+        content: '2021微信小程序应用开发赛（以下简称“大赛”）是由清华大学与腾讯公司微信事业群联合主办。',
+        needNum: 2,
+        candidateNum: 1,
+        tag: '微信小程序竞赛',
         endTime: new Date('2021-05-20'),
         updateTime: '2021-05-07',
         likeNum: 0,

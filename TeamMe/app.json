@@ -1,8 +1,8 @@
 {
-  "pages":[
+  "pages": [
+    
     "pages/square/index/index",
     "pages/square/teamInfo/teamInfo",
-    "pages/logs/logs",
     "pages/_inf/_inf",
     "pages/jianli/jianli",
     "pages/_teamUP/_teamUP",
@@ -14,66 +14,56 @@
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/123/123"
+    "pages/123/123",
+    "pages/request/request"
   ],
-
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#232323",
     "navigationBarTitleText": "TeamMe",
-    "navigationBarTextStyle":"white",
-    "enablePullDownRefresh":true,
-    "backgroundColor":"#004488"
-    
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#004488"
   },
   "tabBar": {
     "selectedColor": "#33eedd",
-    
     "color": "#000000",
     "backgroundColor": "#aaaaaa",
     "borderStyle": "black",
     "position": "bottom",
-    
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "_more",
-      "iconPath": "img/xinxi1.png",
-      "selectedIconPath": "img/xinxi.png"
-    }
-    ,
-    {
-      "pagePath": "pages/_cooperate/_cooperate",
-      "text": "_cooperate",
-      "iconPath": "img/mission1.png",
-      "selectedIconPath": "img/mission.png"
-    }
-    ,
-    {
-      "pagePath": "pages/team_regis1/register",
-      "text": "_teamUP",
-      "iconPath": "img/plus1.png",
-      "selectedIconPath": "img/plus.png"
-    },
-    {
-      "pagePath": "pages/_square/_square",
-      "text": "_square",
-      "iconPath": "img/collect1.png",
-      "selectedIconPath": "img/collect.png"
-    }
-    ,
-    
-    {
-      "pagePath": "pages/_inf/_inf",
-      "text": "_inf",
-      "iconPath": "img/wo1.png",
-      "selectedIconPath": "img/wo.png"
-    }
-    
-    
-
-  ]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "_more",
+        "iconPath": "img/xinxi1.png",
+        "selectedIconPath": "img/xinxi.png"
+      },
+      {
+        "pagePath": "pages/_cooperate/_cooperate",
+        "text": "_cooperate",
+        "iconPath": "img/mission1.png",
+        "selectedIconPath": "img/mission.png"
+      },
+      {
+        "pagePath": "pages/team_regis1/register",
+        "text": "_teamUP",
+        "iconPath": "img/plus1.png",
+        "selectedIconPath": "img/plus.png"
+      },
+      {
+        "pagePath": "pages/square/index/index",
+        "text": "_square",
+        "iconPath": "img/collect1.png",
+        "selectedIconPath": "img/collect.png"
+      },
+      {
+        "pagePath": "pages/_inf/_inf",
+        "text": "_inf",
+        "iconPath": "img/wo1.png",
+        "selectedIconPath": "img/wo.png"
+      }
+    ]
   },
-
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
   },

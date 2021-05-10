@@ -6,28 +6,43 @@ Page({
    * 页面的初始数据
    */
   data: {
- 
+    key:"",
     group:{    
-      teamID:0,  
+      teamid:0,  
+      captaininfo:{},
+      memberinfo:[],
+      requesinfo:[],
       teamName:'',
       teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
-      captain:'',
+      //captain:'',
       title:'',
       content:'',
       needNum:0,
-      condidateNum:0,
+      //candidateInfo
       tag:'',
       endTime:'',
-      updateTime:''},
+      updateTime:''
+
+    },
 
 
   },
+  onLaunch() {
+    
+    
+  },
 
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // var key=wx.getStorageSync("key") 
+    // console.log(key);
+    // var captainid ="group.captainid";
+    // this.setData({
+    //   [captainid]:key
+    // })
   },
 
   teamNameInput:function(e){
@@ -79,10 +94,14 @@ Page({
   },
 
   jumpToRegis2:function(){
-    /**
-    var stsr= JSON.stringify(this.data.group);
-    var weatherObj = JSON.parse(str);
-     */
+
+    
+    var key=wx.getStorageSync("key") 
+    console.log(key);
+    var captainid ="group.captainid";
+    this.setData({
+      [captainid]:key
+    })
     wx.setStorageSync("group",this.data.group);
     wx.navigateTo({
       url: '/pages/team_regis2/register',

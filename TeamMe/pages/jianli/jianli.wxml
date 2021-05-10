@@ -17,6 +17,10 @@
     <input class="input"  placeholder="请填入性别（男/女）"
      bindinput="passWdInput" />
   </view> -->
+  <view class="itemView">手机号：
+    <input class="input"  placeholder="请填入手机号"
+     bindinput="phoneInput" />
+  </view>
   <view class="itemView">专    业：
     <input class="input"  placeholder="请填入专业（软件工程、临床医学等）"
      bindinput="majorInput" />

@@ -9,6 +9,7 @@ Page({
     _name:"",//杠号是未确认的数据存缓
     // gender:"",
     _gender:"",
+    _phone:0,
     conLists: [],
     genderNum:0,
 
@@ -27,8 +28,11 @@ Page({
     text:"",
     _text:"",
     person:{
+      id:"",
+      teamid:[],
       name:"",
       gender:"",
+      phone:0,
       major:"",
       major:"",
       categories:"",
@@ -63,7 +67,11 @@ Page({
       gender
     })
   },
-
+  phoneInput:function(e){
+    this.setData({
+      _phone:e.detail.value
+    })
+  },
   majorInput:function(e){
     this.setData({
       _major:e.detail.value
@@ -108,6 +116,8 @@ Page({
   loginBtnClick:function(){
     var name ="person.name";
     var gender ="person.gender";
+   // var phone ="person.phone";
+    var id ="person.id";
     var major ="person.major";
     var categories ="person.categories";
     var education ="person.education";
@@ -115,11 +125,13 @@ Page({
     var skill ="person.skill";
     var text ="person.text";
     var genderNum=0;
+    let phone = 'person.phone';
     // || this.data._gender.length == 0
     // var StorageData = wx.getStorageSync("userinfo")
     // console.log(StorageData)
-    var genderNum = wx.getStorageSync("userinfo")
-    console.log(genderNum)
+    //var genderNum = wx.getStorageSync("userinfo")
+    var theid=wx.getStorageSync("key") 
+    //console.log(genderNum)
     // wx.getStorage({
     //   key: 'userinfo',
     //   success: function(res) {
@@ -139,8 +151,10 @@ Page({
         //infoMess:'',
         [name]:this.data._name,
         //[gender]:this.data._gender,
+        //[phone]:(int)(this.data._phone),
+        [id]:theid,
         [gender]:genderNum.gender,
-        
+        [phone]: this.data._phone,
         [major]:this.data._major,
         [categories]:this.data._categories,
         [education]:this.data._education,
@@ -166,6 +180,8 @@ Page({
           console.log(res.data)
         }
        })
+
+       //上传。
     }
   },
 

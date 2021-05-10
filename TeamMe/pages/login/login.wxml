@@ -16,3 +16,9 @@
     <button class='commonBtn2 btn' open-type='getUserInfo' bindtap='getUserInfo'>确认授权</button>
 </view>
 
+
+<view class='middle-box'>
+    <view class='title'>点击确认按钮，确认授权</view>
+    <button class='commonBtn2 btn' open-type='getUserInfo' bindtap='bingGetOpenID'>确认授权</button>
+</view>
+

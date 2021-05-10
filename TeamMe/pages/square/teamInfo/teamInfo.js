@@ -65,7 +65,9 @@ Page({
         console.log(teamId)
         console.log(teamId)
         // 初始化队伍的信息
+        
         let teamInfo = wx.getStorageSync('teamInfo')
+
         this.setData({
             teamInfo
         })
