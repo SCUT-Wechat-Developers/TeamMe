@@ -12,7 +12,7 @@ Page({
     _phone:0,
     conLists: [],
     genderNum:0,
-
+    _avatarUrl:"",
     major:"",
     _major:"",
     categories:"",
@@ -34,7 +34,7 @@ Page({
       gender:"",
       phone:0,
       major:"",
-      major:"",
+      avatarUrl:"",
       categories:"",
       education:"",
       awards:[""],
@@ -124,14 +124,20 @@ Page({
     var awards ="person.awards";
     var skill ="person.skill";
     var text ="person.text";
-    var genderNum=0;
+    var avatarUrl="person.avatarUrl";
+    var genderNum=wx.getStorageSync("userinfo");
+    console.log(genderNum.gender)
+    genderNum=genderNum.gender
+    var _avatarUrl=wx.getStorageSync("userinfo");
+    console.log(_avatarUrl.avatarUrl)
+    _avatarUrl=_avatarUrl.avatarUrl
     let phone = 'person.phone';
     // || this.data._gender.length == 0
     // var StorageData = wx.getStorageSync("userinfo")
     // console.log(StorageData)
     //var genderNum = wx.getStorageSync("userinfo")
     var theid=wx.getStorageSync("key") 
-    //console.log(genderNum)
+    // console.log("getgender",genderNum)
     // wx.getStorage({
     //   key: 'userinfo',
     //   success: function(res) {
@@ -139,6 +145,7 @@ Page({
     //     console.log(res.data)
     //     genderNum=res.data.gender;
     //     console.log(genderNum)
+        
     //   }
     //  })
      
@@ -148,12 +155,11 @@ Page({
       })
     }else{
       this.setData({
-        //infoMess:'',
+        
         [name]:this.data._name,
-        //[gender]:this.data._gender,
-        //[phone]:(int)(this.data._phone),
+        [avatarUrl]:_avatarUrl,
         [id]:theid,
-        [gender]:genderNum.gender,
+        [gender]:genderNum,
         [phone]: this.data._phone,
         [major]:this.data._major,
         [categories]:this.data._categories,
@@ -166,13 +172,7 @@ Page({
       })
       // console.log('名字：'+this.data.name);
       // console.log('性别：'+this.data.person.gender);
-      // console.log('专业：'+this.data.major);
-      // console.log('学科：'+this.data.categories);
-      // console.log('学历：'+this.data.education);
-      // console.log('奖项：'+this.data.awards);
-      // console.log('技能：'+this.data.skill);
-      // console.log('简介：'+this.data.text);
-      //console.log('简介：'+this.data.person.text);
+
       wx.setStorageSync("personinf",this.data.person);
       wx.getStorage({
         key: 'personinf',

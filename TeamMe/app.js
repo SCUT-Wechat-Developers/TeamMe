@@ -13,7 +13,7 @@ App({
     wechat.getCryptoData()
       .then(d => {
         
-        console.log("get",wechat.getMyOpenid(d).data);
+       // console.log("get",wechat.getMyOpenid(d).data);
         return wechat.getMyOpenid(d);;//;console.log("get",d);
         
       })
@@ -21,10 +21,12 @@ App({
       .then(d => {
         console.log("从后端获取的openid", d.data);
         console.log("从后端获取的openid", d);
-        wx.setStorage({
+        
+          wx.setStorage({
           data: d.data.openid,
           key: 'key',
         })
+       
       })
       .catch(e => {
         console.log(e);

@@ -8,10 +8,10 @@ Page({
   data: {
     key:"",
     group:{    
-      teamid:0,  
+      teamid:"0",  
       captaininfo:{},
       memberinfo:[],
-      requesinfo:[],
+      candidateinfo:[],
       teamName:'',
       teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
       //captain:'',
