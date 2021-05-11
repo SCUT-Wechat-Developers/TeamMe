@@ -13,10 +13,10 @@
 		<view class="title">组队宣言（口号）</view>
 		<input bindinput="titleInput">title</input>
   </view>
-  <view class="cu-form-group">
+  <!-- <view class="cu-form-group">
     <view class="title">队长</view>
     <input bindinput="captainInput">captain</input>
-	</view>
+	</view> -->
 	<view class="cu-form-group">
 		<view class="title">组队卡图片</view>
 		<button bindtap='handleChooseAlbum'>选中图片</button>

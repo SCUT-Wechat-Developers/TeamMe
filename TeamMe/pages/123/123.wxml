@@ -37,7 +37,7 @@ js文件中的用法，e.detail.value.userName.length-->
 <view class="itemView">技能：
     <!-- <input class="input" name="userName" placeholder="请输入用户名" 
     bindinput="userNameInput"/> -->
-    <view>{{person.shill}}</view>
+    <view>{{person.skill}}</view>
 </view>
 <view class="itemView">简介：
     <!-- <input class="input" name="userName" placeholder="请输入用户名" 

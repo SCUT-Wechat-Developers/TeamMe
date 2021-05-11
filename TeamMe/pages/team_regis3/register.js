@@ -19,8 +19,14 @@ Page({
   },
 
   needNumInput:function(e){
+    let _num = 'group.needNum';
+		// this.setData({
+		// 	[_teamImg]:this.data.group.captaininfo.avatarUrl
+    // })
+   // console.log(this.data.group.teamImg)
+   //console.log(e.detail)
     this.setData({
-      ['group.needNum']:e.detail.value
+      [_num]:e.detail.value
     })
   },
 

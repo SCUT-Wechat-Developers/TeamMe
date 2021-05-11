@@ -8,7 +8,7 @@ Page({
   data: {
     key:"",
     group:{    
-      teamid:"0",  
+      teamid:0,  
       captaininfo:{},
       memberinfo:[],
       candidateinfo:[],
@@ -37,12 +37,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // var key=wx.getStorageSync("key") 
-    // console.log(key);
-    // var captainid ="group.captainid";
-    // this.setData({
-    //   [captainid]:key
-    // })
+    var theid=wx.getStorageSync("personinf") 
+    console.log(1)
+    //console.log(theid)
+    //var [captaininfo]={};
+    let _captaininfo = 'group.captaininfo';
+		this.setData({
+			[_captaininfo]:theid
+		})
+    console.log(this.data.group.captaininfo)
+
+    let newList=  this.data.group.captaininfo
+    let cartList =this.data.group.memberinfo
+    cartList.push(newList);
+    cartList.push(newList);
+    console.log(1)
+    console.log(newList)
+    console.log(cartList)
+    let key='group.memberinfo'
+    this.setData({
+          [key]: cartList
+        })
+
+
+
+    let _teamImg = 'group.teamImg';
+		this.setData({
+			[_teamImg]:this.data.group.captaininfo.avatarUrl
+    })
+    console.log(this.data.group.teamImg)
+
+    let _capname = 'group.captain';
+		this.setData({
+			[_capname]:this.data.group.captaininfo.name
+    })
+    console.log(this.data.group.captain)
   },
 
   teamNameInput:function(e){
@@ -96,12 +125,12 @@ Page({
   jumpToRegis2:function(){
 
     
-    var key=wx.getStorageSync("key") 
-    console.log(key);
-    var captainid ="group.captainid";
-    this.setData({
-      [captainid]:key
-    })
+    // var key=wx.getStorageSync("key") 
+    // console.log(key);
+    // var captainid ="group.captainid";
+    // this.setData({
+    //   [captainid]:key
+    // })
     wx.setStorageSync("group",this.data.group);
     wx.navigateTo({
       url: '/pages/team_regis2/register',
