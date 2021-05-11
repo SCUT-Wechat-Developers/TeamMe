@@ -3,11 +3,13 @@
 var app = getApp()
 Page({
   data: {
+    int:1,
     infoMess: '',
     userName: '',
     userN:'',
     passWd: '',
-    passW:''
+    passW:'',
+    person:{}
   },
   //用户名和密码输入框事件
   userNameInput:function(e){
@@ -46,6 +48,15 @@ Page({
     })
   },
   onLoad: function () {
+    var theid=wx.getStorageSync("personinf") 
+    console.log(1)
+  //  console.log(theid)
+    this.setData({
+      person:theid
+    });
+
+
+
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
@@ -55,5 +66,6 @@ Page({
         userInfo:userInfo
       })
     })
+    console.log(this.data.person)
   }
 })
