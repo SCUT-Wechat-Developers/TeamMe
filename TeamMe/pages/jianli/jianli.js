@@ -39,7 +39,6 @@ Page({
     }
 
   },
-
   //用户名和密码输入框事件
   userNameInput:function(e){
     //console.log(e);

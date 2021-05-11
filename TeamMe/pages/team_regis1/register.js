@@ -15,7 +15,7 @@ Page({
       title:'',
       content:'',
       needNum:0,
-      condidateNum:0,
+      candidateNum:0,
       tag:'',
       endTime:'',
       updateTime:''},
@@ -28,6 +28,14 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  tabBar() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 2
+      })
+    }
   },
 
   teamNameInput:function(e){
@@ -100,7 +108,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.tabBar()
   },
 
   /**

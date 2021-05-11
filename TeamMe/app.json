@@ -1,9 +1,8 @@
 {
   "pages":[
     "pages/square/index/index",
-    "pages/square/teamInfo/teamInfo",
-    "pages/logs/logs",
     "pages/_inf/_inf",
+    "pages/square/teamInfo/teamInfo",
     "pages/jianli/jianli",
     "pages/_teamUP/_teamUP",
     "pages/team_regis1/register",
@@ -24,54 +23,30 @@
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh":true,
     "backgroundColor":"#004488"
-    
+
   },
   "tabBar": {
-    "selectedColor": "#33eedd",
-    
-    "color": "#000000",
-    "backgroundColor": "#aaaaaa",
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
     "borderStyle": "black",
-    "position": "bottom",
-    
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "_more",
-      "iconPath": "img/xinxi1.png",
-      "selectedIconPath": "img/xinxi.png"
-    }
-    ,
-    {
-      "pagePath": "pages/_cooperate/_cooperate",
-      "text": "_cooperate",
-      "iconPath": "img/mission1.png",
-      "selectedIconPath": "img/mission.png"
-    }
-    ,
-    {
-      "pagePath": "pages/team_regis1/register",
-      "text": "_teamUP",
-      "iconPath": "img/plus1.png",
-      "selectedIconPath": "img/plus.png"
+    "backgroundColor": "#ffffff",
+    "list": [ {
+      "pagePath": "pages/square/index/index",
+      "text": "广场"
     },
-    {
-      "pagePath": "pages/_square/_square",
-      "text": "_square",
-      "iconPath": "img/collect1.png",
-      "selectedIconPath": "img/collect.png"
-    }
-    ,
-    
-    {
-      "pagePath": "pages/_inf/_inf",
-      "text": "_inf",
-      "iconPath": "img/wo1.png",
-      "selectedIconPath": "img/wo.png"
-    }
-    
-    
-
-  ]
+      {
+        "pagePath": "pages/_cooperate/_cooperate",
+        "text": "协作"
+      },
+      {
+        "pagePath": "pages/team_regis1/register",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/_inf/_inf",
+        "text": "我"
+      }]
   },
 
   "usingComponents": {

@@ -12,6 +12,7 @@
   </searchHistory>
  </view>
 
+
 <!-- 组队卡片-->
 <view wx:for="{{selectTeamList.length != 0 ? selectTeamList : teamList}}" wx:key="teamId">
  <teamInsCard
@@ -58,4 +59,3 @@
  <button bindtap="clickSelect">确定</button>
  <button bindtap="clickReset">重置</button>
 </scroll-view>
-

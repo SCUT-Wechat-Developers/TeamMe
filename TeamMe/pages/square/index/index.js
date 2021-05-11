@@ -101,7 +101,16 @@ Page({
       // this.getAllTeamsData();
     }
   },
-
+  onShow: function () {
+    this.tabBar()
+  },
+  tabBar() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
+  },
   // async getAllTeamsData() {
   //   let teamListData = await request(url,data,method)  // 请求对应的数据
   //   let index = 0
