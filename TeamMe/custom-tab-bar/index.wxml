@@ -1,4 +1,4 @@
-<view class="cu-bar tabbar bg-black">
+<view class="cu-bar tabbar">
     <view class="action {{selected === 0 ? 'active' : 'default'}}" data-index="0" bindtap="switchTab">
         <view class="cuIcon-homefill"></view>
         广场

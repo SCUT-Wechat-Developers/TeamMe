@@ -16,14 +16,11 @@
     "pages/123/123"
   ],
 
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#232323",
-    "navigationBarTitleText": "TeamMe",
-    "navigationBarTextStyle":"white",
-    "enablePullDownRefresh":true,
-    "backgroundColor":"#004488"
-
+  "window": {
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "Color UI",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "custom": true,

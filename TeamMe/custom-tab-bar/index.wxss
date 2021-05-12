@@ -2,11 +2,11 @@
 @import "../colorui/animation.wxss";
 @import "../colorui/icon.wxss";
 .tabbar {
-    background: #666666;
+    background: #fdfdfe;
 }
 .active{
     color: #39b54a;
 }
 .default{
-    color: #fff;
+    color: #6c6a6b;
 }
