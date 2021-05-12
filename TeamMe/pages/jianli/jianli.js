@@ -6,7 +6,7 @@ Page({
    */
   data: {
     //name:"",
-    _name:"",//杠号是未确认的数据存缓
+    _name:"",  // 杠号是未确认的数据存缓
     // gender:"",
     _gender:"",
     conLists: [],

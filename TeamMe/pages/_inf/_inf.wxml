@@ -12,7 +12,7 @@
   </view>
 </view>
 <view class="user_content">
-  
+
   <view class="user_main">
     <!-- 历史足迹 -->
     <view class="history_wrap">
@@ -56,7 +56,7 @@
       </view>
     </view>
     <!-- 收货地址管理 -->
-    
+
     <view class="address_wrap">
      <navigator url="/pages/feedback/index" class="app_info_item">我的队伍</navigator>
     </view>

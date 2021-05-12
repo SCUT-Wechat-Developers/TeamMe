@@ -27,8 +27,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-<<<<<<< Updated upstream
-=======
     var theid=wx.getStorageSync("personinf") 
     console.log(1)
     //console.log(theid)
@@ -50,9 +48,6 @@ Page({
     this.setData({
           [key]: cartList
         })
-
-
->>>>>>> Stashed changes
 
   },
 

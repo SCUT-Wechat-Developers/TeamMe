@@ -40,6 +40,6 @@ Component({
                     url: `/${tabList[key].pagePath}`,
                 })
             }
-        },
+        }
     }
 })
