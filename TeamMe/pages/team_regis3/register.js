@@ -43,7 +43,9 @@ Page({
    })
     wx.setStorageSync("group",this.data.group);
     wx.navigateTo({
-      url: '/pages/_teamUP/_teamUP',
+      //url: '/pages/_teamUP/_teamUP',
+      url: '/pages/team_regis1/register',
+
     })
   },
 

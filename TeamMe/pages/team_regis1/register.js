@@ -27,6 +27,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< Updated upstream
+=======
+    var theid=wx.getStorageSync("personinf") 
+    console.log(1)
+    //console.log(theid)
+    //var [captaininfo]={};
+    let _captaininfo = 'group.captaininfo';
+		this.setData({
+			[_captaininfo]:theid
+		})
+    console.log(this.data.group.captaininfo)
+
+    let newList=  this.data.group.captaininfo
+    let cartList =this.data.group.memberinfo
+    cartList.push(newList);
+    //cartList.push(newList);
+    console.log(1)
+    console.log(newList)
+    console.log(cartList)
+    let key='group.memberinfo'
+    this.setData({
+          [key]: cartList
+        })
+
+
+>>>>>>> Stashed changes
 
   },
 
