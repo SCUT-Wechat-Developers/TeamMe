@@ -21,7 +21,7 @@ Page({
       teamID:0,
       teamName:'',
       teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
-      captain:'',
+      captain:{},
       title:'',
       content:'',
       needNum:0,
@@ -38,7 +38,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var theid=wx.getStorageSync("personinf") 
+    var theid=wx.getStorageSync("userinfo")
+    this.captainInput(theid)
     console.log(1)
     //console.log(theid)
     //var [captaininfo]={};
@@ -84,10 +85,15 @@ Page({
     })
   },
 
-  captainInput:function(e){
-    var captain ='group.captain'
+  captainInput:function(user){
+    // var captain ='group.captain'
+    let captain ='group.captain'
     this.setData({
-      [captain]:e.detail.value
+      [captain]: {
+        id: user.openid,
+        nickName: user.nickName,
+        avatar: user.avatarUrl
+      }
     })
   },
 

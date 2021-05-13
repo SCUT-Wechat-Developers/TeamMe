@@ -27,7 +27,8 @@
 		</view>
 		<view class="cu-form-group">
 			<view class="title">队长</view>
-			<input bindinput="captainInput">captain</input>
+<!--			<image src="{{group.captain.avatar}}"></image>-->
+			<view>{{group.captain.nickName}}</view>
 		</view>
 
 		<!--	<view class="cu-form-group">-->
