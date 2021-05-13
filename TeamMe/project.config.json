@@ -4,6 +4,13 @@
     "ignore": []
   },
   "setting": {
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./TeamMe/"
+      }
+    ],
     "urlCheck": false,
     "es6": true,
     "enhance": false,
@@ -12,7 +19,7 @@
     "minified": true,
     "newFeature": false,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": true,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -30,15 +37,13 @@
       "outputPath": ""
     },
     "bundle": false,
-
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "bundle": false
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.16.1",

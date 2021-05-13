@@ -6,9 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
- 
+    steps: [
+      {
+        text: '基本信息',
+      },
+      {
+        text: '比赛信息',
+      },
+      {
+        text: '组队卡片',
+      },
+    ],
     group:{    
-      teamID:0,  
+      teamID:0,
       teamName:'',
       teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
       captain:'',
@@ -18,7 +28,8 @@ Page({
       candidateNum:0,
       tag:'',
       endTime:'',
-      updateTime:''},
+      updateTime:''
+    },
 
 
   },
@@ -39,7 +50,7 @@ Page({
 
     let newList=  this.data.group.captaininfo
     let cartList =this.data.group.memberinfo
-    cartList.push(newList);
+    //cartList.push(newList);
     //cartList.push(newList);
     console.log(1)
     console.log(newList)

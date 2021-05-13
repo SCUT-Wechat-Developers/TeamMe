@@ -1,8 +1,18 @@
 <!--pages/team_regis2/register.wxml-->
-<form>
-  <cu-custom bgColor="bg-gradual-pink" >
+
+  <cu-custom bgColor="bg-gradual-pink" :isBack="true">
+    <block slot="backText">返回</block>
   <view slot="content">组建队伍</view>
 </cu-custom>
+
+  <van-steps
+          steps="{{ steps }}"
+          active="1"
+          active-icon="success"
+          active-color="#38f"
+          bind:click-step="jumpToRegis2"
+  />
+<form>
   <view>比赛信息填写</view>
 	<view class="cu-form-group margin-top">
 		<view class="title">比赛类型</view>

@@ -1,11 +1,11 @@
 {
   "pages":[
+    "pages/team_regis1/register",
     "pages/square/index/index",
     "pages/_inf/_inf",
     "pages/square/teamInfo/teamInfo",
     "pages/jianli/jianli",
     "pages/_teamUP/_teamUP",
-    "pages/team_regis1/register",
     "pages/team_regis2/register",
     "pages/team_regis3/register",
     "pages/_cooperate/_cooperate",
@@ -47,12 +47,13 @@
   },
 
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-custom": "/colorui/components/cu-custom",
+    "van-steps": "@vant/weapp/steps/index",
+    "van-icon": "@vant/weapp/icon/index"
   },
   "useExtendedLib": {
     "kbone": true,
     "weui": true
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
