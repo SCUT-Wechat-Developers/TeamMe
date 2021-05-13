@@ -1,6 +1,6 @@
 <!--pages/team_regis2/register.wxml-->
 
-  <cu-custom bgColor="bg-gradual-pink" :isBack="true">
+  <cu-custom bgColor="bg-gradual-pink" isBack="true">
     <block slot="backText">返回</block>
   <view slot="content">组建队伍</view>
 </cu-custom>

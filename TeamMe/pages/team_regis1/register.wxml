@@ -1,18 +1,19 @@
 <!--pages/team_regis/register.wxml-->
 
 
-  <cu-custom bgColor="bg-gradual-red" :isBack="true">
-	  <block slot="backText">返回</block>
-	<view slot="content">组建队伍</view>
+  <cu-custom bgColor="bg-gradual-blue">
+	<view slot="content">组队消息</view>
 </cu-custom>
 <!--步骤进度条-->
-<van-steps
-		steps="{{ steps }}"
-		active="0"
-		active-icon="success"
-		active-color="#38f"
-		bind:click-step="jumpToRegis2"/>
-
+<view>
+	<van-steps
+			class="shadow"
+			steps="{{ steps }}"
+			active="0"
+			active-icon="success"
+			active-color="#38f"
+			bind:click-step="jumpToRegis2"/>
+</view>
 
 <form>
 	<view class="cu-form-group margin-top teamNameContainer">
@@ -20,15 +21,15 @@
 		<input bindinput="teamNameInput">teamName</input>
   </view>
 
-	<view class="margin-left margin-right teamInfoContainer">
+	<view class="margin-left margin-right teamInfoContainer radius">
 		<view class="cu-form-group margin-top">
 			<view class="title">组队宣言（口号）</view>
-			<input bindinput="titleInput">title</input>
+			<input bindinput="titleInput" placeholder="例：找xxx比赛队友">title</input>
 		</view>
 		<view class="cu-form-group">
 			<view class="title">队长</view>
-<!--			<image src="{{group.captain.avatar}}"></image>-->
-			<view>{{group.captain.nickName}}</view>
+			<van-image round width="40" height="40" fit="fill" src="{{group.captain.avatar}}" />
+			<view class="padding-right-xl">{{group.captain.nickName}}</view>
 		</view>
 
 		<!--	<view class="cu-form-group">-->

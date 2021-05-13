@@ -22,8 +22,6 @@ Page({
       teamName:'',
       teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
       captain:{},
-      memberinfo:[],
-      candidateinfo:[],
       title:'',
       content:'',
       needNum:0,
@@ -97,10 +95,6 @@ Page({
         avatar: user.avatarUrl
       }
     })
-    // var captain1 ='group.captain'
-    // this.setData({
-    //   [captain1]:e.detail.value
-    // })
   },
 
   teamImgInput:function(e){
@@ -135,10 +129,19 @@ Page({
     var stsr= JSON.stringify(this.data.group);
     var weatherObj = JSON.parse(str);
      */
+    // 校验
+    let {group} = this.data
+    if(!(group.captain && group.title && group.teamName && group.content)){
+      wx.showToast({
+        icon: 'none',
+        title: '请补充完整信息'
+      })
+    }
+    else{
     wx.setStorageSync("group",this.data.group);
     wx.navigateTo({
       url: '/pages/team_regis2/register',
-    })
+    })}
   },
 
   /**
