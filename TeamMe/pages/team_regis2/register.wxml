@@ -37,4 +37,21 @@
 
 </form>
 
+
 <button class="cu-btn bg-green shadow" bindtap="jumpToRegis3">下一步</button>
+
+<form>
+  <cu-custom bgColor="bg-gradual-pink" >
+	<view slot="content">组建队伍</view>
+</cu-custom>
+  <view>队员筛选填写</view>
+	<view class="cu-form-group margin-top">
+		<view class="title">人数上限</view>
+		<input placeholder="或者以选择的方式" bindinput="needNumInput">needNum</input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">筛选项</view>
+	</view>
+</form>
+
+<button class="cu-btn bg-green shadow" bindtap="jumpToRegister">完成</button>

@@ -22,6 +22,8 @@ Page({
       teamName:'',
       teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
       captain:{},
+      memberinfo:[],
+      candidateinfo:[],
       title:'',
       content:'',
       needNum:0,
@@ -95,6 +97,10 @@ Page({
         avatar: user.avatarUrl
       }
     })
+    // var captain1 ='group.captain'
+    // this.setData({
+    //   [captain1]:e.detail.value
+    // })
   },
 
   teamImgInput:function(e){

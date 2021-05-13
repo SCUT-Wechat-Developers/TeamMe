@@ -3,16 +3,55 @@
 name=“userName”属性，可以区别哪个输入框，并通过添加
 属性提交：bindsubmit="方法名" 重置：bindreset="方法名"，达到清除输入框内容的目的
 js文件中的用法，e.detail.value.userName.length-->
+
 <view class="itemView">用户名：
-    <input class="input" name="userName" placeholder="请输入用户名" 
-    bindinput="userNameInput"/>
+    <!-- <input class="input" name="userName" placeholder="请输入用户名" 
+    bindinput="userNameInput"/> -->
+    <view>{{person.name}}</view>
   </view>
-<view class="itemView">密    码：
-    <input class="input" password placeholder="请输入密码"
-     bindinput="passWdInput" />
+<view wx:if="{{person.gender==1}}" class="itemView" >性 别：男
+    <!-- <input class="input" password placeholder="请输入密码"
+     bindinput="passWdInput" /> -->
+     <!-- <view>person.gender==1</view> -->
+</view>
+<view wx:else class="itemView" >性 别：女
+    <!-- <input class="input" password placeholder="请输入密码"
+     bindinput="passWdInput" /> -->
+     
+</view>
+<view class="itemView">专业：
+    <!-- <input class="input" name="userName" placeholder="请输入用户名" 
+    bindinput="userNameInput"/> -->
+    <view>{{person.major}}</view>
   </view>
+<view class="itemView">学科：
+    <!-- <input class="input" name="userName" placeholder="请输入用户名" 
+    bindinput="userNameInput"/> -->
+    <view>{{person.categories}}</view>
+</view>
+<view class="itemView">学历：
+    <!-- <input class="input" name="userName" placeholder="请输入用户名" 
+    bindinput="userNameInput"/> -->
+    <view>{{person.education}}</view>
+</view>
+<view class="itemView">技能：
+    <!-- <input class="input" name="userName" placeholder="请输入用户名" 
+    bindinput="userNameInput"/> -->
+    <view>{{person.skill}}</view>
+</view>
+<view class="itemView">简介：
+    <!-- <input class="input" name="userName" placeholder="请输入用户名" 
+    bindinput="userNameInput"/> -->
+    <view>{{person.text}}</view>
+</view>
+<view class="itemView" wx:for="{{person.awards}}">奖项
+    <!-- <input class="input" name="userName" placeholder="请输入用户名" 
+    bindinput="userNameInput"/> -->
+    {{index+1}}:{{item}}
+    <view>{{person.text}}</view>
+</view>
 <view class="viewName" style="background-color:#fbf9fe">
-  <button class="loginBtn" bindtap="loginBtnClick">登录</button>
+  <button class="loginBtn" bindtap="loginBtnClick" bindtap="jumpToRegister">登录</button>
   <button class="resetBtn" bindtap="resetBtnClick">清除</button>
 </view>
 <view>{{infoMess}}</view>
@@ -23,5 +62,7 @@ js文件中的用法，e.detail.value.userName.length-->
     <text class="view-Name">各类型输入框展示</text>
   </navigator>
 </view>
+
+
 
 

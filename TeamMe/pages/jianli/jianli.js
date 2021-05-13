@@ -6,12 +6,13 @@ Page({
    */
   data: {
     //name:"",
-    _name:"",  // 杠号是未确认的数据存缓
+    _name:"",//杠号是未确认的数据存缓
     // gender:"",
     _gender:"",
+    _phone:0,
     conLists: [],
     genderNum:0,
-
+    _avatarUrl:"",
     major:"",
     _major:"",
     categories:"",
@@ -27,10 +28,13 @@ Page({
     text:"",
     _text:"",
     person:{
+      id:"",
+      teamid:[],
       name:"",
       gender:"",
+      phone:0,
       major:"",
-      major:"",
+      avatarUrl:"",
       categories:"",
       education:"",
       awards:[""],
@@ -39,6 +43,7 @@ Page({
     }
 
   },
+
   //用户名和密码输入框事件
   userNameInput:function(e){
     //console.log(e);
@@ -62,7 +67,11 @@ Page({
       gender
     })
   },
-
+  phoneInput:function(e){
+    this.setData({
+      _phone:e.detail.value
+    })
+  },
   majorInput:function(e){
     this.setData({
       _major:e.detail.value
@@ -107,18 +116,28 @@ Page({
   loginBtnClick:function(){
     var name ="person.name";
     var gender ="person.gender";
+   // var phone ="person.phone";
+    var id ="person.id";
     var major ="person.major";
     var categories ="person.categories";
     var education ="person.education";
     var awards ="person.awards";
     var skill ="person.skill";
     var text ="person.text";
-    var genderNum=0;
+    var avatarUrl="person.avatarUrl";
+    var genderNum=wx.getStorageSync("userinfo");
+    console.log(genderNum.gender)
+    genderNum=genderNum.gender
+    var _avatarUrl=wx.getStorageSync("userinfo");
+    console.log(_avatarUrl.avatarUrl)
+    _avatarUrl=_avatarUrl.avatarUrl
+    let phone = 'person.phone';
     // || this.data._gender.length == 0
     // var StorageData = wx.getStorageSync("userinfo")
     // console.log(StorageData)
-    var genderNum = wx.getStorageSync("userinfo")
-    console.log(genderNum)
+    //var genderNum = wx.getStorageSync("userinfo")
+    var theid=wx.getStorageSync("key") 
+    // console.log("getgender",genderNum)
     // wx.getStorage({
     //   key: 'userinfo',
     //   success: function(res) {
@@ -126,6 +145,7 @@ Page({
     //     console.log(res.data)
     //     genderNum=res.data.gender;
     //     console.log(genderNum)
+        
     //   }
     //  })
      
@@ -135,11 +155,12 @@ Page({
       })
     }else{
       this.setData({
-        //infoMess:'',
-        [name]:this.data._name,
-        //[gender]:this.data._gender,
-        [gender]:genderNum.gender,
         
+        [name]:this.data._name,
+        [avatarUrl]:_avatarUrl,
+        [id]:theid,
+        [gender]:genderNum,
+        [phone]: this.data._phone,
         [major]:this.data._major,
         [categories]:this.data._categories,
         [education]:this.data._education,
@@ -151,13 +172,7 @@ Page({
       })
       // console.log('名字：'+this.data.name);
       // console.log('性别：'+this.data.person.gender);
-      // console.log('专业：'+this.data.major);
-      // console.log('学科：'+this.data.categories);
-      // console.log('学历：'+this.data.education);
-      // console.log('奖项：'+this.data.awards);
-      // console.log('技能：'+this.data.skill);
-      // console.log('简介：'+this.data.text);
-      //console.log('简介：'+this.data.person.text);
+
       wx.setStorageSync("personinf",this.data.person);
       wx.getStorage({
         key: 'personinf',
@@ -165,6 +180,8 @@ Page({
           console.log(res.data)
         }
        })
+
+       //上传。
     }
   },
 

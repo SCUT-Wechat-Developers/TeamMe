@@ -50,11 +50,62 @@ Page({
     var weatherObj = JSON.parse(str);
      */
     wx.setStorageSync("group",this.data.group);
+        /*
+    生成队伍ID，
+    */
+   var timestamp = Date.parse(new Date());
+   var date = new Date(timestamp);
+   //获取年份  
+   var Y =date.getFullYear();
+   //获取月份  
+   var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+   //获取当日日期 
+   var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate(); 
+   console.log("当前时间：" + Y + '年'  + M+ '月' + D+ '日' ); 
+ 
+    this.setData({
+      ['group.updateTime']:Y+'-'+M+'-'+D
+    })
+     wx.setStorageSync("group",this.data.group);
+    //  wx.navigateTo({
+    //    //url: '/pages/_teamUP/_teamUP',
+    //    url: '/pages/team_regis1/register',
+ 
+    //  })
     wx.navigateTo({
       url: '/pages/team_regis3/register',
     })
   },
 
+  needNumInput:function(e){
+    this.setData({
+      ['group.needNum']:e.detail.value
+    })
+  },
+  jumpToRegister:function(){
+    /*
+    生成队伍ID，
+    */
+    var timestamp = Date.parse(new Date());
+    var date = new Date(timestamp);
+    //获取年份  
+    var Y =date.getFullYear();
+    //获取月份  
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    //获取当日日期 
+    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate(); 
+    console.log("当前时间：" + Y + '年'  + M+ '月' + D+ '日' ); 
+  
+     this.setData({
+       ['group.updateTime']:Y+'-'+M+'-'+D
+     })
+      wx.setStorageSync("group",this.data.group);
+      wx.navigateTo({
+        //url: '/pages/_teamUP/_teamUP',
+        url: '/pages/team_regis1/register',
+  
+      })
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
