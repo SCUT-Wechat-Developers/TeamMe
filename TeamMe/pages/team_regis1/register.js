@@ -22,6 +22,8 @@ Page({
       teamName:'',
       teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
       captain:{},
+      memberinfo:[],
+      candidateinfo:[],
       title:'',
       content:'',
       needNum:0,
@@ -38,6 +40,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     var theid=wx.getStorageSync("userinfo")
     this.captainInput(theid)
     console.log(1)
@@ -52,7 +55,7 @@ Page({
     let newList=  this.data.group.captaininfo
     let cartList =this.data.group.memberinfo
     //cartList.push(newList);
-    //cartList.push(newList);
+    cartList.push(newList);
     console.log(1)
     console.log(newList)
     console.log(cartList)

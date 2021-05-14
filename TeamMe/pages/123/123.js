@@ -24,7 +24,7 @@ Page({
   },
   jumpToRegister:function(){
 
-      wx.navigateTo({
+      wx.switchTab({
         //url: '/pages/_teamUP/_teamUP',
         url: '/pages/team_regis1/register',
   

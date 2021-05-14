@@ -17,9 +17,25 @@ Page({
         text: '组队卡片',
       },
     ],
-    group:{}
+    group:{},
+    items: [
+      {name: 'USA', value: '微信小程序', checked: 'true'},
+      {name: 'CHN', value: '全国大学生数学建模竞赛'},
+      {name: 'BRA', value: '美国大学生数学建模竞赛（MCM/ICM）'},
+      {name: 'JPN', value: '大学生挑战杯创业比赛'},
+      {name: 'ENG', value: '商赛'},
+      {name: 'TUR', value: '其他'},
+    ]
   },
-
+  radioChange(e) {
+    console.log('radio发生change事件，携带value值为：', e)
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+    // let tag=''
+    this.setData({
+      ['group.tag']:e.detail.value
+    })
+  }
+  ,
   /**
    * 生命周期函数--监听页面加载
    */
@@ -49,31 +65,31 @@ Page({
     var stsr= JSON.stringify(this.data.group);
     var weatherObj = JSON.parse(str);
      */
-    wx.setStorageSync("group",this.data.group);
-        /*
-    生成队伍ID，
-    */
-   var timestamp = Date.parse(new Date());
-   var date = new Date(timestamp);
-   //获取年份  
-   var Y =date.getFullYear();
-   //获取月份  
-   var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-   //获取当日日期 
-   var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate(); 
-   console.log("当前时间：" + Y + '年'  + M+ '月' + D+ '日' ); 
+  //   wx.setStorageSync("group",this.data.group);
+  //       /*
+  //   生成队伍ID，
+  //   */
+  //  var timestamp = Date.parse(new Date());
+  //  var date = new Date(timestamp);
+  //  //获取年份  
+  //  var Y =date.getFullYear();
+  //  //获取月份  
+  //  var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+  //  //获取当日日期 
+  //  var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate(); 
+  //  console.log("当前时间：" + Y + '年'  + M+ '月' + D+ '日' ); 
  
-    this.setData({
-      ['group.updateTime']:Y+'-'+M+'-'+D
-    })
-     wx.setStorageSync("group",this.data.group);
+  //   this.setData({
+  //     ['group.updateTime']:Y+'-'+M+'-'+D
+  //   })
+  //    wx.setStorageSync("group",this.data.group);
     //  wx.navigateTo({
     //    //url: '/pages/_teamUP/_teamUP',
     //    url: '/pages/team_regis1/register',
  
     //  })
-    wx.navigateTo({
-      url: '/pages/team_regis3/register',
+    wx.switchTab({
+      url: '/pages/team_regis1/register',
     })
   },
 
@@ -100,12 +116,23 @@ Page({
        ['group.updateTime']:Y+'-'+M+'-'+D
      })
       wx.setStorageSync("group",this.data.group);
-      wx.navigateTo({
+    let {group} = this.data
+    //console.log()
+    if(!(  group.tag && group.endTime && group.needNum>=1)){
+      wx.showToast({
+        icon: 'none',
+        title: '请补充完整信息'
+      })
+     }
+    else{  
+      wx.switchTab({
         //url: '/pages/_teamUP/_teamUP',
-        url: '/pages/team_regis1/register',
+        url: '/pages/square/index/index',
   
       })
-    },
+      
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
