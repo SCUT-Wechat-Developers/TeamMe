@@ -156,6 +156,7 @@ Page({
    */
   onShow: function () {
     this.tabBar()
+
   },
 
   /**
