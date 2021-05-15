@@ -1,8 +1,8 @@
 {
   "pages":[
+    "pages/square/index/index",
     "pages/team_regis2/register",
     "pages/team_regis1/register",
-    "pages/square/index/index",
     "pages/_inf/_inf",
     "pages/square/teamInfo/teamInfo",
     "pages/jianli/jianli",

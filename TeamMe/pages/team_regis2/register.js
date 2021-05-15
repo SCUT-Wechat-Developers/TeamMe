@@ -118,12 +118,19 @@ Page({
       wx.setStorageSync("group",this.data.group);
     let {group} = this.data
     //console.log()
-    if(!(  group.tag && group.endTime && group.needNum>=1)){
+    let reg = /^\+?[1-9][0-9]*$/　　//正整数
+    let flag = reg.test(group.needNum)
+    if(!(  group.tag && group.endTime && group.needNum)){
       wx.showToast({
         icon: 'none',
         title: '请补充完整信息'
       })
-     }
+     }else if (!flag) {
+      wx.showToast({
+        icon: 'none',
+        title: '上限人数信息错误'
+      })
+    }
     else{  
       wx.switchTab({
         //url: '/pages/_teamUP/_teamUP',
