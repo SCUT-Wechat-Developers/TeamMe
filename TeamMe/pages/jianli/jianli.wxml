@@ -1,9 +1,14 @@
 <!--pages/jianli/jianli.wxml-->
 <!-- <text>pages/jianli/jianli.wxml</text> -->
-<view class="itemView">姓名：
-    <input class="input" name="userName" placeholder="请填入姓名" 
+<cu-custom bgColor="bg-gradual-pink" isBack="true">
+    <block slot="backText">返回</block>
+  <view slot="content">组建队伍</view>
+</cu-custom>
+
+<view class="  cu-form-group margin-top teamNameContainer">姓名：
+    <input class="input" name="userName" placeholder="请填入姓名" value='{{_name}}'
     bindinput="userNameInput"/>
-  </view>
+
   <!-- password -->
   <view class="itemView">性    别：
     <radio-group bindchange="bandleChange">
@@ -13,39 +18,48 @@
       </radio-group>
       <!-- <view>--您选中的是:{{ gender }}</view> -->
   </view>
+</view>
+<!-- _phone:'',
+      _major:'',
+      _categories:'',
+      _education:'',
+      _skill:'',
+      _text:'',
+      conLists: [] -->
 <!-- <view class="itemView">性    别：
     <input class="input"  placeholder="请填入性别（男/女）"
      bindinput="passWdInput" />
   </view> -->
+<view class="  cu-form-group margin-top teamNameContainer">
   <view class="itemView">专    业：
-    <input class="input"  placeholder="请填入专业（软件工程、临床医学等）"
-     bindinput="majorInput" />
+    <input class="input"  placeholder="{{major}}"
+     bindinput="majorInput" value='{{_major}}'/>
   </view>
   <view class="itemView">学    科：
     <input class="input"  placeholder="请填入学科（理学、哲学、医学等）"
-     bindinput="categoriesInput" />
+     bindinput="categoriesInput" value='{{_categories}}'/>
   </view>
 
   <view class="itemView">学    历：
     <input class="input"  placeholder="请填入学历（本科生、研究生）"
-     bindinput="educationInput" />
+     bindinput="educationInput" value='{{_education}}'/>
   </view>
-
+</view>
   <!-- <view class="itemView">奖    项：
     <input class="input"  placeholder="请填入奖项"
-     bindinput="awardsInput" />
-  </view> -->
-
+     bindinput="awardsInput" />-->
+<view class="  cu-form-group margin-top teamNameContainer">
   <view class="itemView">技    能：
     <input class="input"  placeholder="请填入个人长处与技能"
-     bindinput="skillInput" />
+     bindinput="skillInput" value='{{_skill}}'/>
   </view>
   <view class="itemView">简    介：
     <input class="input"  placeholder="请填入简介"
-     bindinput="textInput" />
+     bindinput="textInput" value='{{_text}}'/>
   </view>
+</view>
 
-  
+<view class="  cu-form-group margin-top teamNameContainer">
   <view class="container">
   <view class='template_title1 flex-x '>
     <view>奖项填写</view>
@@ -65,14 +79,15 @@
       <view>添加奖项</view>
     </view>
   </view>
-
-  <!-- <button class="btn" type="primary" bindtap="next">下一步</button> -->
 </view>
-<view class="viewName" style="background-color:#fbf9fe">
+</view>
+  <!-- <button class="btn" type="primary" bindtap="next">下一步</button> -->
+<view class="  bg-gradual-blue viewName itemView cu-form-group margin-top teamNameContainer">
+  <!-- <view class="viewName" style="background-color:#fbf9fe"> -->
   <button class="loginBtn" bindtap="loginBtnClick">登录</button>
-  <view>{{infoMess}}</view>
+  <!-- <view>{{infoMess}}</view> -->
   <button class="resetBtn" bindtap="resetBtnClick">清除</button>
-  
+  <!-- </view> -->
 </view>
 
 <view>{{userName}}</view>

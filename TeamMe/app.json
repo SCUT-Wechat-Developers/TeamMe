@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/square/index/index",
+    "pages/square/index/index","pages/jianli/jianli","pages/123/123",
     "pages/index/index",
     "pages/team_regis2/register",
     
@@ -10,7 +10,7 @@
     "pages/team_regis1/register",
     "pages/_inf/_inf",
     "pages/square/teamInfo/teamInfo",
-    "pages/jianli/jianli",
+    
     "pages/_teamUP/_teamUP",
     
     "pages/team_regis3/register",
@@ -18,8 +18,8 @@
     "pages/_square/_square",
     
     
-    "pages/logs/logs",
-    "pages/123/123"
+    "pages/logs/logs"
+    
   ],
 
   "window": {
