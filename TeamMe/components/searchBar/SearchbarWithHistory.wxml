@@ -1,7 +1,14 @@
 <view class=' wh-padding search-top'>
 <!--    左侧文字-->
-    <navigator open-type='navigateBack' bindtap="clickText">{{leftText}}</navigator>
+    <view class="dropDownMenu">
+        <van-dropdown-menu active-color="#1989fa">
+            <van-dropdown-item title="{{leftText}}" class="dropDownMenu" value="{{dropValue}}" bind:change="mySelect"  options="{{ dropOption }}" />
+        </van-dropdown-menu>
+    </view>
+
+
 <!--    搜索框-->
+
     <view class='search-container'>
         <icon type="search" size='14' />
         <input placeholder='{{placeholderText}}' bindinput='bindInput' bindconfirm='setSearchStorage' bindfocus="bindFocus" confirm-type="search" value='{{inputValue}}'></input>
@@ -12,7 +19,7 @@
     <view class='search-history' wx:if="{{StorageFlag}}">
         <view class='weui-flex' wx:for="{{searcherStorage}}" wx:key="index" data-id="{{index}}" catchtap='tapSearcherStorage'>
             <text data-id="{{index}}">{{item}}</text>
-            <span class='close' data-id="{{index}}" catchtap="deteleSearcherStorage"></span>
+            <view class='close' data-id="{{index}}" catchtap="deteleSearcherStorage"></view>
         </view>
         <view wx:if='{{searcherStorage.length != 0}}' catchtap='clearSearchStorage'>清除搜索记录</view>
     </view>
