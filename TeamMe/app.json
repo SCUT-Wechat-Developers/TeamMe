@@ -1,7 +1,12 @@
 {
   "pages":[
     "pages/square/index/index",
+    "pages/index/index",
     "pages/team_regis2/register",
+    
+    "pages/login/login",
+    
+    
     "pages/team_regis1/register",
     "pages/_inf/_inf",
     "pages/square/teamInfo/teamInfo",
@@ -11,8 +16,8 @@
     "pages/team_regis3/register",
     "pages/_cooperate/_cooperate",
     "pages/_square/_square",
-    "pages/login/login",
-    "pages/index/index",
+    
+    
     "pages/logs/logs",
     "pages/123/123"
   ],

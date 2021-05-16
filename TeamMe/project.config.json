@@ -4,13 +4,6 @@
     "ignore": []
   },
   "setting": {
-    "packNpmManually": true,
-    "packNpmRelationList": [
-      {
-        "packageJsonPath": "./package.json",
-        "miniprogramNpmDistDir": "./TeamMe/"
-      }
-    ],
     "urlCheck": false,
     "es6": true,
     "enhance": false,

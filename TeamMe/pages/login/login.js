@@ -21,7 +21,9 @@ Page({
        // console.log(res.userInfo.gender)
         const {userInfo}=res;
         wx.setStorageSync("userinfo", userInfo);
-        wx.navigateBack({
+        wx.switchTab({
+          url: '/pages/square/index/index',
+        })({
           delta: 1
         });
       }
