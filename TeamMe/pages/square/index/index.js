@@ -6,6 +6,19 @@ import request from "../../../utils/request"
 
 Page({
   data: {
+    /**
+     * 筛选菜单选项
+     */
+    dropOption: [
+      { text: '微信小程序竞赛', value: 0 },
+      { text: '字节跳动杯', value: 1 },
+      { text: '全部', value: 2}
+    ],  // 下拉筛选项
+    dropValue: null,  //默认筛选
+
+    /**
+     * 队伍信息
+     */
     tagList: [],
     tagIndex: null,
     teamList: [
@@ -126,8 +139,10 @@ Page({
    */
   onLoad: function(options) {
     if (wx.getUserProfile) {
+      let {dropOption, dropValue} = this.data
       console.log(this.data.selectTeamList)
       this.setData({
+        dropValue: dropOption[dropOption.length-1].value,
         canIUseGetUserProfile: true,
         tagList: ['字节跳动杯','微信小程序竞赛']
       })
@@ -180,30 +195,36 @@ Page({
       hasUserInfo: true
     })
   },
-
-
-
   /**
-   * 滑动窗口组件
-   * @param e
+   *
+   * @param v 选中的value值
    */
-  showModal(e) {
-    this.setData({
-      modalName: e.currentTarget.dataset.target
+  selectTag({detail}) {
+    console.log(detail.detail)
+    let option = detail.detail
+    let len = this.data.dropOption.length
+    // 点击全部则重置
+    if (option === len-1) {
+      this.clickReset()
+      return
+    }
+    let {teamList} = this.data
+    let selectTeamList = teamList.filter(item =>{
+      return item.tag === this.data.dropOption[option].text
     })
+    if(selectTeamList.length>=1)
+    {
+      this.setData({
+        selectTeamList
+      })
+    }else {
+      wx.showToast({
+        icon: 'none',
+        title: '未找到该标签队伍'
+      })
+    }
   },
-  hideModal(e) {
-    this.setData({
-      modalName: null
-    })
-  },
-  tabSelect(e) {
-    console.log(e);
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
-    })
-  },
+
   /**
    * @description 查看队伍的详细信息
    * @param event 事件
@@ -242,7 +263,8 @@ Page({
     if (team){
       let selectTeamList = [team]
       this.setData({
-        selectTeamList
+        selectTeamList,
+        dropValue: 1000
       })
     } else {
       wx.showToast({
@@ -250,7 +272,6 @@ Page({
         icon: 'none'
       })
     }
-
     setTimeout(()=>{
       wx.hideLoading();
     },1000)
@@ -261,25 +282,6 @@ Page({
    */
   selectInfo (e) {
     this.showModal(e)
-  },
-  tagPickerChange (e) {
-    this.setData({
-      tagIndex: e.detail.value
-    })
-  },
-  /**
-   *  点击确认筛选条件按钮
-   */
-  clickSelect (e) {
-    let {teamList} = this.data
-    let tid = this.data.tagIndex
-    let selectTeamList = teamList.filter(item => {
-      return item.tag === this.data.tagList[tid]
-    })
-    this.setData({
-      selectTeamList
-    })
-    this.hideModal(e)
   },
   /**
    * 重置筛选条件按钮
