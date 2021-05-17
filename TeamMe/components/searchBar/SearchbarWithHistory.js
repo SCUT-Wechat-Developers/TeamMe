@@ -1,5 +1,13 @@
 Component({
     properties: {
+        dropOption: {
+            type: Array,
+            value: [{}]
+        },
+        dropValue: {
+            type: Number,
+            value: 0
+        },
         leftText: {
             type:String,
             value:'返回'
@@ -23,7 +31,11 @@ Component({
         this.setData({ searcherStorage: searchData || [] });
     },
     methods: {
-        // 点击右侧按钮
+        // 筛选选项
+        mySelect ({detail}) {
+            this.triggerEvent('change',{detail})
+        },
+        // 点击左侧按钮
         clickText () {
           this.triggerEvent('select')
         },

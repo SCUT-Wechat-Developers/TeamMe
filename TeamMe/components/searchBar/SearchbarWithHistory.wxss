@@ -1,14 +1,17 @@
+
 .search-top{
     padding: 20rpx;
     font-size: 28rpx;
     justify-content: center;
-    align-items: center;
     background-color: #fff;
     display: flex;
 }
-.search-top navigator{
+
+/*下拉菜单*/
+.search-top .dropDownMenu{
     width: 20%;
     text-align: center;
+    box-shadow: unset !important;
 }
 .search-container{
     width: 80%;

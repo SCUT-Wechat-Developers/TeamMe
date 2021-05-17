@@ -132,9 +132,9 @@ Page({
       })
     }
     else{  
-      wx.switchTab({
-        //url: '/pages/_teamUP/_teamUP',
-        url: '/pages/square/index/index',
+      wx.navigateTo({
+        url: '/pages/_teamUP/_teamUP'
+        // url: '/pages/square/index/index',
   
       })
       
