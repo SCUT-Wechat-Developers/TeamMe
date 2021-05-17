@@ -98,7 +98,7 @@ Page({
       ['group.needNum']:e.detail.value
     })
   },
-  jumpToRegister:function(){
+  jumpToRegister:function(e){
     /*
     生成队伍ID，
     */
@@ -132,9 +132,28 @@ Page({
       })
     }
     else{  
+
+      //组队成功，把数据传到后台服务器
+      wx.request({
+        method:'post',
+        url: 'http://localhost:3500/db',
+        data: this.data.group,
+        header:{'content-type':'application/x-www-form-urlencoded'},
+        success:function(res){
+          console.log(res);
+        }
+      })
+      wx.switchTab({
+
+        //url: '/pages/_teamUP/_teamUP',
+        url: '/pages/square/index/index',
+
+      /*
       wx.navigateTo({
         url: '/pages/_teamUP/_teamUP'
-        // url: '/pages/square/index/index',
+        // url: '/pages/square/index/index', */
+
+
   
       })
       
