@@ -132,8 +132,7 @@ Page({
       })
     }
     else{  
-<<<<<<< HEAD
-<<<<<<< HEAD
+
       //组队成功，把数据传到后台服务器
       wx.request({
         method:'post',
@@ -148,15 +147,13 @@ Page({
 
         //url: '/pages/_teamUP/_teamUP',
         url: '/pages/square/index/index',
-=======
+
       /*
       wx.navigateTo({
         url: '/pages/_teamUP/_teamUP'
         // url: '/pages/square/index/index', */
->>>>>>> 8d182d508b26f7847f0005bfc79029dfd0b11a7e
-=======
 
->>>>>>> 8d182d508b26f7847f0005bfc79029dfd0b11a7e
+
   
       })
       
