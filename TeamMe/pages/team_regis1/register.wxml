@@ -14,8 +14,8 @@
 			active-color="#38f"
 			bind:click-step="jumpToRegis2"/>
 </view>
-
-<form  class=" margin-top ">
+<!-- class=" margin-top " -->
+<form  >
 	<view class="cu-form-group margin-top teamNameContainer">
 		<view class="title" >队伍名称</view>
 		<input bindinput="teamNameInput">teamName</input>
