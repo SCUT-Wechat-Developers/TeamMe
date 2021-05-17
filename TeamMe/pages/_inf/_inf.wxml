@@ -6,10 +6,11 @@
 <view class="user_info_wrap">
   <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
     <image class="user_bg" src="{{userinfo.avatarUrl}}" ></image>
-    <view class="user_info">
+    <view class="user_info       margin-top teamNameContainer">
       <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
-      <view class="user_name">{{userinfo.nickName}}</view>
+      <view class="user_name" style="color:#dddddd ;font-size:66rpx" > {{userinfo.nickName}}, 你好</view>
     </view>
+
   </view>
   <view wx:else class="user_btn">
     <navigator url="/pages/login/login" >登录</navigator>
@@ -75,10 +76,11 @@
 
 
     <!-- 应用信息相关 -->
+    
     <view class="app_info_wrap margin-top">
 
       <view class="app_info_item app_info_contact">
-        <text class=" iconfont icon-mudedi"
+        <text class=" iconfont icon-bangongzhichilei"
         style='color:#7F8389;font-size:35rpx;'
         >联系</text>
         <text style='color:#7F8389;font-size:35rpx;'>15361022831</text>
@@ -102,4 +104,4 @@
 </view>
 <!-- <button class="resetBtn  bg-gradual-green iconfont icon-biaoji" bindtap="resetBtnClick">清除</button> -->
 
-<text class="iconfont icon-daohang" ></text>
+<!-- <text class="iconfont icon-daohang" ></text> -->

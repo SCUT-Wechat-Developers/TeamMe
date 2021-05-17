@@ -6,7 +6,8 @@ page {
   border-radius: 50%;
 }
 .user_info_wrap {
-  height: 45vh;
+  background-color: #666;
+  height: 25vh;
   overflow: hidden;
   background-color: var(--themeColor);
   position: relative;
@@ -15,7 +16,9 @@ page {
   position: relative;
 }
 .user_info_wrap .user_img_wrap .user_bg {
-  height: 50vh;
+  height: 35vh;
+  width: 46vh;
+  top:20%;
   left: 50%;
   filter: blur(10rpx);
   transform: translateX(-50%);
@@ -31,7 +34,9 @@ page {
 .user_info_wrap .user_img_wrap .user_info .user_icon {
   width: 150rpx;
   height: 150rpx;
-  
+  border-radius:37rpx;
+  /* border-block: ;
+  border-block-color: rgb(187, 183, 183); */
 }
 .user_info_wrap .user_img_wrap .user_info .user_name {
   color: #fff;

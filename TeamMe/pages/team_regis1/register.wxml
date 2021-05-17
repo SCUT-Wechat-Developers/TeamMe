@@ -15,7 +15,7 @@
 			bind:click-step="jumpToRegis2"/>
 </view>
 
-<form>
+<form  class=" margin-top ">
 	<view class="cu-form-group margin-top teamNameContainer">
 		<view class="title" >队伍名称</view>
 		<input bindinput="teamNameInput">teamName</input>
@@ -35,7 +35,7 @@
 		<!--	<view class="cu-form-group">-->
 		<!--		<view class="title">组队卡图片</view>-->
 		<!--		<button bindtap='handleChooseAlbum'>选中图片</button>-->
-		<!--		<image src="{{group.teamImg}}" mode="widthFix"/>-->
+		<!--		<image src="{{group.teamImg}}" mode="widthFix"/> shadow nextStep-->
 		<!--	</view>-->
 		<view class="cu-form-group align-start">
 			<view class="title">队伍简介</view>
@@ -45,7 +45,7 @@
 
 
 </form>
-
+<view> </view>
 <button class="cu-btn bg-green shadow nextStep" bindtap="jumpToRegis2">下一步</button>
 
 
