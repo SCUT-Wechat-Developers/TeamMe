@@ -28,8 +28,8 @@
 		</view>
 		<view class="cu-form-group">
 			<view class="title">队长</view>
-			<van-image round width="40" height="40" fit="fill" src="{{group.captain.avatar}}" />
-			<view class="padding-right-xl">{{group.captain.nickName}}</view>
+			<van-image round width="40" height="40" fit="fill" src="{{group.memberinfo[0].avatarUrl}}" />
+			<view class="padding-right-xl">{{group.mamberinfo[0].nickName}}</view>
 		</view>
 
 		<!--	<view class="cu-form-group">-->

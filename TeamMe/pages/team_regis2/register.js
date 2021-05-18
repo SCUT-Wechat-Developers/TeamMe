@@ -134,10 +134,12 @@ Page({
     else{  
 
       //组队成功，把数据传到后台服务器
+      var groupMes=this.data.group;
+      groupMes.memberinfo=JSON.stringify(this.data.group.memberinfo);
       wx.request({
         method:'post',
         url: 'http://localhost:3500/db',
-        data: this.data.group,
+        data: groupMes,
         header:{'content-type':'application/x-www-form-urlencoded'},
         success:function(res){
           console.log(res);
