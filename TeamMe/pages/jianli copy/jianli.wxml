@@ -1,5 +1,5 @@
 <!--pages/jianli/jianli.wxml-->
-<!-- <text>pages/jianli/jianli.wxml</text>bg-gradual-purple -->
+<!-- <text>pages/jianli/jianli.wxml</text> -->
 <cu-custom bgColor="bg-gradual-pink" isBack="true">
     <block slot="backText">返回</block>
   <view slot="content">组建队伍</view>
@@ -10,13 +10,13 @@
   bindinput="majorInput" value='{{person.major}}'  wx:if="{{person.major}}"  />
   <input class="input"  
   bindinput="majorInput" value='{{person.major}}'  wx:else placeholder="请填入专业（如软件工程）" /> -->
-    <!-- <input class="input" name="userName" placeholder="请填入姓名" value='{{person.name}}' wx:if="{{person.major}}"
-    bindinput="userNameInput"/> -->
-    <input class="input" name="userName" placeholder="请填入姓名" value='{{_name}}' 
+    <input class="input" name="userName" placeholder="请填入姓名" value='{{person.name}}' wx:if="{{person.major}}"
+    bindinput="userNameInput"/>
+    <input class="input" name="userName" placeholder="请填入姓名" value='{{person.name}}' wx:else
     bindinput="userNameInput"/>
 
   <!-- password -->
-  <view  class="itemView">性    别：
+  <view class="itemView">性    别：
     <radio-group bindchange="bandleChange">
       <radio color="green" value="{{1}}"> ——男</radio>
 
@@ -34,14 +34,14 @@
       conLists: [] -->
 <!-- <view class="itemView">性    别：
     <input class="input"  placeholder="请填入性别（男/女）"
-     bindinput="passWdInput" />bg-gradual-orange
+     bindinput="passWdInput" />
   </view> -->
 <view class="  cu-form-group margin-top teamNameContainer">
   <view class="itemView">专    业：
     <input class="input"  
-     bindinput="majorInput" value='{{_major}}' placeholder="请填入专业（如软件工程）" />
-     <!-- <input class="input"  
-     bindinput="majorInput" value='{{person.major}}'  wx:else placeholder="请填入专业（如软件工程）" /> -->
+     bindinput="majorInput" value='{{person.major}}'  wx:if="{{person.major}}"  />
+     <input class="input"  
+     bindinput="majorInput" value='{{person.major}}'  wx:else placeholder="请填入专业（如软件工程）" />
   </view>
   <view class="itemView">学    科：
     <input class="input"  placeholder="请填入学科（理学、哲学、医学等）"
@@ -54,7 +54,7 @@
   </view>
 </view>
   <!-- <view class="itemView">奖    项：
-    <input class="input"  placeholder="请填入奖项"bg-gradual-green
+    <input class="input"  placeholder="请填入奖项"
      bindinput="awardsInput" />-->
 <view class=" bg-gradual-green cu-form-group margin-top teamNameContainer">
   <view class="itemView">技    能：
@@ -92,12 +92,11 @@
   <!-- <button class="btn" type="primary" bindtap="next">下一步</button> -->
 <view class="  bg-gradual-blue viewName itemView cu-form-group margin-top teamNameContainer">
   <!-- <view class="viewName" style="background-color:#fbf9fe"> -->
-  <button class="loginBtn   bg-gradual-green" bindtap="loginBtnClick">登录</button>
-  <!-- <view>{{infoMess}}</view> -->
-  <button class="resetBtn  bg-gradual-green" bindtap="resetBtnClick">清除</button>
+  <button class="loginBtn  bg-gradual-green" bindtap="loginBtnClick">登录</button>
+  <!-- <view>{{infoMess}}</view> iconfont icon-qianbao-->
+  <button class="resetBtn bg-gradual-green "  bindtap="resetBtnClick">清除</button>
   <!-- </view> -->
 </view>
-
 
 <view>{{infoMess}}</view>
 <view>{{passWd}}</view>

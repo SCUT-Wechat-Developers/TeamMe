@@ -1,21 +1,27 @@
 <!--  userinfo.avatarUrl  -->
+<!-- <van-button type="primary" class="test" block>主要按钮</van-button>
+<van-button icon="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTL6vCCtdTxwiab9zOOJegDHEUdCZCa4BLUa6O6ajRJTRBibRPkGtLEiadAl2l78ZCXLW1HSa6P47E8FA/132" type="info">
+  按钮
+</van-button> -->
 <view class="user_info_wrap">
   <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
     <image class="user_bg" src="{{userinfo.avatarUrl}}" ></image>
-    <view class="user_info">
+    <view class="user_info       margin-top teamNameContainer">
       <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
-      <view class="user_name">{{userinfo.nickName}}</view>
+      <view class="user_name" style="color:#dddddd ;font-size:66rpx" > {{userinfo.nickName}}, 你好</view>
     </view>
+
   </view>
   <view wx:else class="user_btn">
     <navigator url="/pages/login/login" >登录</navigator>
   </view>
 </view>
+
 <view class="user_content">
 
   <view class="user_main">
-    <!-- 历史足迹 -->
-    <view class="history_wrap">
+    <!-- 历史足迹 history_wrap  bg-gradual-blue   cu-form-group margin-top teamNameContainer -->
+    <view class="history_wrap margin-top">
       <navigator>
         <view class="his_num">0</view>
         <view class="his_name">进行中的活动</view> <!--收藏的店铺 -->
@@ -34,9 +40,9 @@
       </navigator>
     </view>
     <!-- 我的订单 -->
-    <view class="orders_wrap">
-      <view class="orders_title">我的信息管理</view>
-      <view class="order_content">
+    <view class="history_wrap margin-top">
+      <!-- <view class="orders_title">我的信息管理</view> -->
+      <!-- <view class="order_content">
         <navigator url="/pages/jianli/jianli">
           <view class="iconfont icon-ding_dan"></view>
           <view class="order_name">简历填写</view>
@@ -44,38 +50,58 @@
         <navigator url="/pages/123/123">
           <view class="iconfont icon-fukuantongzhi"></view>
           <view class="order_name">简历查看</view>
-        </navigator>
-        <navigator url="/pages/order/index?type=3">
+        </navigator> -->
+        <!-- <navigator class="history_wrap margin-top" url="/pages/jianli copy/jianli">
           <view class="iconfont icon-receipt-address"></view>
           <view class="order_name">简历修改</view>
-        </navigator>
-        <navigator>
+        
+        </navigator>  -->
+        <view class="history_wrap margin-top iconfont icon-daohang" style='color:#3377FF;font-size:50rpx;'>
+           <navigator url="/pages/jianli copy/jianli" class="app_info_item  "
+           style='color:#7F8389;font-size:45rpx;'
+           >我的简历 </navigator>
+        </view>
+        <view class="history_wrap margin-top iconfont icon-biaoji" style='color:#3377FF;font-size:50rpx;'>
+           <navigator url="/pages/feedback/index" class="app_info_item "
+           style='color:#7F8389;font-size:45rpx;'  
+           >我的队伍 </navigator>
+        </view>
+        <!-- <navigator>
           <view class="iconfont icon-tuihuotuikuan_dianpu"></view>
           <view class="order_name">简历重填</view>
-        </navigator>
-      </view>
+        </navigator> -->
+      <!-- </view> -->
     </view>
     <!-- 收货地址管理 -->
 
-    <view class="address_wrap">
-     <navigator url="/pages/feedback/index" class="app_info_item">我的队伍</navigator>
-    </view>
+
     <!-- 应用信息相关 -->
-    <view class="app_info_wrap">
+    
+    <view class="app_info_wrap margin-top">
 
       <view class="app_info_item app_info_contact">
-        <text>联系</text>
-        <text>15361022831</text>
+        <text class=" iconfont icon-bangongzhichilei"
+        style='color:#7F8389;font-size:35rpx;'
+        >联系</text>
+        <text style='color:#7F8389;font-size:35rpx;'>15361022831</text>
       </view>
 
-      <navigator url="/pages/feedback/index" class="app_info_item">意见反馈</navigator>
-      <view class="app_info_item">关于我们</view>
+      <navigator url="/pages/feedback/index" class="app_info_item iconfont icon-qianbao"
+      style='color:#7F8389;font-size:35rpx;'
+      >意见反馈</navigator>
+      <view class="app_info_item iconfont icon-mudedi"
+      style='color:#7F8389;font-size:35rpx;'
+      >关于我们</view>
     </view>
     <!-- 推荐 -->
-    <view class="recommend_wrap">
+    <view class="recommend_wrap iconfont icon-pinglun"
+    style='color:#7F8389;font-size:35rpx;'
+    >
       把应用推荐给其他人
     </view>
 
   </view>
 </view>
+<!-- <button class="resetBtn  bg-gradual-green iconfont icon-biaoji" bindtap="resetBtnClick">清除</button> -->
 
+<!-- <text class="iconfont icon-daohang" ></text> -->

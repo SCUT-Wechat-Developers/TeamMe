@@ -1,9 +1,9 @@
 {
   "pages":[
 
-    "pages/square/index/index",
-    "pages/jianli/jianli","pages/123/123",
-    "pages/test/test",
+    "pages/square/index/index","pages/jianli/jianli","pages/123/123",
+    "pages/jianli copy/jianli",
+
     "pages/index/index",
     "pages/team_regis2/register",
     

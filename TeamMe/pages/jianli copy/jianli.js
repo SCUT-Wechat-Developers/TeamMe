@@ -47,9 +47,23 @@ Page({
   onLoad: function(res1) {
     var theid=wx.getStorageSync("personinf") 
     console.log(1)
-  //  console.log(theid)
+ console.log(theid)
     this.setData({
-      person:theid
+      person:theid,
+      _name:theid.name,//杠号是未确认的数据存缓
+      //conLists: theid.conLists,
+      //genderNum:theid.person.gender,
+      //_avatarUrl:theid.person.avatarUrl,
+
+      _major:theid.major,
+      _categories:theid.categories,
+      _education:theid.education,
+
+     // awards:[""],
+      //_awards:theid.person.,
+      _skill:theid.skill,
+      //text:"",
+      _text:theid.text,
     });
 
 
@@ -173,7 +187,11 @@ Page({
     //   }
     //  })
      
-    if(this.data._name.length == 0 ){
+    if((this.data._name.length == 0 ) ||
+    (this.data._major.length == 0 ) ||
+    (this.data._categories.length == 0 ) ||
+    (this.data._education.length == 0 ) 
+    ){
       this.setData({
         infoMess:'温馨提示：用户名和学业栏不能为空！',
       })
