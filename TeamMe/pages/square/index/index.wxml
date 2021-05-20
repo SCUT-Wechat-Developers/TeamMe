@@ -20,7 +20,7 @@
          id="{{item.teamId}}"
          needed="{{item.needNum}}"
          candidated="{{item.candidateNum}}"
-         headerImg="{{item.teamImg}}"
+         headerImg="{{item.memberinfo[0].avatarUrl}}"
          title="{{item.title}}"
          isMoreText="false"
          updateTime="{{item.updateTime}}"

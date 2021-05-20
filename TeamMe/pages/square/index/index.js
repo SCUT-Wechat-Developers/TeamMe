@@ -148,7 +148,17 @@ Page({
       })
       // 初始化数据
       // 获取全部队伍的信息
-      // this.getAllTeamsData();
+      // this.getAllTeamsData()
+      wx.request({
+        method:'get',
+        url: 'http://localhost:3500/square',
+        success:(res)=>{
+          console.log(res.data);
+          this.setData({
+            teamList:res.data
+          })
+        }
+      })
     }
   },
   onShow: function () {

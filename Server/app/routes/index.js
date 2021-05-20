@@ -69,6 +69,18 @@ router.post('/db',async function(req,res,next){
   })
 })
 
+/* GET group message */
+router.get('/square',async function(req,res,next){
+  let groups=await groupModel.find({},(err,Comment)=>{
+    console.log(Comment);
+  })
+  for(let i=0;i<groups.length;i++){
+      groups[i].memberinfo=JSON.parse(groups[i].memberinfo);
+  }
+  console.log(groups);
+  res.send(groups);
+})
+
 /* POST person message */
 router.post('/jianli/write',function(req,res,next){
   //获取参数
