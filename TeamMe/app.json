@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/_teamUP/_teamUP",
     "pages/square/index/index",
+    "pages/_teamUP/_teamUP",
     "pages/jianli/jianli",
     "pages/index/index",
     "pages/team_regis2/register",

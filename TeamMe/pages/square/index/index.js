@@ -267,9 +267,15 @@ Page({
    */
   searchTeam(e) {
     let tid = e.detail  // 用户搜索的队伍Id
-    console.log(typeof (tid))
     let {teamList} = this.data
-    let team = teamList.find(item => item.teamId === tid)
+    //
+    var team;
+    for(var i=0;i<teamList.length;i++){
+      if(tid==teamList[i].teamID)
+        team=teamList[i];
+    }
+    //let team = teamList.find(item =>{ return item.teamId === tid})
+
     if (team){
       let selectTeamList = [team]
       this.setData({
@@ -284,7 +290,7 @@ Page({
     }
     setTimeout(()=>{
       wx.hideLoading();
-    },1000)
+    },500)
   },
   // 筛选
   /**

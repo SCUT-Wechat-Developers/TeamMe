@@ -149,7 +149,14 @@ Page({
 
         url: '/pages/_teamUP/_teamUP',
         // url: '/pages/square/index/index',
-
+        //url: '/pages/_teamUP/_teamUP',
+        url: '/pages/square/index/index',
+        //刷新组队广场页面
+        success: function (e) {  
+          var page = getCurrentPages().pop();  
+          if (page == undefined || page == null) return;  
+          page.onLoad();  
+        } 
       /*
       wx.navigateTo({
         url: '/pages/_teamUP/_teamUP'
