@@ -3,8 +3,9 @@ const Mongoose = require('mongoose');
 var router = express.Router();
 
 var Schema=Mongoose.Schema;
+//
 var groupSchema=new Schema({
-  teamID:0,
+    teamID:0,
     teamName:'',
     teamImg:'',
     captain:{},
@@ -18,25 +19,79 @@ var groupSchema=new Schema({
     endTime:'',
     updateTime:''
 })
+//
+var personSchema=new Schema({
+  id:"",
+  teamid:[],
+  name:"",
+  gender:"",
+  phone:0,
+  major:"",
+  avatarUrl:"",
+  categories:"",
+  education:"",
+  awards:[""],
+  skill:[""],
+  text:""
+})
+
 var groupModel=Mongoose.model("groups",groupSchema);
+var personModel=Mongoose.model("person",personSchema);
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
   res.render('index', { title: 'Express' });
+  
+
 });
 
+/* POST group register */
+router.post('/db',async function(req,res,next){
+  //获取参数
+  var query = req.body;
+  //为插入的队伍配置teamID
+  var maxID=1;
+  await groupModel.find({},{'teamID':1},{limit:1,sort:'-teamID'},(err, Comment)=>{
+    if(Comment.length==0){
+      maxID=1;
+    }
+    else{
+      maxID=Comment[0].teamID+1;
+    }
+  })
+  console.log('post 请求：参数',query);
+  query.teamID=maxID;
+  groupModel.create(query,function(err){
+    
+    if(!err){
+      console.log('插入group成功');
+    }
+  })
+})
 
-router.post('/db',function(req,res,next){
+/* GET group message */
+router.get('/square',async function(req,res,next){
+  let groups=await groupModel.find({},(err,Comment)=>{
+    console.log(Comment);
+  })
+  for(let i=0;i<groups.length;i++){
+      groups[i].memberinfo=JSON.parse(groups[i].memberinfo);
+  }
+  console.log(groups);
+  res.send(groups);
+})
+
+/* POST person message */
+router.post('/jianli/write',function(req,res,next){
   //获取参数
   var query = req.body;
 
   console.log('post 请求：参数',query);
-  groupModel.create(query,function(err){
+  personModel.create(query,function(err){
     if(!err){
-      console.log('插入成功');
+      console.log('插入person成功');
     }
   })
-  res.send('Hello');
 })
 
 module.exports = router;

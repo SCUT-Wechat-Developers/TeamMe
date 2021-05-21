@@ -222,6 +222,15 @@ Page({
           console.log(res.data)
         }
        })
+       wx.request({
+        method:'post',
+        url: 'http://localhost:3500/jianli/write',
+        data: this.data.person,
+        header:{'content-type':'application/x-www-form-urlencoded'},
+        success:function(res){
+          console.log(res);
+        }
+       })
        wx.switchTab({
 
         url: '/pages/_inf/_inf',
