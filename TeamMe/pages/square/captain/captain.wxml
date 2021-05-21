@@ -1,0 +1,159 @@
+<!--index.wxml-->
+<scroll-view scroll-y>
+<!--  顶部导航栏-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">导航栏</view>
+</cu-custom>
+
+<!--  队伍信息栏1-->
+
+
+<view class="head text-center">
+  <view class="padding-xl radius shadow-warp bg-white">
+    <view class="flex justify-center t-img">
+      <image class="cu-avatar xxl round" src="{{teamInfo.teamImg}}"></image>
+    </view>
+    <text class="name">{{teamInfo.title}}</text>
+    <view class="word"><text>{{teamInfo.tag}}</text></view>
+    <view>队长信息</view>
+    <view class="info">
+      <text wx:if="{{teamInfo.memberinfo[0].gender}}">男</text> 
+      <text wx:else>女</text> 
+      /
+      <text>{{teamInfo.memberinfo[0].text}}</text> /
+      <text>{{teamInfo.memberinfo[0].major}}</text>
+    </view>
+    <view class="flex justify-center">
+<!--      联系方式-->
+      <view bindtap="addWechat"><text class="cuIcon-weixin text-green xxl"></text></view>
+      <view bindtap="call"><text class="cuIcon-phone text-orange xxl"></text></view>
+      <!-- <view bindtap="addPhone"><text class="cuIcon-addressbook text-purple xxl"></text></view>
+      <view ><text class="cuIcon-mail text-blue xxl"></text></view> -->
+    </view>
+  </view>
+</view>
+
+
+<!--  个人信息栏1-->
+<view class="padding" wx:for="{{teamInfo.candidateinfo}}">
+  <view class="padding-xl radius shadow-warp bg-white">
+    <text class="cuIcon-medalfill lg text-blue"></text>
+    <text class="name-ti">{{item.name}}</text>
+    <view class="line"></view>
+    <view class="con">
+      <text class="cuIcon-time lg text-gray icon"></text>
+      <text wx:if="{{item.gender}}"> 男</text>
+      <text wx:else> 女</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-location lg text-gray icon"></text>
+      <text>{{item.major}}</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-choiceness lg text-gray icon"></text>
+      <text>{{item.categories}}</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-location lg text-gray icon"></text>
+      <text>{{item.education}}</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-choiceness lg text-gray icon"></text>
+      <text>{{item.skill}}</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-choiceness lg text-gray icon"></text>
+      <text>{{item.text}}</text>
+    </view>
+    <view>奖项</view>
+    <view class="con" wx:for="{{item.awards}}"  wx:for-item="_item">
+      <text class="cuIcon-choiceness lg text-gray icon"></text>
+      <text>{{_item}}</text>
+    </view>
+    <button class="" bindtap="change" data-item="{{item}}" >加入</button>
+  </view>
+  
+</view>
+
+<view class="padding">
+  <view class="padding-xl radius shadow-warp bg-white">
+    <text class="cuIcon-medalfill lg text-blue"></text>
+    <text class="name-ti">队伍详情</text>
+    <view class="line"></view>
+    <view class="con">
+      <text class="cuIcon-time lg text-gray icon"></text>
+      <text>2016.9 ~ 2020.7</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-location lg text-gray icon"></text>
+      <text>华南理工大学</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-choiceness lg text-gray icon"></text>
+      <text>软件学院</text>
+    </view>
+  </view>
+</view>
+<view class="padding" style="padding-top: 10rpx;">
+  <view class="padding-xl radius shadow-warp bg-white">
+    <text class="cuIcon-crown lg text-blue"></text>
+    <text class="name-ti">校内荣誉</text>
+    <view class="line"></view>
+    <view class="con">
+      <text class="cuIcon-favor lg text-gray icon"></text>
+      <text>国家励志奖学金</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-favor lg text-gray icon"></text>
+      <text>优秀学生干部</text>
+    </view>
+  </view>
+</view>
+<!--  个人信息填写区域-->
+  <view class="padding" style="padding-top: 10rpx;">
+  <view class="padding-xl radius shadow-warp bg-white">
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class="action ">
+        <text class="icon-title text-orange "></text> 我的简介
+        <!--cuIcon无点-->
+      </view>
+      <view class="action ">
+        <button class="cu-btn line-green shadow " bindtap="showModal" data-target="detail_mode">修改</button>
+      </view>
+    </view>
+  </view>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius ">
+    <view class="cu-item ">
+      <view class="content ">
+        <text  class="cuIcon-warn text-green "></text>
+        <text  class="text-grey text-sm">补充你的个人简介可以让任务发起者更了解你哦！</text>
+        <text class="text-grey ">{{stuinf.detail}}</text>
+      </view>
+    </view>
+  </view>
+
+<!--   确认按钮-->
+<view>
+  <button></button>
+</view>
+</scroll-view>
+
+<!--填写个人简历小框-->
+<view class="cu-modal {{modalName=='detail_mode'?'show':''}}" bindtap="hideModal">
+  <view class=" bg-white cu-dialog" catchtap>
+    <scroll-view scroll-y style="height:800rpx">
+      <view class="cu-list menu text-left solid-top">
+        <view class="cu-item">
+          <view class="content">
+            <view class="cu-form-group margin-top ">
+              <input maxlength="-1"auto-height='true' value="{{introduction}}" bindinput="detailInput" placeholder="请输入个人简介"></input>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <button bindtap="saveIntroduction" class="cu-btn bg-green margin-tb-sm lg">保存</button>
+  </view>
+</view>

@@ -1,30 +1,113 @@
 <!--pages/team_regis2/register.wxml-->
-<form>
-  <cu-custom bgColor="bg-gradual-pink" >
+
+<cu-custom bgColor="bg-gradual-pink" isBack="true">
+    <block slot="backText">返回</block>
   <view slot="content">组建队伍</view>
 </cu-custom>
-  <view>比赛信息填写</view>
-	<view class="cu-form-group margin-top">
-		<view class="title">比赛类型</view>
-		<input placeholder="或者以选择的方式" bindinput="tagInput">tag</input>
-  </view>
-  <view class="cu-form-group" >
-    <view class="flex-wrp" style="flex-direction:row;">
-    <picker class="weui-btn" mode="date" value="{{date}}" start="{{date}}" end="2030-09-01" bindchange="bindDateChange">
-      <view class="picker">
-      截止日期: {{group.endTime}}
-    </view>
 
-    </picker>
-    </view>
-
+  <van-steps
+          steps="{{ steps }}"
+          active="1"
+          active-icon="success"
+          active-color="#38f"
+          bind:click-step="jumpToRegis2"
+  />
+<form>
+  <button class="cu-btn bg-green shadow margin-top teamNameContainer" bindtap="jumpToRegis3">上一步</button>
+  <text class="bg-cyan cu-form-group margin-top teamNameContainer" space="ensp" >  比赛信息填写</text>
+	<view class="cu-form-group margin-top teamNameContainer">
+    <view class="title">比赛类型</view>
     
+    <!-- <radio-group bindchange="SetBorderSize" bindinput="tagInput">
+      <view class="margin-left-sm" >
+        <radio class="blue sm radio" value="" checked></radio>
+        <text> sdaaaaaaaaaaaasad</text>
+      </view>>
+      </view>
+    </radio-group> -->
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="blue sm radio" wx:for="{{items}}">
+        <radio class="cyan sm radio" value="{{item.value}}" checked="{{item.checked}}" />
+       {{item.value}}
+      </view>
+    </radio-group>
+		
+    <!-- <input placeholder="或者以选择的方式" bindinput="tagInput">tag</input> -->
+    
+    <picker class="weui-btn" mode="date" value="{{date}}" start="{{date}}" end="2030-09-01" bindchange="bindDateChange">
+</picker>
+      
   </view>
+<!-- 
+  <view class="cu-form-group cu-form-group margin-top teamNameContainer" >
+          <view class="section">
+        <view class="section__title">日期选择器</view>
+        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <view class="picker">
+            当前选择: {{date}}
+          </view>
+        </picker>
+        </view>
+      </view> -->
+
+  <view class="cu-form-group cu-form-group margin-top teamNameContainer" >
+    <view class="flex-wrp" style="flex-direction:row;">
+      <text class="picker" space="ensp">  截止日期选择器</text>
+      <picker  mode="date" value="{{date}}" start="{{date}}" end="2030-09-01" bindchange="bindDateChange">
+        <text class="picker" space="ensp">  截止日期: 请点击此处进行择选择---{{group.endTime}}</text>
+        <!-- <view class="picker">
+       截止日期: 点击此处进行择选{{group.endTime}}
+        </view> -->
+      </picker>
+
+    </view>
   
-
-
-
-
+  </view>
+  <!-- <text class="cu-form-group margin-top teamNameContainer" space="ensp" >  截止日期: {{group.endTime}}</text> -->
 </form>
 
-<button class="cu-btn bg-green shadow" bindtap="jumpToRegis3">下一步</button>
+<form>
+  <!-- <cu-custom bgColor="bg-gradual-pink" >
+	<view slot="content">组建队伍</view>
+</cu-custom> -->
+  <text class="bg-cyan cu-form-group cu-form-group margin-top teamNameContainer" space="ensp">  队员信息填写</text>
+	<view class="cu-form-group margin-top cu-form-group margin-top teamNameContainer">
+		<view class="title">人数上限</view>
+		<input placeholder="或者以选择的方式" bindinput="needNumInput">needNum</input>
+  </view>
+  <!-- <view class="cu-form-group">
+    <view class="title">筛选项</view>
+	</view> -->
+</form>
+
+<button class="cu-btn bg-green shadow margin-top teamNameContainer" bindtap="jumpToRegister">完成</button>
+
+
+<!-- <form>
+	<view class="cu-form-group margin-top teamNameContainer">
+		<view class="title" >队伍名称</view>
+		<input bindinput="teamNameInput">teamName</input>
+  </view>
+
+	<view class="margin-left margin-right teamInfoContainer radius">
+		<view class="cu-form-group margin-top">
+			<view class="title">组队宣言（口号）</view>
+			<input bindinput="titleInput" placeholder="例：找xxx比赛队友">title</input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">队长</view>
+			<van-image round width="40" height="40" fit="fill" src="{{group.captain.avatar}}" />
+			<view class="padding-right-xl">{{group.captain.nickName}}</view>
+		</view>
+
+		<!--	<view class="cu-form-group">-->
+		<!--		<view class="title">组队卡图片</view>-->
+		<!--		<button bindtap='handleChooseAlbum'>选中图片</button>-->
+		<!--		<image src="{{group.teamImg}}" mode="widthFix"/>-->
+		<!--	</view>-->
+		<!-- <view class="cu-form-group align-start">
+			<view class="title">队伍简介</view>
+			<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="contentInput" placeholder="请填写队伍简历"></textarea>
+		</view>
+  </view>
+</form> --> 

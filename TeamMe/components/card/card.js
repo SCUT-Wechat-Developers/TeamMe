@@ -7,6 +7,7 @@ Component({
     headerImg: String,
     title: String,
     updateTime: String,
+    endTime:String,
     img: String,
     context: String,
     moreText: String,

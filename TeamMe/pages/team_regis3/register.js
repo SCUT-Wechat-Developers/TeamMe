@@ -19,14 +19,8 @@ Page({
   },
 
   needNumInput:function(e){
-    let _num = 'group.needNum';
-		// this.setData({
-		// 	[_teamImg]:this.data.group.captaininfo.avatarUrl
-    // })
-   // console.log(this.data.group.teamImg)
-   //console.log(e.detail)
     this.setData({
-      [_num]:e.detail.value
+      ['group.needNum']:e.detail.value
     })
   },
 
@@ -49,7 +43,9 @@ Page({
    })
     wx.setStorageSync("group",this.data.group);
     wx.navigateTo({
-      url: '/pages/_teamUP/_teamUP',
+      //url: '/pages/_teamUP/_teamUP',
+      url: '/pages/team_regis1/register',
+
     })
   },
 

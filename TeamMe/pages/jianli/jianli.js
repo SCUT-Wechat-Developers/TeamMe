@@ -44,6 +44,18 @@ Page({
 
   },
 
+  onLoad: function(res1) {
+    var theid=wx.getStorageSync("personinf") 
+    console.log(1)
+  //  console.log(theid)
+    this.setData({
+      person:theid
+    });
+
+
+     
+  },
+
   //用户名和密码输入框事件
   userNameInput:function(e){
     //console.log(e);
@@ -103,14 +115,26 @@ Page({
     })
   },
   resetBtnClick:function(e){
-    console.log(this.data._name);
+    console.log(1);
+    //this.onLoad()
     this.setData({
       _name:'',
-      infoMess: '',
-      userName: '',
-      userN:'',
-      passWd: '',
-      passW:'',
+      _phone:'',
+      _major:'',
+      _categories:'',
+      _education:'',
+      _skill:'',
+      _text:'',
+      conLists: [],
+      person:{}
+      //[phone]: this.data._phone,
+      // [major]:this.data._major,
+      // [categories]:this.data._categories,
+      // [education]:this.data._education,
+      // // [awards]:this.data._awards,
+      // [awards]:this.data.conLists,
+      // [skill]:this.data._skill,
+      // [text]:this.data._text,
     })
   },
   loginBtnClick:function(){
@@ -151,7 +175,7 @@ Page({
      
     if(this.data._name.length == 0 ){
       this.setData({
-        infoMess:'温馨提示：用户名和密码不能为空！',
+        infoMess:'温馨提示：用户名和学业栏不能为空！',
       })
     }else{
       this.setData({
@@ -180,6 +204,11 @@ Page({
           console.log(res.data)
         }
        })
+       wx.switchTab({
+
+        url: '/pages/_inf/_inf',
+      })
+
 
        //上传。
     }

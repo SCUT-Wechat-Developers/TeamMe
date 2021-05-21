@@ -22,6 +22,14 @@ Page({
       passW:e.detail.value
     })
   },
+  jumpToRegister:function(){
+
+      wx.switchTab({
+        //url: '/pages/_teamUP/_teamUP',
+        url: '/pages/team_regis1/register',
+  
+      })
+    },
   //登录按钮点击事件，调用参数要用：this.data.参数；
   //设置参数值，要使用this.setData({}）方法
   loginBtnClick:function(){

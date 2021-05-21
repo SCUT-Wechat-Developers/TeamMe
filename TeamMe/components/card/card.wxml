@@ -37,7 +37,7 @@
     </view>
 <!--      截止时间-->
       <view class='taskEnd'>
-          <text>候选截止日期：2021-05-01</text>
+          <text>候选截止日期：{{endTime}}</text>
       </view>
     <view wx:if="{{isMoreText}}" style='transform:rotate({{isMoreText ? 180 : 0}}deg);' bindtap='showMoreText'>
       <icon-button type='explain'></icon-button>

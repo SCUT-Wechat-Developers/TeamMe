@@ -6,42 +6,49 @@ Page({
    * 页面的初始数据
    */
   data: {
-    key:"",
+    steps: [
+      {
+        text: '基本信息',
+      },
+      {
+        text: '比赛信息',
+      },
+      {
+        text: '组队卡片',
+      },
+    ],
     group:{    
-      teamid:0,  
-      captaininfo:{},
-      memberinfo:[],
-      candidateinfo:[],
+      teamId:'2',
       teamName:'',
       teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
-      //captain:'',
+      captain:{},
+      memberinfo:[],
+      candidateinfo:[],
       title:'',
       content:'',
       needNum:0,
-      //candidateInfo
+      candidateNum:0,
       tag:'',
       endTime:'',
       updateTime:''
-
     },
 
 
   },
-  onLaunch() {
-    
-    
-  },
 
-  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var theid=wx.getStorageSync("personinf") 
+
+    var theid=wx.getStorageSync("personinf")
+    this.captainInput(theid)
     console.log(1)
+    
     //console.log(theid)
     //var [captaininfo]={};
     let _captaininfo = 'group.captaininfo';
+
 		this.setData({
 			[_captaininfo]:theid
 		})
@@ -49,29 +56,28 @@ Page({
 
     let newList=  this.data.group.captaininfo
     let cartList =this.data.group.memberinfo
+    //cartList.push(newList);
     cartList.push(newList);
     cartList.push(newList);
     console.log(1)
     console.log(newList)
     console.log(cartList)
     let key='group.memberinfo'
+    let key1='group.candidateinfo'
     this.setData({
-          [key]: cartList
+          [key]: cartList,
+          [key1]:cartList
+          
         })
 
+  },
 
-
-    let _teamImg = 'group.teamImg';
-		this.setData({
-			[_teamImg]:this.data.group.captaininfo.avatarUrl
-    })
-    console.log(this.data.group.teamImg)
-
-    let _capname = 'group.captain';
-		this.setData({
-			[_capname]:this.data.group.captaininfo.name
-    })
-    console.log(this.data.group.captain)
+  tabBar() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 2
+      })
+    }
   },
 
   teamNameInput:function(e){
@@ -88,10 +94,15 @@ Page({
     })
   },
 
-  captainInput:function(e){
-    var captain ='group.captain'
+  captainInput:function(user){
+    // var captain ='group.captain'
+    let captain ='group.captain'
     this.setData({
-      [captain]:e.detail.value
+      [captain]: {
+        id: user.openid,
+        nickName: user.nickName,
+        avatar: user.avatarUrl
+      }
     })
   },
 
@@ -123,18 +134,23 @@ Page({
   },
 
   jumpToRegis2:function(){
-
-    
-    // var key=wx.getStorageSync("key") 
-    // console.log(key);
-    // var captainid ="group.captainid";
-    // this.setData({
-    //   [captainid]:key
-    // })
+    /**
+    var stsr= JSON.stringify(this.data.group);
+    var weatherObj = JSON.parse(str);
+     */
+    // 校验
+    let {group} = this.data
+    if(!(group.captain && group.title && group.teamName && group.content)){
+      wx.showToast({
+        icon: 'none',
+        title: '请补充完整信息'
+      })
+    }
+    else{
     wx.setStorageSync("group",this.data.group);
     wx.navigateTo({
       url: '/pages/team_regis2/register',
-    })
+    })}
   },
 
   /**
@@ -148,7 +164,35 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //this.tabBar()
+  //  var theid=wx.getStorageSync("personinf")
+    // this.captainInput(theid)
+    // console.log(1)
+    
+    // //console.log(theid)
+    // //var [captaininfo]={};
+    // let _captaininfo = 'group.captaininfo';
 
+		// this.setData({
+		// 	[_captaininfo]:theid
+		// })
+    // console.log(this.data.group.captaininfo)
+
+    // let newList=  this.data.group.captaininfo
+    // let cartList =this.data.group.memberinfo
+    // //cartList.push(newList);
+    // cartList.push(newList);
+    // cartList.push(newList);
+    // console.log(1)
+    // console.log(newList)
+    // console.log(cartList)
+    // let key='group.memberinfo'
+    // let key1='group.candidateinfo'
+    // this.setData({
+    //       [key]: cartList,
+    //       [key1]:cartList
+          
+    //     })
   },
 
   /**

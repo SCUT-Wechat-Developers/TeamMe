@@ -1,0 +1,12 @@
+@import "../colorui/main.wxss";
+@import "../colorui/animation.wxss";
+@import "../colorui/icon.wxss";
+.tabbar {
+    background: #fdfdfe;
+}
+.active{
+    color: #39b54a;
+}
+.default{
+    color: #6c6a6b;
+}

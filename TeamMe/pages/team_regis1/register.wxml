@@ -1,34 +1,53 @@
 <!--pages/team_regis/register.wxml-->
 
-<form>
-  <cu-custom bgColor="bg-gradual-pink" >
-	<view slot="content">组建队伍</view>
+
+  <cu-custom bgColor="bg-gradual-blue">
+	<view slot="content">组队消息</view>
 </cu-custom>
-  <view>队伍基本信息填写</view>
-	<view class="cu-form-group margin-top">
-		<view class="title" >队伍名称</view>
-		<input bindinput="teamNameInput">teamName</input>
+<!--步骤进度条-->
+<view>
+	<van-steps
+			class="shadow"
+			steps="{{ steps }}"
+			active="0"
+			active-icon="success"
+			active-color="#38f"
+			bind:click-step="jumpToRegis2"/>
+</view>
+<!-- class=" margin-top " -->
+<form  >
+	<view class="cu-form-group margin-top teamNameContainer">
+		<view class="title" >队伍名称:</view>
+		<input bindinput="teamNameInput"  placeholder="请填入队伍名称">teamName</input>
   </view>
-  <view class="cu-form-group margin-top">
-		<view class="title">组队宣言（口号）</view>
-		<input bindinput="titleInput">title</input>
-  </view>
-  <!-- <view class="cu-form-group">
-    <view class="title">队长</view>
-    <input bindinput="captainInput">captain</input>
-	</view> -->
-	<view class="cu-form-group">
-		<view class="title">组队卡图片</view>
-		<button bindtap='handleChooseAlbum'>选中图片</button>
-		<image src="{{group.teamImg}}" mode="widthFix"/>
+
+	<view class="margin-left margin-right teamInfoContainer radius">
+		<view class="cu-form-group margin-top">
+			<view class="title">组队宣言（口号）</view>
+			<input bindinput="titleInput" placeholder="例：找xxx比赛队友">title</input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">队长名：</view>
+			<view class="padding-right-xl">{{group.memberinfo[0].name}}</view>
+			
+			<van-image round width="40" height="40" fit="fill" src="{{group.captain.avatar}}" />
+			
+		</view>
+
+		<!--	<view class="cu-form-group">-->
+		<!--		<view class="title">组队卡图片</view>-->
+		<!--		<button bindtap='handleChooseAlbum'>选中图片</button>-->
+		<!--		<image src="{{group.teamImg}}" mode="widthFix"/> shadow nextStep-->
+		<!--	</view>-->
+		<view class="cu-form-group align-start">
+			<view class="title">队伍简介</view>
+			<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="contentInput" placeholder="请填写队伍简历"></textarea>
+		</view>
 	</view>
-	<view class="cu-form-group">
-		<view class="title">队伍简介</view>
-		<textarea maxlength="400" placeholder="字数不超过400" auto-height="true" bindinput="contentInput" ></textarea>
-	</view>
+
 
 </form>
-
-<button class="cu-btn bg-green shadow" bindtap="jumpToRegis2">下一步</button>
-
+<view> </view>
+<button class="cu-btn bg-green shadow margin-top teamNameContainer" bindtap="jumpToRegis2">下一步</button>
+<!-- <button class="cu-btn bg-green shadow margin-top teamNameContainer" bindtap="jumpToRegister">完成</button> -->
 
