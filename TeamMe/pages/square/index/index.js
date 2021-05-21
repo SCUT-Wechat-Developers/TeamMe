@@ -89,15 +89,14 @@ Page({
      *    队长            captain
      *    ID标签          teamId
      *    队伍名称         teamName
-     *    图片            teamImg
-     *    标题            title
+     *    比赛名称         title
      *    简介            content
      *    需要人数        needNum
      *    参与候选人数     candidateNum
-     *    标签            tag
+     *    比赛类型            tag
      *    截止日期         endTime
      *    更新信息日期      updateTime
-     *    喜欢（关注的人数） likeNum
+     *
      */
     teamInformation: {
       captain: '',
@@ -225,10 +224,11 @@ Page({
     }
   },
 
-  /**
-   * @description 查看队伍的详细信息
-   * @param event 事件
-   */
+    /**
+     * @description 查看队伍的详细信息
+     * @param event 事件
+     */
+
   detailInformation (event) {
     let tid = event.currentTarget.id // 当前选中的队伍ID
     let teamInformation = this.data.teamList.find(item => {

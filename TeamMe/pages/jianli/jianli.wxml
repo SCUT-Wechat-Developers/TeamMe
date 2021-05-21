@@ -1,73 +1,70 @@
 <!--pages/jianli/jianli.wxml-->
 <!-- <text>pages/jianli/jianli.wxml</text>bg-gradual-purple -->
+<!--头部导航栏-->
 <cu-custom bgColor="bg-gradual-pink" isBack="true">
     <block slot="backText">返回</block>
   <view slot="content">组建队伍</view>
 </cu-custom>
 
-<view class=" bg-gradual-orange cu-form-group margin-top teamNameContainer">姓名：
-  <!-- <input class="input"  bg-gradual-red
-  bindinput="majorInput" value='{{person.major}}'  wx:if="{{person.major}}"  />
-  <input class="input"  
-  bindinput="majorInput" value='{{person.major}}'  wx:else placeholder="请填入专业（如软件工程）" /> -->
-    <!-- <input class="input" name="userName" placeholder="请填入姓名" value='{{person.name}}' wx:if="{{person.major}}"
-    bindinput="userNameInput"/> -->
-    <input class="input" name="userName" placeholder="请填入姓名" value='{{_name}}' 
-    bindinput="userNameInput"/>
 
-  <!-- password -->
-  <view  class="itemView">性    别：
-    <radio-group bindchange="bandleChange">
-      <radio color="green" value="{{1}}"> ——男</radio>
+<scroll-view scroll-y enable-flex>
 
-      <radio color="green" value="{{0}}"> ——女</radio>
-      </radio-group>
-      <!-- <view>--您选中的是:{{ gender }}</view> -->
-  </view>
+<!--姓名-->
+<view class="cu-form-group margin-top teamNameContainer">
+    <view class="title margin-left">姓名</view>
+    <input placeholder="请填入姓名" value='{{_name}}' bindinput="userNameInput"></input>
 </view>
-<!-- _phone:'',
-      _major:'',
-      _categories:'',
-      _education:'',
-      _skill:'',
-      _text:'',
-      conLists: [] -->
-<!-- <view class="itemView">性    别：
-    <input class="input"  placeholder="请填入性别（男/女）"
-     bindinput="passWdInput" />bg-gradual-orange
-  </view> -->
-<view class="  cu-form-group margin-top teamNameContainer">
-  <view class="itemView">专    业：
-    <input class="input"  
-     bindinput="majorInput" value='{{_major}}' placeholder="请填入专业（如软件工程）" />
-     <!-- <input class="input"  
-     bindinput="majorInput" value='{{person.major}}'  wx:else placeholder="请填入专业（如软件工程）" /> -->
-  </view>
-  <view class="itemView">学    科：
-    <input class="input"  placeholder="请填入学科（理学、哲学、医学等）"
-     bindinput="categoriesInput" value='{{_categories}}'/>
+<!--  性别-->
+  <view class="cu-form-group margin-top teamNameContainer">
+    <switch class="switch-sex margin-left" checked bindchange="sexChange"></switch>
+    <view class="title">{{_gender}}</view>
   </view>
 
-  <view class="itemView">学    历：
-    <input class="input"  placeholder="请填入学历（本科生、研究生）"
-     bindinput="educationInput" value='{{_education}}'/>
+<!--  学校，专业，学科，学历-->
+<form class="padding-lr formStyle">
+  <!--  学校-->
+  <view class="cu-form-group">
+    <view class="title">学校:</view>
+    <input bindinput="universityInput" placeholder="请填入你所在院校"></input>
   </view>
-</view>
-  <!-- <view class="itemView">奖    项：
-    <input class="input"  placeholder="请填入奖项"bg-gradual-green
-     bindinput="awardsInput" />-->
-<view class=" bg-gradual-green cu-form-group margin-top teamNameContainer">
-  <view class="itemView">技    能：
-    <input class="input"  placeholder="请填入个人长处与技能"
-     bindinput="skillInput" value='{{_skill}}'/>
+  <!--  专业-->
+  <view class="cu-form-group">
+    <view class="title">专业:</view>
+    <input bindinput="majorInput" value='{{_major}}' placeholder="请填入专业（如软件工程）" />
   </view>
-  <view class="itemView">简    介：
-    <input class="input"  placeholder="请填入简介"
-     bindinput="textInput" value='{{_text}}'/>
+  <!--  学科-->
+  <view class="cu-form-group">
+    <view class="title">学科:</view>
+    <input   placeholder="请填入学科（理学、哲学、医学等）"
+           bindinput="categoriesInput" value='{{_categories}}'/>
   </view>
-</view>
+  <!--学历-->
+  <view class="cu-form-group">
+  <view class="title">学历:</view>
+    <input   placeholder="请填入学历（本科生、研究生）"
+           bindinput="educationInput" value='{{_education}}'/>
+  </view>
+</form>
 
-<view class="  cu-form-group margin-top teamNameContainer">
+<!--  技能，简介-->
+  <form class="padding-lr formStyle">
+<!--    技能-->
+    <view class="cu-form-group">
+      <view class="title">技能:</view>
+      <input  placeholder="请填入个人长处与技能" bindinput="skillInput" value='{{_skill}}'/>
+    </view>
+<!--    简历-->
+    <view class="cu-form-group align-start">
+      <view class="title">简介</view>
+      <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textInput" value='{{_text}}' placeholder="请输入自己简历">
+
+      </textarea>
+    </view>
+  </form>
+
+
+<!--  奖项填写-->
+<view class="cu-form-group margin-top teamNameContainer">
   <view class="container">
   <view class='template_title1 flex-x '>
     <view>奖项填写</view>
@@ -77,7 +74,7 @@
     <view class='template_title_list flex-x'>
       <view class="del" bindtap='del' data-index='{{index}}'>-</view>
 
-      <input placeholder='请填写内容标题' bindinput='changeConTitle' data-index='{{index}}'></input>
+      <input placeholder='请填写奖项' bindinput='changeConTitle' data-index='{{index}}'></input>
     </view>
   </block>
 
@@ -89,22 +86,16 @@
   </view>
 </view>
 </view>
-  <!-- <button class="btn" type="primary" bindtap="next">下一步</button> -->
-<view class="  bg-gradual-blue viewName itemView cu-form-group margin-top teamNameContainer">
-  <!-- <view class="viewName" style="background-color:#fbf9fe"> -->
-  <button class="loginBtn   bg-gradual-green" bindtap="loginBtnClick">登录</button>
-  <!-- <view>{{infoMess}}</view> -->
-  <button class="resetBtn  bg-gradual-green" bindtap="resetBtnClick">清除</button>
-  <!-- </view> -->
+
+
+<!--  按钮-->
+<view class="itemView">
+  <button class="loginBtn bg-gradual-green" bindtap="loginBtnClick">确认</button>
+  <button class="resetBtn  bg-grey" bindtap="resetBtnClick">重置</button>
 </view>
 
 
-<view>{{infoMess}}</view>
-<view>{{passWd}}</view>
-
-
-<!--index.wxml-->
-
+</scroll-view>
 
 
 

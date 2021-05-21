@@ -1,6 +1,81 @@
-<!--teamUP.wxml-->
+ <!--teamUP.wxml-->
 <navigator url="/pages/team_regis1/register">
+  <cu-custom bgColor="bg-gradual-white" isBack="true">
+    <block slot="backText">返回</block>
+    <view slot="content">队伍卡片</view>
+  </cu-custom>
   <view>
-    生成组队卡片
+    <van-steps
+            class="shadow"
+            steps="{{ steps }}"
+            active="2"
+            active-icon="success"
+            active-color="#38f"
+            bind:click-step="jumpToRegis2"/>
+  </view>
+  <view class=".wx-cards-card">
+    <!--    队长头像图片-->
+    <view teamPicLeader>
+      <image class='pc' mode='aspectFit' src="../image/lt.jpg"></image>
+    </view>
+    <!--   队长信息-->
+    <view class='title-time'>
+    </view>
+  </view>
+
+
+
+  <view class='.wx-cards-card'>
+
+    <!--  编号信息-->
+    <view>
+      生成组队卡片
+      <text class="teamNo">编号：2021938</text>
+    </view>
+
+    <!--  队伍信息-->
+    <view class="teamPart">
+      <!--  队伍信息标题图片-->
+      <view class="teamPicName">
+        <image class='pc2' mode="aspectFit" src="../image/TeamInfo.png"  ></image>
+      </view>
+      <!--  队伍信息内容-->
+      <view class="teamMes" >
+        <view style="display: block;">
+          <view class='teamMes1'>队伍名称</view>
+          <text class='teamMes11'>好好好好队</text>
+        </view>
+
+        <view style="display: block;">
+          <text class='teamMes1'>比赛名称</text>
+          <text class='teamMes11'>好好好好</text>
+        </view>
+
+        <view style="display: block;">
+          <text class='teamMes1'>队伍介绍</text>
+          <text class='teamMes11'>好好好好</text>
+        </view>
+      </view>
+    </view>
+
+    <!--  比赛信息-->
+    <view class="teamPart">
+      <view class="teamPicName">
+        <image class='pc2' mode='aspectFit' src="../image/GameInfo.png" weight="10rpx" ></image>
+      </view>
+      <view class="teamMes">
+        <view class='teamMes1'>比赛类型</view>
+        <view class='teamMes11'>微信小程序</view>
+        <view class='teamMes1'>截止日期</view>
+        <view class='teamMes11'>2021.05.31</view>
+        <view class='teamMes1'>所需人数</view>
+        <view class='teamMes11' >9</view>
+      </view>
+    </view>
+
+    <!--  装饰图-->
+    <view class="teamPicName">
+      <image class='pc3' mode='aspectFit' src="../image/team.png" weight="10rpx" ></image>
+    </view>
   </view>
 </navigator>

@@ -145,10 +145,10 @@ Page({
           console.log(res);
         }
       })
-      wx.switchTab({
+      wx.navigateTo({
 
-        //url: '/pages/_teamUP/_teamUP',
-        url: '/pages/square/index/index',
+        url: '/pages/_teamUP/_teamUP',
+        // url: '/pages/square/index/index',
 
       /*
       wx.navigateTo({

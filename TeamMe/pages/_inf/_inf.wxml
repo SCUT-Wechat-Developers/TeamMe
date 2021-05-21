@@ -1,107 +1,75 @@
 <!--  userinfo.avatarUrl  -->
-<!-- <van-button type="primary" class="test" block>主要按钮</van-button>
-<van-button icon="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTL6vCCtdTxwiab9zOOJegDHEUdCZCa4BLUa6O6ajRJTRBibRPkGtLEiadAl2l78ZCXLW1HSa6P47E8FA/132" type="info">
-  按钮
-</van-button> -->
-<view class="user_info_wrap">
-  <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
-    <image class="user_bg" src="{{userinfo.avatarUrl}}" ></image>
-    <view class="user_info       margin-top teamNameContainer">
-      <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
-      <view class="user_name" style="color:#dddddd ;font-size:66rpx" > {{userinfo.nickName}}, 你好</view>
+<view>
+  <!--  顶部信息-->
+  <view class="UCenter-bg">
+    <view wx:if="{{userinfo}}">
+      <image class="avatar" mode="widthFix" src="{{userinfo.avatarUrl}}"></image>
+      <view class="text-xl">{{userinfo.nickName}}</view>
     </view>
-
-  </view>
-  <view wx:else class="user_btn">
-    <navigator url="/pages/login/login" >登录</navigator>
-  </view>
-</view>
-
-<view class="user_content">
-
-  <view class="user_main">
-    <!-- 历史足迹 history_wrap  bg-gradual-blue   cu-form-group margin-top teamNameContainer -->
-    <view class="history_wrap margin-top">
-      <navigator>
-        <view class="his_num">0</view>
-        <view class="his_name">进行中的活动</view> <!--收藏的店铺 -->
-      </navigator>
-      <navigator url="/pages/collect/index">
-        <view class="his_num">{{collectNums}}</view>
-        <view class="his_name">关注项</view><!--收藏的商品 -->
-      </navigator>
-      <navigator>
-        <view class="his_num">0</view>
-        <view class="his_name">组过的队伍数</view><!--关注的商品 -->
-      </navigator>
-      <navigator>
-        <view class="his_num">0</view>
-        <view class="his_name">我的参与分</view><!--我的足迹 -->
-      </navigator>
+<!--    未登录可以登录-->
+    <view wx:else class="login">
+      <view class="user_btn text-xxl">
+        <button class="cu-btn bg-blue animation-scale-down margin-sm basis-sm shadow" bindtap="toggle" open-type='getUserInfo'  data-class="scale-down" >登录</button>
+      </view>
     </view>
-    <!-- 我的订单 -->
-    <view class="history_wrap margin-top">
-      <!-- <view class="orders_title">我的信息管理</view> -->
-      <!-- <view class="order_content">
-        <navigator url="/pages/jianli/jianli">
-          <view class="iconfont icon-ding_dan"></view>
-          <view class="order_name">简历填写</view>
+  </view>
+
+<!--  个人基础信息统计-->
+  <view class="user_content">
+    <view class="user_main">
+      <!-- 历史足迹 history_wrap  bg-gradual-blue   cu-form-group margin-top teamNameContainer -->
+      <view class="history_wrap margin-top">
+<!--        三个数量-->
+        <navigator>
+            <view class="his_num text-xxl text-apple-black">0</view>
+            <view class="his_name text-df text-apple-black">关注数</view>
         </navigator>
-        <navigator url="/pages/123/123">
-          <view class="iconfont icon-fukuantongzhi"></view>
-          <view class="order_name">简历查看</view>
-        </navigator> -->
-        <!-- <navigator class="history_wrap margin-top" url="/pages/jianli copy/jianli">
-          <view class="iconfont icon-receipt-address"></view>
-          <view class="order_name">简历修改</view>
-        
-        </navigator>  -->
-        <view class="history_wrap margin-top iconfont icon-daohang" style='color:#3377FF;font-size:50rpx;'>
-           <navigator url="/pages/jianli copy/jianli" class="app_info_item  "
-           style='color:#7F8389;font-size:45rpx;'
-           >我的简历 </navigator>
+        <view class="divLine"></view>
+        <navigator url="/pages/collect/index">
+            <view class="his_num text-xxl text-apple-black">{{collectNums}}</view>
+            <view class="his_name text-df text-apple-black">队伍数</view>
+        </navigator>
+        <view class="divLine"></view>
+        <navigator>
+          <view class="his_num text-xxl text-apple-black">0</view>
+          <view class="his_name text-df text-apple-black">参与数</view>
+        </navigator>
+      </view>
+<!--        我的简历-->
+      <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+        <view class="cu-item arrow">
+          <navigator class="content" url="/pages/jianli/jianli" hover-class="none">
+            <text class="cuIcon-creativefill text-orange"></text>
+            <text class="text-apple-black">我的简历</text>
+          </navigator>
         </view>
-        <view class="history_wrap margin-top iconfont icon-biaoji" style='color:#3377FF;font-size:50rpx;'>
-           <navigator url="/pages/feedback/index" class="app_info_item "
-           style='color:#7F8389;font-size:45rpx;'  
-           >我的队伍 </navigator>
-        </view>
-        <!-- <navigator>
-          <view class="iconfont icon-tuihuotuikuan_dianpu"></view>
-          <view class="order_name">简历重填</view>
-        </navigator> -->
-      <!-- </view> -->
-    </view>
-    <!-- 收货地址管理 -->
-
-
-    <!-- 应用信息相关 -->
-    
-    <view class="app_info_wrap margin-top">
-
-      <view class="app_info_item app_info_contact">
-        <text class=" iconfont icon-bangongzhichilei"
-        style='color:#7F8389;font-size:35rpx;'
-        >联系</text>
-        <text style='color:#7F8389;font-size:35rpx;'>15361022831</text>
       </view>
 
-      <navigator url="/pages/feedback/index" class="app_info_item iconfont icon-qianbao"
-      style='color:#7F8389;font-size:35rpx;'
-      >意见反馈</navigator>
-      <view class="app_info_item iconfont icon-mudedi"
-      style='color:#7F8389;font-size:35rpx;'
-      >关于我们</view>
-    </view>
-    <!-- 推荐 -->
-    <view class="recommend_wrap iconfont icon-pinglun"
-    style='color:#7F8389;font-size:35rpx;'
-    >
-      把应用推荐给其他人
-    </view>
+
+      <!-- 应用和个人信息相关 -->
+      <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+        <view class="cu-item arrow">
+          <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+            <text class="cuIcon-github text-grey"></text>
+            <text class="text-apple-black">关于我们</text>
+          </view>
+        </view>
+        <view class="cu-item arrow">
+          <navigator class="content" url="/pages/about/log/log" hover-class="none">
+            <text class="cuIcon-formfill text-green"></text>
+            <text class="text-apple-black">日志</text>
+          </navigator>
+        </view>
+
+        <view class="cu-item arrow">
+          <button class="cu-btn content" open-type="feedback">
+            <text class="cuIcon-writefill text-cyan"></text>
+            <text class="text-apple-black">意见反馈</text>
+          </button>
+        </view>
+      </view>
+
 
   </view>
 </view>
-<!-- <button class="resetBtn  bg-gradual-green iconfont icon-biaoji" bindtap="resetBtnClick">清除</button> -->
-
-<!-- <text class="iconfont icon-daohang" ></text> -->
+</view>

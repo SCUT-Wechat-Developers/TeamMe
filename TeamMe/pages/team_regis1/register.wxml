@@ -23,13 +23,13 @@
 
 	<view class="margin-left margin-right teamInfoContainer radius">
 		<view class="cu-form-group margin-top">
-			<view class="title">组队宣言（口号）</view>
+			<view class="title">比赛项目名称</view>
 			<input bindinput="titleInput" placeholder="例：找xxx比赛队友">title</input>
 		</view>
 		<view class="cu-form-group">
 			<view class="title">队长</view>
 			<van-image round width="40" height="40" fit="fill" src="{{group.memberinfo[0].avatarUrl}}" />
-			<view class="padding-right-xl">{{group.mamberinfo[0].nickName}}</view>
+			<view class="padding-right-xl">{{group.memberinfo[0].nickName}}</view>
 		</view>
 
 		<!--	<view class="cu-form-group">-->

@@ -8,7 +8,7 @@ Page({
     //name:"",
     _name:"",//杠号是未确认的数据存缓
     // gender:"",
-    _gender:"",
+    _gender:"男",
     _phone:0,
     conLists: [],
     genderNum:0,
@@ -55,8 +55,7 @@ Page({
 
      
   },
-
-  //用户名和密码输入框事件
+  // 姓名输入
   userNameInput:function(e){
     //console.log(e);
     //console.log(e.detail.value);
@@ -65,18 +64,14 @@ Page({
     })
     //console.log(this.data._name);
   },
-  passWdInput:function(e){
-    this.setData({
-      _gender:e.detail.value
-    })
-  },
-  bandleChange(e){
-    // 1 获取单选框中的值
-    let gender = e.detail.value;
-    // 2 把值赋值给 data 中的数据
+  // 性别输入 0为女 1为男
+  sexChange(e){
+    let genderNum = e.detail.value;
+    let _gender = genderNum ? '男': '女'
     this.setData({
       // gender:gender
-      gender
+      _gender,
+      genderNum
     })
   },
   phoneInput:function(e){
@@ -114,10 +109,14 @@ Page({
       _text:e.detail.value
     })
   },
+
+  // 全部信息清除，重置
   resetBtnClick:function(e){
     console.log(1);
     //this.onLoad()
     this.setData({
+      _gender:'',
+      genderNum: null,
       _name:'',
       _phone:'',
       _major:'',
@@ -175,9 +174,9 @@ Page({
      
     if(this.data._name.length == 0 ){
       this.setData({
-        infoMess:'温馨提示：用户名和学业栏不能为空！',
+        infoMess:'温馨提示：用户名和学业栏不能为空！'
       })
-    }else{
+    } else{
       this.setData({
         
         [name]:this.data._name,
@@ -208,8 +207,6 @@ Page({
 
         url: '/pages/_inf/_inf',
       })
-
-
        //上传。
     }
   },

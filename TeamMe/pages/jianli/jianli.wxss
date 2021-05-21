@@ -1,4 +1,15 @@
 /* pages/jianli/jianli.wxss */
+page {
+  padding-top: 30rpx;
+  padding-bottom: 50rpx;
+}
+/*表单样式*/
+.formStyle {
+  display: block;
+  padding-top: 50rpx;
+}
+
+
 .itemView{
   margin-top: 10px;
   margin-left: 10px;
@@ -112,6 +123,7 @@ input {
   margin-top: 100rpx;
 }
 
+/*带有阴影和远郊容器*/
 .teamNameContainer {
   display: flex;
   flex-wrap: wrap;
