@@ -16,9 +16,12 @@ Page({
             success=1;
           }
         }
-
-    console.log(this.data.teamInfo.candidateinfo);
-    console.log(this.data);
+    
+    this.setData({
+        teamInfo:this.data.teamInfo
+    })
+    //console.log(this.data.teamInfo.candidateinfo);
+    //console.log(this.data);
     // that.setData({
     //   jid: e.currentTarget.dataset.name,
     //   act_name: e.currentTarget.dataset.act,
@@ -52,6 +55,34 @@ Page({
 
 
 
+  },
+
+  quit: function (e) {
+    var that = this;
+    console.log(e.currentTarget.dataset.item);
+    var len=this.data.teamInfo.memberinfo.length;
+    var success=0;
+        for (var i = 1; i < this.data.teamInfo.memberinfo.length; i++) {
+          if (this.data.teamInfo.memberinfo[i].id == e.currentTarget.dataset.item.id) {
+            this.data.teamInfo.memberinfo.splice(i, 1);
+            success=1;
+          }
+        }
+    this.setData({
+        teamInfo:this.data.teamInfo
+    })
+    // if(success){
+    //     let cartList =this.data.teamInfo.memberinfo
+    //     cartList.push(e.currentTarget.dataset.item);
+    //     let key='teamInfo.memberinfo'
+    //     this.setData({
+    //         [key]: cartList,
+            
+    //         })
+    //         console.log(this.data.teamInfo.memberinfo)
+    //     console.log(e);
+    // }
+    console.log(this.data.teamInfo)
   },
   // pay_again:function(e){
   //   var that = this;

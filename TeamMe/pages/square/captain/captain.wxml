@@ -76,6 +76,49 @@
   
 </view>
 
+---------下面是成员-------------
+
+<view class="padding" wx:for="{{teamInfo.memberinfo}}" wx:for-index="i" wx:if="{{i>0}}">
+  <view class="padding-xl radius shadow-warp bg-white">
+    <text class="cuIcon-medalfill lg text-blue"></text>
+    <text class="name-ti">{{item.name}}</text>
+    <view class="line"></view>
+    <view class="con">
+      <text class="cuIcon-time lg text-gray icon"></text>
+      <text wx:if="{{item.gender}}"> 男</text>
+      <text wx:else> 女</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-location lg text-gray icon"></text>
+      <text>{{item.major}}</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-choiceness lg text-gray icon"></text>
+      <text>{{item.categories}}</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-location lg text-gray icon"></text>
+      <text>{{item.education}}</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-choiceness lg text-gray icon"></text>
+      <text>{{item.skill}}</text>
+    </view>
+    <view class="con">
+      <text class="cuIcon-choiceness lg text-gray icon"></text>
+      <text>{{item.text}}</text>
+    </view>
+    <view>奖项</view>
+    <view class="con" wx:for="{{item.awards}}"  wx:for-item="_item">
+      <text class="cuIcon-choiceness lg text-gray icon"></text>
+      <text>{{_item}}</text>
+    </view>
+    <button class="" bindtap="quit" data-item="{{item}}" >加入</button>
+  </view>
+  
+</view>
+
+
 <view class="padding">
   <view class="padding-xl radius shadow-warp bg-white">
     <text class="cuIcon-medalfill lg text-blue"></text>
