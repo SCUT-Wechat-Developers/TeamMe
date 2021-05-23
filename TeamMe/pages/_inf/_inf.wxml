@@ -18,20 +18,18 @@
   <view class="user_content">
     <view class="user_main">
       <!-- 历史足迹 history_wrap  bg-gradual-blue   cu-form-group margin-top teamNameContainer -->
-      <view class="history_wrap margin-top">
+      <view class="history_wrap margin-top ">
 <!--        三个数量-->
-        <navigator>
-            <view class="his_num text-xxl text-apple-black">0</view>
+        <navigator class="grid col-1 margin-bottom text-center">
+            <view class="his_num text-xxl text-apple-black">{{userInfo.followList.length}}</view>
             <view class="his_name text-df text-apple-black">关注数</view>
         </navigator>
-        <view class="divLine"></view>
-        <navigator url="/pages/collect/index">
-            <view class="his_num text-xxl text-apple-black">{{collectNums}}</view>
+        <navigator url="/pages/_cooperate/_cooperate" open-type="switchTab" class="grid col-1 margin-bottom text-center">
+            <view class="his_num text-xxl text-apple-black">{{userInfo.teamList.length}}</view>
             <view class="his_name text-df text-apple-black">队伍数</view>
         </navigator>
-        <view class="divLine"></view>
-        <navigator>
-          <view class="his_num text-xxl text-apple-black">0</view>
+        <navigator class="grid col-1 margin-bottom text-center">
+          <view class="his_num text-xxl text-apple-black">{{userInfo.hisTeamNum}}</view>
           <view class="his_name text-df text-apple-black">参与数</view>
         </navigator>
       </view>
@@ -44,7 +42,6 @@
           </navigator>
         </view>
       </view>
-
 
       <!-- 应用和个人信息相关 -->
       <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
@@ -60,7 +57,6 @@
             <text class="text-apple-black">日志</text>
           </navigator>
         </view>
-
         <view class="cu-item arrow">
           <button class="cu-btn content" open-type="feedback">
             <text class="cuIcon-writefill text-cyan"></text>
@@ -68,7 +64,6 @@
           </button>
         </view>
       </view>
-
 
   </view>
 </view>

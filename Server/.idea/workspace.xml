@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e6ff1d51-5e14-4604-9128-9b50455cd5b2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/comment/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/components/card1/card/card.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/components/card1/card/card.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/components/card1/card/card.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/components/card1/card/card.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/captain/captain.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/captain/captain.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/captain/captain.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/captain/captain.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/member/member.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/member/member.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/member/member.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/member/member.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/mission/mission.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/mission/mission.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/mission/mission.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/mission/mission.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamMe/utils/wechat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/components/card/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/components/card/card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/components/card/card.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/components/card/card.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/components/card/card.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/components/card/card.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/_cooperate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/_cooperate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/_cooperate.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/_cooperate.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/_cooperate.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/_cooperate.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/_cooperate.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/_cooperate/_cooperate.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/_inf/_inf.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/_inf/_inf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/_inf/_inf.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/_inf/_inf.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/_teamUP/_teamUP.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/_teamUP/_teamUP.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/_teamUP/_teamUP.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/_teamUP/_teamUP.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/jianli copy/jianli.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/jianli copy/jianli.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/jianli copy/jianli.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/jianli copy/jianli.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/jianli/jianli.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/jianli/jianli.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/jianli/jianli.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/jianli/jianli.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/square/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/square/index/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/square/index/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/square/index/index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/square/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/square/index/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/square/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/square/index/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/square/teamInfo/teamInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/square/teamInfo/teamInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/square/teamInfo/teamInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/square/teamInfo/teamInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/square/teamInfo/teamInfo.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/square/teamInfo/teamInfo.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/square/teamInfo/teamInfo.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/square/teamInfo/teamInfo.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/team_regis1/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/team_regis1/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/team_regis1/register.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/team_regis1/register.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/team_regis2/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/team_regis2/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/team_regis2/register.json" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/team_regis2/register.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/team_regis2/register.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../TeamMe/pages/team_regis2/register.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/test/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/test/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/test/test.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TeamMe/pages/test/test.wxss" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1sw6U3zLICRCMECUgX7O8uuukFs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\微信小程序\teamGroup\Server\app" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e6ff1d51-5e14-4604-9128-9b50455cd5b2" name="Default Changelist" comment="" />
+      <created>1621771317170</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621771317170</updated>
+      <workItem from="1621771319044" duration="4349000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

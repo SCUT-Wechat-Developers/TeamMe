@@ -18,9 +18,10 @@ Page({
       },
     ],
     group:{    
-      teamID:0,
+      teamId:'2',
       teamName:'',
       teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
+      captain:{},
       memberinfo:[],
       candidateinfo:[],
       title:'',
@@ -40,30 +41,34 @@ Page({
    */
   onLoad: function (options) {
 
-    var theid=wx.getStorageSync("userinfo")
-    //this.captainInput(theid)
+    var theid=wx.getStorageSync("personinf")
+    this.captainInput(theid)
     console.log(1)
+    
     //console.log(theid)
     //var [captaininfo]={};
-    //let _captaininfo = 'group.captaininfo';
+    let _captaininfo = 'group.captaininfo';
+
 		this.setData({
-      //[_captaininfo]:theid,
-      ['group.memberinfo[0]']:theid
+			[_captaininfo]:theid
 		})
     console.log(this.data.group.captaininfo)
 
-    /*let newList=  this.data.group.captaininfo
+    let newList=  this.data.group.captaininfo
     let cartList =this.data.group.memberinfo
     //cartList.push(newList);
+    cartList.push(newList);
     cartList.push(newList);
     console.log(1)
     console.log(newList)
     console.log(cartList)
     let key='group.memberinfo'
+    let key1='group.candidateinfo'
     this.setData({
-          [key]: cartList
+          [key]: cartList,
+          [key1]:cartList
         })
-*/
+
   },
 
   tabBar() {
@@ -88,17 +93,18 @@ Page({
     })
   },
 
-/*
   captainInput:function(user){
     // var captain ='group.captain'
     let captain ='group.captain'
     this.setData({
       [captain]: {
         id: user.openid,
+        nickName: user.nickName,
+        avatar: user.avatarUrl
       }
     })
   },
-*/
+
   teamImgInput:function(e){
     var teamImg ='group.teamImg'
     this.setData({
@@ -133,7 +139,7 @@ Page({
      */
     // 校验
     let {group} = this.data
-    if(!(group.memberinfo && group.title && group.teamName && group.content)){
+    if(!(group.captain && group.title && group.teamName && group.content)){
       wx.showToast({
         icon: 'none',
         title: '请补充完整信息'
@@ -158,7 +164,34 @@ Page({
    */
   onShow: function () {
     this.tabBar()
+  //  var theid=wx.getStorageSync("personinf")
+    // this.captainInput(theid)
+    // console.log(1)
+    
+    // //console.log(theid)
+    // //var [captaininfo]={};
+    // let _captaininfo = 'group.captaininfo';
 
+		// this.setData({
+		// 	[_captaininfo]:theid
+		// })
+    // console.log(this.data.group.captaininfo)
+
+    // let newList=  this.data.group.captaininfo
+    // let cartList =this.data.group.memberinfo
+    // //cartList.push(newList);
+    // cartList.push(newList);
+    // cartList.push(newList);
+    // console.log(1)
+    // console.log(newList)
+    // console.log(cartList)
+    // let key='group.memberinfo'
+    // let key1='group.candidateinfo'
+    // this.setData({
+    //       [key]: cartList,
+    //       [key1]:cartList
+          
+    //     })
   },
 
   /**

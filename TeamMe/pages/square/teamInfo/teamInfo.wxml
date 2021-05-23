@@ -67,11 +67,6 @@
         {{teamInfo.content}}
       </textarea>
     </view>
-    <!--    人数要求-->
-    <view class="taskmate">
-      <text>所需人数:{{teamInfo.needNum}}人</text>
-      <text class="padding-left">参与候选人：{{teamInfo.candidateNum}}人</text>
-    </view>
   </view>
 </view>
 <!--  个人信息填写区域-->

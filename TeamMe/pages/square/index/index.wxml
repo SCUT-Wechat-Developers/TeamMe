@@ -1,26 +1,20 @@
 <!--index.wxml-->
-<!-- 顶部导航栏-->
- <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">组队广场</view>
- </cu-custom>
-
 <!--搜索栏（包含历史记录）-->
  <view>
   <searchHistory id="history" dropOption="{{dropOption}}" dropValue="{{dropValue}}" bind:change = "selectTag"  bind:searchEvent = "searchTeam" bind:select="selectInfo" maxSize="5" placeholderText="请输入要搜索的队伍id" data-target="viewModal" leftText="筛选">
   </searchHistory>
  </view>
 
-
-
-<scroll-view scroll-y bindrefresherrefresh="handleRefresher" refresher-enabled class="DrawerPage {{modalName=='viewModal'?'show':''}}">
+<scroll-view enable-back-to-top scroll-y bindrefresherrefresh="handleRefresher" refresher-enabled class="DrawerPage {{modalName=='viewModal'?'show':''}}">
 <!-- 组队卡片-->
-<view wx:for="{{selectTeamList.length != 0 ? selectTeamList : teamList}}" wx:key="teamId">
+<view wx:for="{{selectTeamList.length != 0 ? selectTeamList : teamList}}"  wx:key="teamId">
  <teamInsCard
+
+         images="{{item.memberinfo.avatarUrl}}"
          isLiked="{{item.isLiked}}"
          id="{{item.teamId}}"
          needed="{{item.needNum}}"
          candidated="{{item.candidateNum}}"
-         headerImg="{{item.memberinfo[0].avatarUrl}}"
          title="{{item.title}}"
          isMoreText="false"
          updateTime="{{item.updateTime}}"
@@ -30,32 +24,11 @@
          isShowLike="{{true}}"
          bind:like="handleLike"
          bindtap="detailInformation">
-
  </teamInsCard>
 
 </view>
 
+ <view class="standView"></view>
+
 </scroll-view>
 
-
-<!--抽屉滑出筛选菜单-->
-
-<!--<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">-->
-<!-- &lt;!&ndash; 返回小图标 &ndash;&gt;-->
-<!-- <text class="cuIcon-pullright"></text>-->
-<!--</view>-->
-<!--<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">-->
-<!-- &lt;!&ndash;  筛选菜单&ndash;&gt;-->
-<!-- <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">-->
-<!--  <view class="cu-form-group margin-top">-->
-<!--   <view class="title">选择标签</view>-->
-<!--   <picker bindchange="tagPickerChange" id="{{tagIndex}}" range="{{tagList}}">-->
-<!--    <view class="picker">-->
-<!--     {{tagIndex?tagList[tagIndex]:'null'}}-->
-<!--    </view>-->
-<!--   </picker>-->
-<!--  </view>-->
-<!-- </view>-->
-<!-- <button bindtap="clickSelect">确定</button>-->
-<!-- <button bindtap="clickReset">重置</button>-->
-<!--</scroll-view>-->

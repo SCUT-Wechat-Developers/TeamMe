@@ -1,4 +1,6 @@
 // app.js
+
+let wechat = require('./utils/wechat.js');
 App({
 
   getUserInfo(){
@@ -24,6 +26,23 @@ App({
   },
 
   onLaunch: function() {
+    wechat.getCryptoData()
+        .then(d => {
+          return wechat.getMyOpenid(d);
+        })
+        .then(d => {
+          console.log("从后端获取的openid", d.data);
+          //wx.setStorageSync("personinf",this.data.person);
+          wx.setStorageSync(
+              "openid",d.data.openid
+          )
+        })
+        .catch(e => {
+          console.log(e);
+        })
+
+
+
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;

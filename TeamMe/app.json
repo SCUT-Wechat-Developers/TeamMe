@@ -3,11 +3,10 @@
     "pages/square/index/index",
     "pages/_teamUP/_teamUP",
     "pages/jianli/jianli",
-    "pages/index/index",
     "pages/team_regis2/register",
-
-    
-    
+    "pages/_cooperate/member/member",
+    "pages/_cooperate/captain/captain",
+    "pages/_cooperate/mission/mission",
     "pages/team_regis1/register",
     "pages/_inf/_inf",
     "pages/square/teamInfo/teamInfo",
@@ -22,8 +21,7 @@
 
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
-    "navigationBarTitleText": "Color UI",
-    "navigationStyle": "custom",
+    "navigationBarTitleText": "TeamMe",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

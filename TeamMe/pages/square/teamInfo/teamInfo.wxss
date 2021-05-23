@@ -1,4 +1,8 @@
 /**index.wxss**/
+/*基础样式*/
+page {
+    padding-bottom: 100rpx;
+}
 .head{
     padding: 0 30rpx 10rpx;
     margin-top: 60rpx;
@@ -19,13 +23,25 @@
 }
 .head .word,
 .head .info{
-    padding-top: 20rpx;
+    padding-top: 10rpx;
+    margin-top: 5rpx;
 }
+
+
+/*缺省*/
+.ellipse {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+
 .head .word text{
     font-size: 32rpx;
     margin:0 auto;
     text-align:center;
-    background:-webkit-linear-gradient(left,#ff0000,#ffff00 25%,#ff0000 50%,#ffff00 75%,#ff0000);
+    background:-webkit-linear-gradient(left, #118405, #979709 25%, #25b305 50%, #555505 75%,#118405);
     color:transparent;
     -webkit-background-clip:text;
     background-size:200% 100%;
@@ -40,4 +56,15 @@
 }
 .head .info{
     padding-bottom: 20rpx;
+}
+
+
+/*队员卡片*/
+
+
+
+.member .memberAvatar image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
 }

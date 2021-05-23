@@ -16,11 +16,22 @@ Page({
      * text: 简介
      * awards: 奖项 Array
      *
+     * 团队协作版块需要字段：
+     * missionList： 任务列表 [{missionInfo}]
+     * missionInfo: {teamId: 队伍Id, content: 内容, deadline: 截止日期, finished: boolean 是否完成}
+     *
+     * 新的字段:
+     * followList: 关注 Array
+     * teamList： 个人当前的队伍
+     * hisTeamNum: 总共的队伍数量 (这里还是不存历史所有的队伍先了，只简单统计数量)
+     *
      *
      */
-    userinfo:{},
-    // 被收藏的商品的数量
-    collectNums:0
+    userInfo:{
+      followList: ['wwww'],
+      teamList: ['wwwww'],
+      hisTeamNum: 0
+    },
   },
 
   tabBar() {
@@ -37,7 +48,7 @@ Page({
     //console.log(1); console.log(userinfo);
     //console.log({{personinf.name}});
 
-    this.setData({userinfo,collectNums:collect.length});
+    this.setData({userinfo});
       
   },
   /**

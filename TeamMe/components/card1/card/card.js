@@ -4,15 +4,16 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    headerImg: String,
     title: String,
     updateTime: String,
+    endTime:String,
     img: String,
     context: String,
     moreText: String,
     isShowLike: Boolean,
     needed: Number,
     candidated: Number,
-    images: Array,
     isLiked: {
       type: Boolean,
       observer: function () { this.setData({ isLiked: this.properties.isLiked }); }
@@ -40,8 +41,7 @@ Component({
   data: {
     isMoreText: false,
     isLiked: false,
-    isUnlike: false
-
+    isUnlike: false,
   },
 
   /**

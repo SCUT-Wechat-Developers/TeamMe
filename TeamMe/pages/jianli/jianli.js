@@ -20,6 +20,8 @@ Page({
     education:"",
     _education:"",
 
+    university:"",
+
     educationLevel:0,
 
    // awards:[""],
@@ -39,12 +41,14 @@ Page({
       education:"",
       awards:[""],
       skill:[""],
-      text:""
+      text:"",
+      university:""
     }
 
   },
 
   onLoad: function(res1) {
+   
     var theid=wx.getStorageSync("personinf") 
     console.log(1)
   //  console.log(theid)
@@ -74,36 +78,43 @@ Page({
       genderNum
     })
   },
-  phoneInput:function(e){
+  // 输入大学
+  universityInput:function (e) {
     this.setData({
-      _phone:e.detail.value
+      university: e.detail.value
     })
   },
+  // 专业输入
   majorInput:function(e){
+    // var openid=wx.getStorageSync("openid") 
+    
+    // this.setData({
+    //   id:openid
+    // })
+    // console.log(this.data)
     this.setData({
       _major:e.detail.value
     })
   },
+  // 学科输入
   categoriesInput:function(e){
     this.setData({
       _categories:e.detail.value
     })
   },
+  // 学历输入
   educationInput:function(e){
     this.setData({
       _education:e.detail.value
     })
   },
-  awardsInput:function(e){
-    this.setData({
-      _awards:e.detail.value
-    })
-  },
+  // 技能输入
   skillInput:function(e){
     this.setData({
       _skill:e.detail.value
     })
   },
+  // 简介输入
   textInput:function(e){
     this.setData({
       _text:e.detail.value
@@ -125,18 +136,13 @@ Page({
       _skill:'',
       _text:'',
       conLists: [],
-      person:{}
-      //[phone]: this.data._phone,
-      // [major]:this.data._major,
-      // [categories]:this.data._categories,
-      // [education]:this.data._education,
-      // // [awards]:this.data._awards,
-      // [awards]:this.data.conLists,
-      // [skill]:this.data._skill,
-      // [text]:this.data._text,
+      person:{},
+      university:''
     })
   },
-  loginBtnClick:function(){
+
+  // 确认修改信息按钮
+  confirmBtnClick:function(){
     var name ="person.name";
     var gender ="person.gender";
    // var phone ="person.phone";
@@ -148,6 +154,7 @@ Page({
     var skill ="person.skill";
     var text ="person.text";
     var avatarUrl="person.avatarUrl";
+    var university="person.university";
     var genderNum=wx.getStorageSync("userinfo");
     console.log(genderNum.gender)
     genderNum=genderNum.gender
@@ -155,30 +162,13 @@ Page({
     console.log(_avatarUrl.avatarUrl)
     _avatarUrl=_avatarUrl.avatarUrl
     let phone = 'person.phone';
-    // || this.data._gender.length == 0
-    // var StorageData = wx.getStorageSync("userinfo")
-    // console.log(StorageData)
-    //var genderNum = wx.getStorageSync("userinfo")
-    var theid=wx.getStorageSync("key") 
-    // console.log("getgender",genderNum)
-    // wx.getStorage({
-    //   key: 'userinfo',
-    //   success: function(res) {
-
-    //     console.log(res.data)
-    //     genderNum=res.data.gender;
-    //     console.log(genderNum)
-        
-    //   }
-    //  })
-     
-    if(this.data._name.length == 0 ){
+    var theid=wx.getStorageSync("openid")
+    if(this.data._name.length === 0 ){
       this.setData({
         infoMess:'温馨提示：用户名和学业栏不能为空！'
       })
     } else{
       this.setData({
-        
         [name]:this.data._name,
         [avatarUrl]:_avatarUrl,
         [id]:theid,
@@ -191,7 +181,7 @@ Page({
         [awards]:this.data.conLists,
         [skill]:this.data._skill,
         [text]:this.data._text,
-        
+        [university]: this.data.university
       })
       // console.log('名字：'+this.data.name);
       // console.log('性别：'+this.data.person.gender);
@@ -203,6 +193,15 @@ Page({
           console.log(res.data)
         }
        })
+      wx.request({
+        method:'post',
+        url: 'http://localhost:3500/jianli/write',
+        data: this.data.person,
+        header:{'content-type':'application/x-www-form-urlencoded'},
+        success:function(res){
+          console.log(res);
+        }
+      })
        wx.switchTab({
 
         url: '/pages/_inf/_inf',
@@ -210,10 +209,8 @@ Page({
        //上传。
     }
   },
-
-
       /**
-   * 添加内容
+   * 添加奖项
    */
   add(e) {
     // 点击添加按钮，就往数组里添加一条空数据
@@ -223,9 +220,8 @@ Page({
       conLists: _list
     })
   },
-
   /**
-   * 删除内容
+   * 删除奖项
    */
   del(e) {
     var idx = e.currentTarget.dataset.index;
@@ -233,7 +229,7 @@ Page({
     console.log(idx)
     for (let i = 0; i < _list.length; i++) {
       if (idx == i) {
-        _list.splice(idx, 1)
+        _list.splice(i, 1)
       }
     }
     this.setData({

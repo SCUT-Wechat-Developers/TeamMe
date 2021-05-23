@@ -1,2 +1,70 @@
-<!--pages/_cooperate/_cooperate.wxml-->
-<text>pages/_cooperate/_cooperate.wxml</text>
+<!--index.wxml-->
+<!-- 顶部导航栏-->
+
+<!-- <van-dropdown-menu>
+  <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}"  bind:change="bindViewTap" />
+  <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
+</van-dropdown-menu> -->
+
+
+
+
+
+
+
+<!--搜索栏（包含历史记录）-->
+ <view>
+  <searchHistory id="history" dropOption="{{dropOption}}" dropValue="{{dropValue}}" bind:change = "selectTag"  bind:searchEvent = "searchTeam" bind:select="selectInfo" maxSize="5" placeholderText="请输入要搜索的队伍id" data-target="viewModal" leftText="筛选">
+  </searchHistory>
+ </view>
+
+
+
+<scroll-view scroll-y bindrefresherrefresh="handleRefresher" refresher-enabled class="DrawerPage {{modalName=='viewModal'?'show':''}}">
+<!-- 组队卡片--> <!-- title="{{item.title}}" -->
+<view wx:for="{{selectTeamList.length != 0 ? selectTeamList : teamList}}" wx:key="teamId">
+ <teamInsCard
+         isLiked="{{item.isLiked}}"
+         id="{{item.teamId}}"
+         needed="{{item.needNum}}"
+         candidated="{{item.candidateNum}}"
+         headerImg="{{item.teamImg}}"
+        
+         title="{{item.teamName}}"
+         isMoreText="false"
+         updateTime="{{item.updateTime}}"
+         context="{{item.content}}"
+         tag="{{item.tag}}"
+         tagColor='red'
+         isShowLike="{{true}}"
+         bind:like="handleLike"
+         bindtap="detailInformation">
+
+ </teamInsCard>
+
+</view>
+
+</scroll-view>
+
+
+<!--抽屉滑出筛选菜单-->
+
+<!--<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">-->
+<!-- &lt;!&ndash; 返回小图标 &ndash;&gt;-->
+<!-- <text class="cuIcon-pullright"></text>-->
+<!--</view>-->
+<!--<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">-->
+<!-- &lt;!&ndash;  筛选菜单&ndash;&gt;-->
+<!-- <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">-->
+<!--  <view class="cu-form-group margin-top">-->
+<!--   <view class="title">选择标签</view>-->
+<!--   <picker bindchange="tagPickerChange" id="{{tagIndex}}" range="{{tagList}}">-->
+<!--    <view class="picker">-->
+<!--     {{tagIndex?tagList[tagIndex]:'null'}}-->
+<!--    </view>-->
+<!--   </picker>-->
+<!--  </view>-->
+<!-- </view>-->
+<!-- <button bindtap="clickSelect">确定</button>-->
+<!-- <button bindtap="clickReset">重置</button>-->
+<!--</scroll-view>-->

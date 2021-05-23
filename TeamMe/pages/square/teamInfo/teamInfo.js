@@ -23,7 +23,7 @@ Page({
             modalName: null
         })
     },
-    // 监听输入的个人信息
+    // 监听输入的个人简历
     detailInput (e) {
         this.setData({
             introduction: e.detail.value
@@ -57,6 +57,12 @@ Page({
         })
     },
 
+    // 申请加入队伍
+    joinIn() {
+        let ins = this.data;
+        // 传过去队伍信息
+
+    },
     /**
      * 生命周期函数--监听页面加载
      */

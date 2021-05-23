@@ -1,3 +1,0 @@
-<van-dropdown-menu>
-    <van-dropdown-item  bind:change="onSwitch1Change" options="{{ option1 }}" />
-</van-dropdown-menu>

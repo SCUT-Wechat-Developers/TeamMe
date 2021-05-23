@@ -136,6 +136,7 @@ Page({
       //组队成功，把数据传到后台服务器
       var groupMes=this.data.group;
       groupMes.memberinfo=JSON.stringify(this.data.group.memberinfo);
+      //groupMes.candidateinfo=JSON.stringify(this.data.group.candidateinfo);
       wx.request({
         method:'post',
         url: 'http://localhost:3500/db',
@@ -149,14 +150,7 @@ Page({
 
         url: '/pages/_teamUP/_teamUP',
         // url: '/pages/square/index/index',
-        //url: '/pages/_teamUP/_teamUP',
-        url: '/pages/square/index/index',
-        //刷新组队广场页面
-        success: function (e) {  
-          var page = getCurrentPages().pop();  
-          if (page == undefined || page == null) return;  
-          page.onLoad();  
-        } 
+
       /*
       wx.navigateTo({
         url: '/pages/_teamUP/_teamUP'

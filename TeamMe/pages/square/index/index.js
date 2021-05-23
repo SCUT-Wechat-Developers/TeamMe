@@ -29,14 +29,16 @@ Page({
         teamName: '队伍1',
         teamImg: 'https://img3.doubanio.com/view/group_topic/l/public/p276827851.webp',
         title: '微信小程序竞赛队友',
-        content: '2021微信小程序应用开发赛（以下简称“大赛”）是由清华大学与腾讯公司微信事业群联合主办。',
+        content: '\n' +
+            '\n' +
+            '维基百科（英语：Wikipedia，英语音标：/ˌwɪkᵻˈpiːdiə/ 或 /ˌwɪkiˈpiːdiə/），总部位于美国，是一个基于维基技术的多语言百科全书式的协作计划，是用多种语言编写而成的网络百科全书。维基百科由非营利组织维基媒体基金会负责营运，维基百科接受捐... ',
         needNum: 2,
         candidateNum: 1,
         tag: '微信小程序竞赛',
         endTime: new Date('2021-05-20'),
         updateTime: '2021-05-07',
         likeNum: 0,
-        isLiked: false
+        memberAvatar:["https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3355464299,584008140&fm=26&gp=0.jpg", "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3231005548,635944634&fm=26&gp=0.jpg","https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3231005548,635944634&fm=26&gp=0.jpg"]
       },
       {
         captain: '队长2',
@@ -51,7 +53,7 @@ Page({
         endTime: new Date('2021-05-20'),
         updateTime: '2021-05-07',
         likeNum: 0,
-        isLiked: false
+        memberAvatar:["https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3355464299,584008140&fm=26&gp=0.jpg", "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3231005548,635944634&fm=26&gp=0.jpg","https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3231005548,635944634&fm=26&gp=0.jpg"]
       },
       {
         captain: '队长2',
@@ -66,7 +68,6 @@ Page({
         endTime: new Date('2021-05-20'),
         updateTime: '2021-05-07',
         likeNum: 0,
-        isLiked: false
       },
       {
         captain: '队长2',
@@ -81,7 +82,6 @@ Page({
         endTime: new Date('2021-05-20'),
         updateTime: '2021-05-07',
         likeNum: 0,
-        isLiked: false
       }
     ],  // 队伍
     /**
@@ -96,13 +96,15 @@ Page({
      *    比赛类型            tag
      *    截止日期         endTime
      *    更新信息日期      updateTime
+     *    队员信息列表         memberInfo
+     *    候选人信息列表      candidateInfo
+     *    喜欢的人数         LikeNum
      *
      */
     teamInformation: {
       captain: '',
       teamId: '',
       teamName: '',
-      teamImg: '',
       title: '',
       content: '',
       needNum: 0,
@@ -111,7 +113,9 @@ Page({
       endTime: Date,
       updateTime: '',
       likeNum: 0,
-      isLiked: false
+      memberInfo: {},
+      candidateInfo: {},
+      memberAvatar:[]  // 方便获取头像，无需存入数据库
     },  // 队伍信息
     selectTeamList: [],  // 筛选队伍
     userInfo: {},
@@ -137,6 +141,9 @@ Page({
    * 初始化加载函数
    */
   onLoad: function(options) {
+
+
+
     if (wx.getUserProfile) {
       let {dropOption, dropValue} = this.data
       console.log(this.data.selectTeamList)
@@ -152,10 +159,12 @@ Page({
         method:'get',
         url: 'http://localhost:3500/square',
         success:(res)=>{
+          //res.memberInfo=JSON.parse('res.memberInfo');
           console.log(res.data);
           this.setData({
             teamList:res.data
           })
+
         }
       })
     }
@@ -239,10 +248,11 @@ Page({
      * @param event 事件
      */
 
-  detailInformation (event) {
+    detailInformation (event) {
     let tid = event.currentTarget.id // 当前选中的队伍ID
+    console.log(event)
     let teamInformation = this.data.teamList.find(item => {
-      return item.teamId === tid
+      return item.teamID == tid
     })
     console.log('队伍的id',tid)
     this.setData({
@@ -267,15 +277,9 @@ Page({
    */
   searchTeam(e) {
     let tid = e.detail  // 用户搜索的队伍Id
+    console.log(typeof (tid))
     let {teamList} = this.data
-    //
-    var team;
-    for(var i=0;i<teamList.length;i++){
-      if(tid==teamList[i].teamID)
-        team=teamList[i];
-    }
-    //let team = teamList.find(item =>{ return item.teamId === tid})
-
+    let team = teamList.find(item => item.teamId === tid)
     if (team){
       let selectTeamList = [team]
       this.setData({
@@ -290,7 +294,7 @@ Page({
     }
     setTimeout(()=>{
       wx.hideLoading();
-    },500)
+    },1000)
   },
   // 筛选
   /**

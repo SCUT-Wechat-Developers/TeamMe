@@ -1,11 +1,4 @@
-<!--pages/jianli/jianli.wxml-->
-<!-- <text>pages/jianli/jianli.wxml</text>bg-gradual-purple -->
-<!--头部导航栏-->
-<cu-custom bgColor="bg-gradual-pink" isBack="true">
-    <block slot="backText">返回</block>
-  <view slot="content">组建队伍</view>
-</cu-custom>
-
+<!--个人简历-->
 
 <scroll-view scroll-y enable-flex>
 
@@ -25,7 +18,7 @@
   <!--  学校-->
   <view class="cu-form-group">
     <view class="title">学校:</view>
-    <input bindinput="universityInput" placeholder="请填入你所在院校"></input>
+    <input bindinput="universityInput" model:value="{{university}}" placeholder="请填入你所在院校"></input>
   </view>
   <!--  专业-->
   <view class="cu-form-group">
@@ -73,11 +66,9 @@
   <block wx:for="{{conLists}}" wx:key="index">
     <view class='template_title_list flex-x'>
       <view class="del" bindtap='del' data-index='{{index}}'>-</view>
-
       <input placeholder='请填写奖项' bindinput='changeConTitle' data-index='{{index}}'></input>
     </view>
   </block>
-
   <view class='template_title flex-x' bindtap='add'>
     <view class='add_con flex-x'>
       <text>+</text>
@@ -90,7 +81,7 @@
 
 <!--  按钮-->
 <view class="itemView">
-  <button class="loginBtn bg-gradual-green" bindtap="loginBtnClick">确认</button>
+  <button class="loginBtn bg-gradual-green" bindtap="confirmBtnClick">确认</button>
   <button class="resetBtn  bg-grey" bindtap="resetBtnClick">重置</button>
 </view>
 

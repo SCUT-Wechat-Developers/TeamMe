@@ -1,14 +1,10 @@
 <!--dist/cards/card/card.wxml-->
 <view class='wx-cards-card'>
   <view class='header'>
-<!--队员头像-->
+<!--    队伍头像图片-->
     <view class='pc'>
-        <view wx:for="{{images}}" wx:key  style='transform:translateX({{-index*50}}rpx)'>
-            <image wx:if="{{index < 3}}" src='{{item}}' mode='aspectFill'></image>
-        </view>
+      <image mode='aspectFill' src='{{headerImg}}'></image>
     </view>
-
-<!--名称和发布时间-->
     <view class='title-time'>
       <view class='title'>{{title}}</view>
       <view class='time'>{{updateTime}}</view>
@@ -19,10 +15,7 @@
       <icon-button type='more' style='display: none;'></icon-button>
     </view>
   </view>
-
-
-
-<!--    人数要求-->
+  <!--  人数要求-->
   <view class="taskmate">
     <text>所需人数:{{needed}}人</text>
     <text>参与候选人：{{candidated}}人</text>
@@ -44,7 +37,7 @@
     </view>
 <!--      截止时间-->
       <view class='taskEnd'>
-          <text>候选截止日期：2021-05-01</text>
+          <text>候选截止日期：{{endTime}}</text>
       </view>
     <view wx:if="{{isMoreText}}" style='transform:rotate({{isMoreText ? 180 : 0}}deg);' bindtap='showMoreText'>
       <icon-button type='explain'></icon-button>

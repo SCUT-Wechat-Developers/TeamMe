@@ -1,4 +1,5 @@
 {
   "usingComponents": {
-  }
+  },
+  "navigationBarTitleText": "队伍信息"  
 }

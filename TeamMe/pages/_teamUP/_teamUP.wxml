@@ -1,9 +1,5 @@
  <!--teamUP.wxml-->
 <navigator url="/pages/team_regis1/register">
-  <cu-custom bgColor="bg-gradual-white" isBack="true">
-    <block slot="backText">返回</block>
-    <view slot="content">队伍卡片</view>
-  </cu-custom>
   <view>
     <van-steps
             class="shadow"

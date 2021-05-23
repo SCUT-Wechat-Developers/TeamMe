@@ -94,4 +94,29 @@ router.post('/jianli/write',function(req,res,next){
   })
 })
 
+router.post("/openid", async (req, res) => {
+    console.log('openid来了')
+    const Ut = require("../comment/utils");
+    try {
+        console.log(req.body);
+        let appId = "wx84f6c451fa65662b";
+        let secret = "0ee1141d3ac767aea1ff858cd10922e4";
+        let { js_code } = req.body;
+        let opts = {
+            url: `https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=${secret}&js_code=${js_code}&grant_type=authorization_code`
+        }
+        let r1 = await Ut.promiseReq(opts);
+        r1 = JSON.parse(r1);
+        console.log(r1);
+        res.json(r1);
+
+        console.log('搞定了')
+    }
+    catch (e) {
+        console.log(e);
+        res.json('');
+    }
+})
+
+
 module.exports = router;
