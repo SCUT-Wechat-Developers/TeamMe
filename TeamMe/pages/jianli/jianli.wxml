@@ -5,7 +5,10 @@
 <!--姓名-->
 <view class="cu-form-group margin-top teamNameContainer">
     <view class="title margin-left">姓名</view>
-    <input placeholder="请填入姓名" value='{{_name}}' bindinput="userNameInput"></input>
+    <input class=" " name="userName" placeholder="请填入姓名" value='{{person.name}}' wx:if="{{person.major}}"
+    bindinput="userNameInput"/>
+    <input class=" " name="userName" placeholder="请填入姓名" value='{{person.name}}' wx:else
+    bindinput="userNameInput"/>
 </view>
 <!--  性别-->
   <view class="cu-form-group margin-top teamNameContainer">
@@ -18,24 +21,31 @@
   <!--  学校-->
   <view class="cu-form-group">
     <view class="title">学校:</view>
-    <input bindinput="universityInput" model:value="{{university}}" placeholder="请填入你所在院校"></input>
+    <input class=" "  
+     bindinput="universityInput" value='{{person.university}}'  wx:if="{{person.university}}"  />
+     <input class=" "  
+     bindinput="universityInput" value='{{person.university}}'  wx:else placeholder="请填入你所在院校" />
+    <!-- <input bindinput="universityInput" model:value="{{university}}" placeholder="请填入你所在院校"></input> -->
   </view>
   <!--  专业-->
   <view class="cu-form-group">
     <view class="title">专业:</view>
-    <input bindinput="majorInput" value='{{_major}}' placeholder="请填入专业（如软件工程）" />
+    <input class=" "  
+     bindinput="majorInput" value='{{person.major}}'  wx:if="{{person.major}}"  />
+     <input class=" "  
+     bindinput="majorInput" value='{{person.major}}'  wx:else placeholder="请填入专业（如软件工程）" />
   </view>
   <!--  学科-->
   <view class="cu-form-group">
     <view class="title">学科:</view>
-    <input   placeholder="请填入学科（理学、哲学、医学等）"
-           bindinput="categoriesInput" value='{{_categories}}'/>
+    <input class=" "  placeholder="请填入学科（理学、哲学、医学等）"
+     bindinput="categoriesInput" value='{{_categories}}'/>
   </view>
   <!--学历-->
   <view class="cu-form-group">
   <view class="title">学历:</view>
-    <input   placeholder="请填入学历（本科生、研究生）"
-           bindinput="educationInput" value='{{_education}}'/>
+  <input class=" "  placeholder="请填入学历（本科生、研究生）"
+     bindinput="educationInput" value='{{_education}}'/>
   </view>
 </form>
 
@@ -80,8 +90,10 @@
 
 
 <!--  按钮-->
+<view>{{infoMess}}</view>
 <view class="itemView">
   <button class="loginBtn bg-gradual-green" bindtap="confirmBtnClick">确认</button>
+
   <button class="resetBtn  bg-grey" bindtap="resetBtnClick">重置</button>
 </view>
 

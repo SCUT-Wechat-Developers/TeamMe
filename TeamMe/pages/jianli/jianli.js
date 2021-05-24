@@ -19,8 +19,8 @@ Page({
     _categories:"",
     education:"",
     _education:"",
-
     university:"",
+    _university:"",
 
     educationLevel:0,
 
@@ -35,6 +35,7 @@ Page({
       name:"",
       gender:"",
       phone:0,
+      mission:[{}],
       major:"",
       avatarUrl:"",
       categories:"",
@@ -53,7 +54,21 @@ Page({
     console.log(1)
   //  console.log(theid)
     this.setData({
-      person:theid
+      person:theid,
+      _name:theid.name,//杠号是未确认的数据存缓
+      //conLists: theid.conLists,
+      //genderNum:theid.person.gender,
+      //_avatarUrl:theid.person.avatarUrl,
+
+      _major:theid.major,
+      _categories:theid.categories,
+      _education:theid.education,
+      _university:theid.education,
+     // awards:[""],
+      //_awards:theid.person.,
+      _skill:theid.skill,
+      //text:"",
+      _text:theid.text,
     });
 
 
@@ -163,9 +178,14 @@ Page({
     _avatarUrl=_avatarUrl.avatarUrl
     let phone = 'person.phone';
     var theid=wx.getStorageSync("openid")
-    if(this.data._name.length === 0 ){
+    if((this.data._name.length == 0 ) ||
+    (this.data._major.length == 0 ) ||
+    (this.data._categories.length == 0 ) ||
+    (this.data.university.length == 0 ) ||
+    (this.data._education.length == 0 ) 
+    ){
       this.setData({
-        infoMess:'温馨提示：用户名和学业栏不能为空！'
+        infoMess:'温馨提示：用户名和学业栏不能为空！',
       })
     } else{
       this.setData({

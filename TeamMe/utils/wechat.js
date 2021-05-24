@@ -70,6 +70,7 @@ class Wechat {
    */
   static getMyOpenid(params) {
     let url = 'http://localhost:3000/openid';
+    //let url = 'http://qq1261283562.w3.luyouxia.net/openid';
     return this.request(url, params, "POST", "application/x-www-form-urlencoded");
   };
 }
