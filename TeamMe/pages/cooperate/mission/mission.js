@@ -126,15 +126,15 @@ Page({
     // }
     else{  
       console.log(this.data.personinfo)
-      let permission=this.data.personinfo.mission
-      // let permission = JSON.parse(JSON.stringify(this.data.personinfo.mission));
-      // console.log(permission == this.data.personinfo.mission) //false  通过json方法复制后的地址不一样
-      // console.log(permission);
+      // let permission=this.data.personinfo.mission
+      let permission = JSON.parse(JSON.stringify(this.data.personinfo.mission));
+      console.log(permission == this.data.personinfo.mission) //false  通过json方法复制后的地址不一样
+      console.log(permission);
 
-      let missionone=this.data.mission
-      // let missionone = JSON.parse(JSON.stringify(this.data.mission));
-      // console.log(missionone == this.data.mission) //false  通过json方法复制后的地址不一样
-      // console.log(missionone);
+      // let missionone=this.data.mission
+      let missionone = JSON.parse(JSON.stringify(this.data.mission));
+      console.log(missionone == this.data.mission) //false  通过json方法复制后的地址不一样
+      console.log(missionone);
 
       permission.push(missionone);
 

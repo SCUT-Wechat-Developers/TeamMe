@@ -19,7 +19,7 @@ Page({
     ],
     group:{},
     items: [
-      {name: 'USA', value: '微信小程序', checked: 'true'},
+      {name: 'USA', value: '微信小程序'},
       {name: 'CHN', value: '全国大学生数学建模竞赛'},
       {name: 'BRA', value: '美国大学生数学建模竞赛（MCM/ICM）'},
       {name: 'JPN', value: '大学生挑战杯创业比赛'},
@@ -89,7 +89,7 @@ Page({
  
     //  })
     wx.switchTab({
-      url: '/pages/team_regis1/register',
+      url: '/pages/publish/team_regis1/register',
     })
   },
 
@@ -148,7 +148,7 @@ Page({
       })
       wx.navigateTo({
 
-        url: '/pages/_teamUP/_teamUP',
+        url: '/pages/publish/_teamUP/_teamUP',
         // url: '/pages/square/index/index',
 
       /*

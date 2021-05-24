@@ -148,7 +148,7 @@ Page({
     else{
     wx.setStorageSync("group",this.data.group);
     wx.navigateTo({
-      url: '/pages/team_regis2/register',
+      url: '/pages/publish/team_regis2/register',
     })}
   },
 

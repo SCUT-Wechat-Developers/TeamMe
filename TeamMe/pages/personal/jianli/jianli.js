@@ -33,7 +33,7 @@ Page({
       id:"",
       teamid:[],
       name:"",
-      gender:"",
+      gender:0,
       phone:0,
       mission:[{}],
       major:"",
@@ -49,17 +49,33 @@ Page({
   },
 
   onLoad: function(res1) {
-   
+    
+
     var theid=wx.getStorageSync("personinf") 
     console.log(1)
-  //  console.log(theid)
+    console.log(theid)
+    if(theid.gender==1){
+      let genderNum=1;
+      let _gender = genderNum ? '男': '女'
+      this.setData({
+        _gender,genderNum
+      })
+    }
+    else{
+      let genderNum=0;
+      let _gender = genderNum ? '男': '女'
+      this.setData({
+        _gender,genderNum
+      })
+    }
+     //  console.log(theid)
     this.setData({
       person:theid,
       _name:theid.name,//杠号是未确认的数据存缓
       //conLists: theid.conLists,
       //genderNum:theid.person.gender,
       //_avatarUrl:theid.person.avatarUrl,
-
+      
       _major:theid.major,
       _categories:theid.categories,
       _education:theid.education,
@@ -86,6 +102,7 @@ Page({
   // 性别输入 0为女 1为男
   sexChange(e){
     let genderNum = e.detail.value;
+    genderNum = e.detail.value?1:0
     let _gender = genderNum ? '男': '女'
     this.setData({
       // gender:gender
@@ -141,8 +158,8 @@ Page({
     console.log(1);
     //this.onLoad()
     this.setData({
-      _gender:'',
-      genderNum: null,
+      _gender:'女',
+      genderNum: 0,
       _name:'',
       _phone:'',
       _major:'',
@@ -170,9 +187,12 @@ Page({
     var text ="person.text";
     var avatarUrl="person.avatarUrl";
     var university="person.university";
-    var genderNum=wx.getStorageSync("userinfo");
-    console.log(genderNum.gender)
-    genderNum=genderNum.gender
+    var mission="person.mission";
+    var genderNum=wx.getStorageSync("personinfo");
+    //var genderNum="genderNum"
+    //console
+    
+    //genderNum=genderNum.gender
     var _avatarUrl=wx.getStorageSync("userinfo");
     console.log(_avatarUrl.avatarUrl)
     _avatarUrl=_avatarUrl.avatarUrl
@@ -192,7 +212,7 @@ Page({
         [name]:this.data._name,
         [avatarUrl]:_avatarUrl,
         [id]:theid,
-        [gender]:genderNum,
+        [gender]:this.data.genderNum,
         [phone]: this.data._phone,
         [major]:this.data._major,
         [categories]:this.data._categories,
@@ -201,10 +221,11 @@ Page({
         [awards]:this.data.conLists,
         [skill]:this.data._skill,
         [text]:this.data._text,
-        [university]: this.data._university
+        [university]: this.data._university,
+        [mission]:[]
       })
       // console.log('名字：'+this.data.name);
-      // console.log('性别：'+this.data.person.gender);
+      console.log(this.data.person);
 
       wx.setStorageSync("personinf",this.data.person);
       wx.getStorage({
@@ -224,7 +245,7 @@ Page({
       })
        wx.switchTab({
 
-        url: '/pages/_inf/_inf',
+        url: '/pages/personal/_inf/_inf',
       })
        //上传。
     }

@@ -9,6 +9,74 @@ Page({
         introduction:null,  // 个人简历
         teamInfo: {},       //队伍相关信息
     },
+
+    joinIn: function (e) {
+        
+        var that = this;
+        console.log(e);
+        console.log(e.currentTarget.dataset.item);
+        let candidateone=wx.getStorageSync('personinf')
+        console.log(candidateone);
+        var len=this.data.teamInfo.memberinfo.length;
+        console.log(len);
+        var success=0;
+        //this.data.teamInfo.candidateinfo
+        // remove: function(array, val) {
+        //     return -1;
+        //   }
+            for (var i = 0; i < this.data.teamInfo.candidateinfo.length; i++) {
+              if (this.data.teamInfo.candidateinfo[i].id == e.currentTarget.dataset.item.id) {
+                //this.data.teamInfo.candidateinfo.splice(i, 1);
+                success=1;
+              }
+            }
+            for (var i = 0; i < this.data.teamInfo.memberinfo.length; i++) {
+                if (this.data.teamInfo.memberinfo[i].id == e.currentTarget.dataset.item.id) {
+                  //this.data.teamInfo.candidateinfo.splice(i, 1);
+                  success=1;
+                }
+              }
+        
+        // this.setData({
+        //     teamInfo:this.data.teamInfo
+        // })
+        // //console.log(this.data.teamInfo.candidateinfo);
+        // //console.log(this.data);
+        // // that.setData({
+        // //   jid: e.currentTarget.dataset.name,
+        // //   act_name: e.currentTarget.dataset.act,
+        // //   act_fee: e.currentTarget.dataset.fee,
+        // //   mobile: e.currentTarget.dataset.mobile
+        // // })
+        // //var theid=wx.getStorageSync("group") 
+        // //console.log(theid);
+        // //console.log(this.data.teamInfo.);
+        // //let newList=  this.data.teamInfo.captaininfo
+        if(!success){
+            let cartList =this.data.teamInfo.candidateinfo
+            //cartList.push(newList);
+            //cartList.push(newList);
+            cartList.push(candidateone);
+        //console.log(1)
+            //console.log(newList)
+            //console.log(cartList)
+            let key='teamInfo.candidateinfo'
+            //let key1='group.candidateinfo'
+            this.setData({
+                [key]: cartList,
+                
+                })
+                console.log(this.data.teamInfo)
+    
+            //console.log(this.data.teamInfo.candidateinfo);
+            //console.log(e);
+        }
+    
+    
+    
+    
+      },
+
     /**
      * 显示和关闭个人简介小窗
      * @param e
@@ -58,13 +126,13 @@ Page({
     },
 
     // 申请加入队伍
-    joinIn() {
-        let ins = this.data;
-        console.log(ins)
-        // 传过去到队伍信息
-        // request
+    // joinIn() {
+    //     let ins = this.data;
+    //     console.log(ins)
+    //     // 传过去到队伍信息
+    //     // request
         
-    },
+    // },
     /**
      * 生命周期函数--监听页面加载
      */

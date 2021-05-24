@@ -313,19 +313,19 @@ Page({
     if(tid && detail1===2){
       console.log(tid)
       wx.navigateTo({
-        url: '../square/teamInfo/teamInfo?id='+tid
+        url: '../../square/teamInfo/teamInfo?id='+tid
       })
     }
     if(tid && detail1===0){
       console.log(tid)
       wx.navigateTo({
-        url: '../_cooperate/captain/captain?id='+tid
+        url: '../../cooperate/captain/captain?id='+tid
       })
     }
     if(tid && detail1===1){
       console.log(tid)
       wx.navigateTo({
-        url: '../_cooperate/member/member?id='+tid
+        url: '../../cooperate/member/member?id='+tid
       })
     }
   },

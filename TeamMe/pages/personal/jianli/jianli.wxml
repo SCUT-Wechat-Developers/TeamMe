@@ -12,7 +12,7 @@
 </view>
 <!--  性别-->
   <view class="cu-form-group margin-top teamNameContainer">
-    <switch class="switch-sex margin-left" checked bindchange="sexChange"></switch>
+    <switch class="switch-sex margin-left" checked="{{genderNum}}" bindchange="sexChange"></switch>
     <view class="title">{{_gender}}</view>
   </view>
 

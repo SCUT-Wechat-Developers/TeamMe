@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/personal/follow/follow",
+    "pages/square/index/index","pages/personal/follow/follow",
     "pages/cooperate/chat/chat",
-    "pages/square/index/index",
+    
     "pages/publish/_teamUP/_teamUP",
     "pages/publish/team_regis2/register",
     "pages/cooperate/member/member",
