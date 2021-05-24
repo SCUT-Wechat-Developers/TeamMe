@@ -22,7 +22,7 @@
   <view class="cu-form-group">
     <view class="title">学校:</view>
     <input class=" "  
-     bindinput="universityInput" value='{{person.university}}'  wx:if="{{person.university}}"  />
+     bindinput="universityInput" value='{{_university}}'  wx:if="{{person.university}}"  />
      <input class=" "  
      bindinput="universityInput" value='{{person.university}}'  wx:else placeholder="请填入你所在院校" />
     <!-- <input bindinput="universityInput" model:value="{{university}}" placeholder="请填入你所在院校"></input> -->

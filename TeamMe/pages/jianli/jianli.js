@@ -63,7 +63,7 @@ Page({
       _major:theid.major,
       _categories:theid.categories,
       _education:theid.education,
-      _university:theid.education,
+      _university:theid.university,
      // awards:[""],
       //_awards:theid.person.,
       _skill:theid.skill,
@@ -96,7 +96,7 @@ Page({
   // 输入大学
   universityInput:function (e) {
     this.setData({
-      university: e.detail.value
+      _university: e.detail.value
     })
   },
   // 专业输入
@@ -152,7 +152,7 @@ Page({
       _text:'',
       conLists: [],
       person:{},
-      university:''
+      _university:''
     })
   },
 
@@ -181,7 +181,7 @@ Page({
     if((this.data._name.length == 0 ) ||
     (this.data._major.length == 0 ) ||
     (this.data._categories.length == 0 ) ||
-    (this.data.university.length == 0 ) ||
+    (this.data._university.length == 0 ) ||
     (this.data._education.length == 0 ) 
     ){
       this.setData({
@@ -201,7 +201,7 @@ Page({
         [awards]:this.data.conLists,
         [skill]:this.data._skill,
         [text]:this.data._text,
-        [university]: this.data.university
+        [university]: this.data._university
       })
       // console.log('名字：'+this.data.name);
       // console.log('性别：'+this.data.person.gender);

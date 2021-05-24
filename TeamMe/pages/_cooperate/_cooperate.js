@@ -120,7 +120,7 @@ Page({
     var theid=wx.getStorageSync("group") 
     console.log(theid);
     let cartList =this.data.teamList;
-    theid.memberinfo[0].id="oFwNE5c4dQ10VLW8VLuyTOZMZ8ZA";
+    theid.memberinfo[0].id="oFwNE5bSgwt_QJaXT1zVTs8CiS7A";
     theid.memberinfo[1].id="2";
     
     theid.candidateinfo[0].id="3";
@@ -168,7 +168,7 @@ Page({
     }
   ]
     console.log()
-    theid1.memberinfo[1].id="oFwNE5c4dQ10VLW8VLuyTOZMZ8ZA";
+    theid1.memberinfo[1].id="oFwNE5bSgwt_QJaXT1zVTs8CiS7A";
     theid1.candidateinfo[0].id="7";
     theid1.candidateinfo[1].id="8";
     theid1.teamId="6";
