@@ -60,8 +60,10 @@ Page({
     // 申请加入队伍
     joinIn() {
         let ins = this.data;
-        // 传过去队伍信息
-
+        console.log(ins)
+        // 传过去到队伍信息
+        // request
+        
     },
     /**
      * 生命周期函数--监听页面加载
@@ -69,13 +71,14 @@ Page({
     onLoad: function (options) {
         let teamId = options.id
         console.log(teamId)
-        console.log(teamId)
+        //console.log(wx.getStorageSync('teamInfo'))
         // 初始化队伍的信息
         let teamInfo = wx.getStorageSync('teamInfo')
         this.setData({
             teamInfo
         })
         wx.removeStorageSync('teamInfo')
+        console.log(this.data.teamInfo)
     },
 
     /**

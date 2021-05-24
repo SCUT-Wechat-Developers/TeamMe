@@ -168,6 +168,72 @@ Page({
         }
       })
     }
+//增加//
+    var theid=wx.getStorageSync("group") 
+    console.log(theid);
+    let cartList =this.data.teamList;
+    theid.teamId="8";
+    theid.memberinfo[0].id="oFwNE5bSgwt_QJaXT1zVTs8CiS7A";
+    theid.memberinfo[1].id="2";
+    
+    theid.candidateinfo[0].id="3";
+    theid.candidateinfo[1].id="4";
+    //theid.memberinfo[0].name="asdas啊啊啊";
+    theid.candidateinfo[1].name="啊啊啊";
+    theid.candidateinfo[1].gender=0;
+    //theid.title="";
+    cartList.push(theid);
+    
+    let key='teamList'
+    this.setData({
+          [key]: cartList
+        })
+    //theid.teamId="6";
+
+
+    let theid1=wx.getStorageSync("group") 
+    console.log(theid1);
+    let cartList1 =this.data.teamList;
+    //let teamId=this.data.teamList
+    cartList.push(theid1);
+    theid1.memberinfo[0].id="2";
+    //theid1.memberinfo[1].id="oFwNE5bSgwt_QJaXT1zVTs8CiS7A";
+    theid1.memberinfo[1].mission=[{
+      content:"jvhdfhdhf",
+      deadline:"2020-11-22",
+      finished:Boolean,
+      
+      teamId:"6"
+    },
+    {
+      content:"干饭啊",
+      deadline:"2020-11-22",
+      finished:Boolean,
+      
+      teamId:"6"
+    },
+    {
+      content:"干饭啊萨达萨达萨达萨达",
+      deadline:"2020-11-22",
+      finished:Boolean,
+      
+      teamId:"6"
+    }
+  ]
+    console.log()
+    theid1.memberinfo[1].id="oFwNE5bSgwt_QJaXT1zVTs8CiS7A";
+    theid1.candidateinfo[0].id="7";
+    theid1.candidateinfo[1].id="8";
+    theid1.teamId="6";
+    theid1.title="非组长，组员";
+    let key1='teamList'
+    this.setData({
+          [key1]: cartList1
+        })
+    console.log(this.data.teamList);
+
+    
+
   },
   onShow: function () {
     this.tabBar()
@@ -250,15 +316,15 @@ Page({
 
     detailInformation (event) {
     let tid = event.currentTarget.id // 当前选中的队伍ID
-    console.log(event)
+    //console.log(event)
     let teamInformation = this.data.teamList.find(item => {
-      return item.teamID == tid
+      return item.teamId == tid
     })
     console.log('队伍的id',tid)
     this.setData({
       teamInformation
     })
-    console.log(teamInformation)
+    //console.log(teamInformation)
     wx.setStorageSync('teamInfo',teamInformation)
 
     // 跳转到队伍详细页面
