@@ -2,7 +2,7 @@
 // 获取应用实例
 
 const app = getApp()
-import request from "../../utils/request"
+import request from "../../../utils/request"
 
 Page({
   data: {

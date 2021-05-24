@@ -24,7 +24,7 @@
             <view class="his_num text-xxl text-apple-black">{{userInfo.followList.length}}</view>
             <view class="his_name text-df text-apple-black">关注数</view>
         </navigator>
-        <navigator url="/pages/_cooperate/_cooperate" open-type="switchTab" class="grid col-1 margin-bottom text-center">
+        <navigator url="/pages/cooperate/_cooperate/_cooperate" open-type="switchTab" class="grid col-1 margin-bottom text-center">
             <view class="his_num text-xxl text-apple-black">{{userInfo.teamList.length}}</view>
             <view class="his_name text-df text-apple-black">队伍数</view>
         </navigator>
@@ -36,7 +36,7 @@
 <!--        我的简历-->
       <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
         <view class="cu-item arrow">
-          <navigator class="content" url="/pages/jianli/jianli" hover-class="none">
+          <navigator class="content" url="/pages/personal/jianli/jianli" hover-class="none">
             <text class="cuIcon-creativefill text-orange"></text>
             <text class="text-apple-black">我的简历</text>
           </navigator>

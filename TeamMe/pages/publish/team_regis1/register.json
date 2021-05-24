@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-skeleton": "/miniprogram_npm/@vant/weapp/skeleton/index",
+    "van-image": "/miniprogram_npm/@vant/weapp/image/index"
+  }
+}

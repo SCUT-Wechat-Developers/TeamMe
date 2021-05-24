@@ -11,15 +11,15 @@ Component({
                 "text": "广场"
             },
             {
-                "pagePath": "pages/_cooperate/_cooperate",
+                "pagePath": "pages/cooperate/_cooperate/_cooperate",
                 "text": "协作"
             },
             {
-                "pagePath": "pages/team_regis1/register",
+                "pagePath": "pages/publish/team_regis1/register",
                 "text": "发布"
             },
             {
-                "pagePath": "pages/_inf/_inf",
+                "pagePath": "pages/personal/_inf/_inf",
                 "text": "我"
             }
         ]

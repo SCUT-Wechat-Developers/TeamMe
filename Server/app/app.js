@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose=require('mongoose');
 var bodyParser=require('body-parser');
-mongoose.connect('mongodb://localhost:27017/test').then(()=>{
+mongoose.connect('mongodb://www.masterteam.cn:10093/test').then(()=>{
   console.log('connect to database successfully')
 }).catch(error=>{
   console.error('fail to connect to database',error)

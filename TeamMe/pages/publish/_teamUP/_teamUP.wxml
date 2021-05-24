@@ -12,7 +12,7 @@
   <view class=".wx-cards-card">
     <!--    队长头像图片-->
     <view teamPicLeader>
-      <image class='pc' mode='aspectFit' src="../image/lt.jpg"></image>
+      <image class='pc' mode='aspectFit' src="../../image/lt.jpg"></image>
     </view>
     <!--   队长信息-->
     <view class='title-time'>
@@ -33,7 +33,7 @@
     <view class="teamPart">
       <!--  队伍信息标题图片-->
       <view class="teamPicName">
-        <image class='pc2' mode="aspectFit" src="../image/TeamInfo.png"  ></image>
+        <image class='pc2' mode="aspectFit" src="../../image/TeamInfo.png"  ></image>
       </view>
       <!--  队伍信息内容-->
       <view class="teamMes" >
@@ -57,7 +57,7 @@
     <!--  比赛信息-->
     <view class="teamPart">
       <view class="teamPicName">
-        <image class='pc2' mode='aspectFit' src="../image/GameInfo.png" weight="10rpx" ></image>
+        <image class='pc2' mode='aspectFit' src="../../image/GameInfo.png" weight="10rpx" ></image>
       </view>
       <view class="teamMes">
         <view class='teamMes1'>比赛类型</view>
@@ -71,7 +71,7 @@
 
     <!--  装饰图-->
     <view class="teamPicName">
-      <image class='pc3' mode='aspectFit' src="../image/team.png" weight="10rpx" ></image>
+      <image class='pc3' mode='aspectFit' src="../../image/team.png" weight="10rpx" ></image>
     </view>
   </view>
 </navigator>

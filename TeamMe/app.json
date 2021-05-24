@@ -1,22 +1,19 @@
 {
   "pages":[
+    "pages/personal/follow/follow",
+    "pages/cooperate/chat/chat",
     "pages/square/index/index",
-    "pages/_teamUP/_teamUP",
-    "pages/jianli/jianli",
-    "pages/team_regis2/register",
-    "pages/_cooperate/member/member",
-    "pages/_cooperate/captain/captain",
-    "pages/_cooperate/mission/mission",
-    "pages/team_regis1/register",
-    "pages/_inf/_inf",
+    "pages/publish/_teamUP/_teamUP",
+    "pages/publish/team_regis2/register",
+    "pages/cooperate/member/member",
+    "pages/cooperate/captain/captain",
+    "pages/cooperate/mission/mission",
+    "pages/publish/team_regis1/register",
+    "pages/personal/_inf/_inf",
     "pages/square/teamInfo/teamInfo",
-
-    
-    "pages/team_regis3/register",
-    "pages/_cooperate/_cooperate",
-
-    "pages/logs/logs"
-    
+    "pages/cooperate/_cooperate/_cooperate",
+    "pages/logs/logs",
+    "pages/personal/jianli/jianli"
   ],
 
   "window": {
@@ -35,15 +32,15 @@
       "text": "广场"
     },
       {
-        "pagePath": "pages/_cooperate/_cooperate",
+        "pagePath": "pages/cooperate/_cooperate/_cooperate",
         "text": "协作"
       },
       {
-        "pagePath": "pages/team_regis1/register",
+        "pagePath": "pages/publish/team_regis1/register",
         "text": "发布"
       },
       {
-        "pagePath": "pages/_inf/_inf",
+        "pagePath": "pages/personal/_inf/_inf",
         "text": "我"
       }]
   },
