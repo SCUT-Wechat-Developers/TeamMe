@@ -72,7 +72,7 @@ Page({
     this.setData({
       person:theid,
       _name:theid.name,//杠号是未确认的数据存缓
-      //conLists: theid.conLists,
+      conLists: theid.awards,
       //genderNum:theid.person.gender,
       //_avatarUrl:theid.person.avatarUrl,
       
