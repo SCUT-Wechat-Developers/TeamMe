@@ -18,10 +18,10 @@ Page({
       },
     ],
     group:{    
-      teamId:'2',
+      teamID:'2',
       teamName:'',
-      teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
-      captain:{},
+      //teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
+      likeNum:0,
       memberinfo:[],
       candidateinfo:[],
       title:'',
@@ -42,19 +42,19 @@ Page({
   onLoad: function (options) {
 
     var theid=wx.getStorageSync("personinf")
-    this.captainInput(theid)
+    //this.captainInput(theid)
     console.log(1)
     
     //console.log(theid)
     //var [captaininfo]={};
-    let _captaininfo = 'group.captaininfo';
+    // let _captaininfo = 'group.captaininfo';
 
-		this.setData({
-			[_captaininfo]:theid
-		})
-    console.log(this.data.group.captaininfo)
+		// this.setData({
+		// 	[_captaininfo]:theid
+		// })
+   // console.log(this.data.group.captaininfo)
 
-    let newList=  this.data.group.captaininfo
+    let newList= theid
     let cartList =this.data.group.memberinfo
     //cartList.push(newList);
     cartList.push(newList);
@@ -93,17 +93,17 @@ Page({
     })
   },
 
-  captainInput:function(user){
-    // var captain ='group.captain'
-    let captain ='group.captain'
-    this.setData({
-      [captain]: {
-        id: user.openid,
-        nickName: user.nickName,
-        avatar: user.avatarUrl
-      }
-    })
-  },
+  // captainInput:function(user){
+  //   // var captain ='group.captain'
+  //   let captain ='group.captain'
+  //   this.setData({
+  //     [captain]: {
+  //       id: user.openid,
+  //       nickName: user.nickName,
+  //       avatar: user.avatarUrl
+  //     }
+  //   })
+  // },
 
   teamImgInput:function(e){
     var teamImg ='group.teamImg'
@@ -139,7 +139,7 @@ Page({
      */
     // 校验
     let {group} = this.data
-    if(!(group.captain && group.title && group.teamName && group.content)){
+    if(!(  group.title && group.teamName && group.content)){
       wx.showToast({
         icon: 'none',
         title: '请补充完整信息'

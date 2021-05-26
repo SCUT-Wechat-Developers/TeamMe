@@ -5,8 +5,72 @@ const app = getApp()
 import request from "../../../utils/request"
 
 Page({
+  options: {
+    addGlobalClass: true,
+  },
   data: {
-    
+    // 队伍名称
+    myTeamList: [{
+      title: '队伍名称1',
+      name: '比赛1',
+      color: 'cyan',
+      icon: 'newsfill'
+    },
+      {
+        title: '队伍名称1',
+        name: '比赛2',
+        color: 'blue',
+        icon: 'colorlens'
+      },
+      {
+        title: '文本',
+        name: '比赛3',
+        color: 'purple',
+        icon: 'font'
+      },
+      {
+        title: '图标 ',
+        name: '比赛4',
+        color: 'mauve',
+        icon: 'icon'
+      },
+      {
+        title: '按钮',
+        name: '比赛5',
+        color: 'pink',
+        icon: 'btn'
+      },
+      {
+        title: '标签',
+        name: '比赛6',
+        color: 'brown',
+        icon: 'tagfill'
+      },
+      {
+        title: '头像',
+        name: 'avatar',
+        color: 'red',
+        icon: 'myfill'
+      },
+      {
+        title: '进度条',
+        name: 'progress',
+        color: 'orange',
+        icon: 'icloading'
+      },
+      {
+        title: '边框阴影',
+        name: 'shadow',
+        color: 'olive',
+        icon: 'copy'
+      },
+      {
+        title: '加载',
+        name: 'loading',
+        color: 'green',
+        icon: 'loading2'
+      },
+    ],
     // option1: [
     //   { text: '我是组长', value: 0 },
     //   { text: '我是组员', value: 1 }
@@ -202,6 +266,17 @@ Page({
         selected: 1
       })
     }
+  },
+  // 筛选窗口右滑弹出
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
   },
   // async getAllTeamsData() {
   //   let teamListData = await request(url,data,method)  // 请求对应的数据

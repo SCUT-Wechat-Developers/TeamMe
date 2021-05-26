@@ -20,7 +20,7 @@
          updateTime="{{item.updateTime}}"
          context="{{item.content}}"
          tag="{{item.tag}}"
-         tagColor='red'
+         tagColor='green'
          isShowLike="{{true}}"
          bind:like="handleLike"
          bindtap="detailInformation">

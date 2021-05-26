@@ -35,6 +35,11 @@
           "pathName": "pages/team_regis2/register",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/square/index/index",
+          "pathName": "pages/square/index/index",
+          "scene": null
         }
       ]
     }

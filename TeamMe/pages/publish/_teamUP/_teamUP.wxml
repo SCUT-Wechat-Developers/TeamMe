@@ -1,77 +1,84 @@
- <!--teamUP.wxml-->
-<navigator url="/pages/team_regis1/register">
-  <view>
-    <van-steps
-            class="shadow"
-            steps="{{ steps }}"
-            active="2"
-            active-icon="success"
-            active-color="#38f"
-            bind:click-step="jumpToRegis2"/>
-  </view>
-  <view class=".wx-cards-card">
-    <!--    队长头像图片-->
-    <view teamPicLeader>
-      <image class='pc' mode='aspectFit' src="../../image/lt.jpg"></image>
-    </view>
-    <!--   队长信息-->
-    <view class='title-time'>
-    </view>
-  </view>
-
-
+<!--队伍卡片-->
+        <!--步骤进度条-->
+<view>
+  <van-steps
+          class="shadow"
+          steps="{{ steps }}"
+          active="2"
+          active-icon="success"
+          active-color="#38f"/>
+</view>
 
   <view class='.wx-cards-card'>
+  <!--  编号信息-->
+  <view>
+  <text class="teamNo">编号：2021938</text>
+  </view>
+  <!--  队伍信息-->
+  <view class="teamPart">
+  <!--  队伍信息标题图片-->
+  <view class="teamPicName">
+      <image class='pc2' mode='aspectFit' src="../image/TeamInfo.png" weight="10rpx"  style="width: 254rpx; height: 87rpx; display: inline-block; box-sizing: border-box; left: -127rpx; top: -24rpx; position: relative"></image>
+  </view>
+  <!--  队伍信息内容-->
+  <view class="teamMes" >
+    <view class='teamMes1'>队伍名称</view>
+    <text class='teamMes11'>{{group.teamName}}</text>
+    <text class='teamMes1'>比赛名称</text>
+    <text class='teamMes11'>{{group.title}}</text>
+    
+    
+  </view>
 
-    <!--  编号信息-->
-    <view>
-      生成组队卡片
-      <text class="teamNo">编号：2021938</text>
+<!--    队长头像图片-->
+    <view teamPicLeader style="width: 155rpx; height: 162rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+      <image class='pc' mode='aspectFit' src="{{group.memberinfo[0].avatarUrl}}" style="position: relative; left: -33rpx; top: 12rpx; width: 240rpx; height: 188rpx; display: flex; box-sizing: border-box"></image>
     </view>
+<!--   队长信息-->
+    <view class='title-time' style="width: 596rpx; height: 99rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
 
-    <!--  队伍信息-->
-    <view class="teamPart">
-      <!--  队伍信息标题图片-->
-      <view class="teamPicName">
-        <image class='pc2' mode="aspectFit" src="../../image/TeamInfo.png"  ></image>
-      </view>
-      <!--  队伍信息内容-->
-      <view class="teamMes" >
-        <view style="display: block;">
-          <view class='teamMes1'>队伍名称</view>
-          <text class='teamMes11'>好好好好队</text>
-        </view>
-
-        <view style="display: block;">
-          <text class='teamMes1'>比赛名称</text>
-          <text class='teamMes11'>好好好好</text>
-        </view>
-
-        <view style="display: block;">
-          <text class='teamMes1'>队伍介绍</text>
-          <text class='teamMes11'>好好好好</text>
-        </view>
-      </view>
-    </view>
-
-    <!--  比赛信息-->
-    <view class="teamPart">
-      <view class="teamPicName">
-        <image class='pc2' mode='aspectFit' src="../../image/GameInfo.png" weight="10rpx" ></image>
-      </view>
-      <view class="teamMes">
-        <view class='teamMes1'>比赛类型</view>
-        <view class='teamMes11'>微信小程序</view>
-        <view class='teamMes1'>截止日期</view>
-        <view class='teamMes11'>2021.05.31</view>
-        <view class='teamMes1'>所需人数</view>
-        <view class='teamMes11' >9</view>
-      </view>
-    </view>
-
-    <!--  装饰图-->
-    <view class="teamPicName">
-      <image class='pc3' mode='aspectFit' src="../../image/team.png" weight="10rpx" ></image>
+      <view class='teamMes2'  style="position: relative; left: 0rpx; top: -148rpx">队长 {{group.memberinfo[0].nickName}}</view>
+      <view class='teamMes2' style="position: relative; left: 0rpx; top: -134rpx">专业 {{group.memberinfo[0].major}}</view>
+      <view class='teamMes2' style="position: relative; left: 0rpx; top: -122rpx">技能  {{group.memberinfo[0].skill}}</view>
     </view>
   </view>
-</navigator>
+    
+<!--  比赛信息-->
+<view class="teamPart">
+  <view class="teamPicName">
+      <image class='pc2' mode='aspectFit' src="../image/GameInfo.png" weight="10rpx"
+        style="width: 272rpx; height: 80rpx; display: inline-block; box-sizing: border-box; left: -150rpx; top: -19rpx">
+        <image style="position: relative; width: 272rpx; height: 19rpx; display: inline-block; box-sizing: border-box; left: 0rpx; top: 0rpx"
+          src="https://mmbiz.qpic.cn/mmbiz_png/icTdbqWNOwNQ0ia79enzYJBsZ3CIkLQGe39qeOxbpT9oM9KaCthzBa0PF75xzBGjZQGlM69TDggxpNX7ACibCjjtw/0?wx_fmt=png&t=1614824466" />
+      </image>
+  </view>
+  <view class="teamMes">
+    <view class='teamMes1'>比赛类型</view>
+    <view class='teamMes11'>{{group.tag}}</view>
+    <view class='teamMes1'>截止日期</view>
+    <view class='teamMes11'>{{group.endTime}}</view>
+    <view class='teamMes1'>所需人数</view>
+    <view class='teamMes11'  style="width: 64rpx; height: 45rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">{{group.needNum}}</view>
+  </view>
+</view>
+
+<!--  装饰图-->
+<view class="teamPicName">
+      <image class='pc3' mode='aspectFit' src="../image/team.png" weight="10rpx"  style="position: relative; left: 375rpx; top: -90rpx; width: 188rpx; height: 162rpx; display: flex; box-sizing: border-box"></image>
+  </view>
+
+   <!--  队伍简介标题图片-->
+   <view class="teamPicName">
+      <image class='pc2' mode='aspectFit' src="../image/TeamIntro.png" weight="10rpx"  style="width: 254rpx; height: 87rpx; display: inline-block; box-sizing: border-box; left: -80rpx; top: -150rpx; position: relative"></image>
+  </view>
+     <!--  队伍简介文字-->
+     <textarea name="Teamintro" id="tIntro" cols="30" rows="10" style="position: relative; left: 50rpx; top: -99rpx; width: 537rpx; height: 352rpx; display: block; box-sizing: border-box">{{group.content}}</textarea>
+  </view>
+
+
+
+<!--邀请好友加入-->
+<view class="padding">
+  <button class=" cu-btn block round line-green shadow margin-tb-sm lg" open-type="share">邀请好友</button>
+  <button class="margin-top cu-btn block round line-blue shadow margin-tb-sm lg" bindtap="returnToSquare">返回</button>
+</view>

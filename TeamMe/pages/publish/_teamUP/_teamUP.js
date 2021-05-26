@@ -1,66 +1,80 @@
-// pages/_teamUP/_teamUP.js
+// dist/cards/card/card.js
 Page({
-
   /**
-   * 页面的初始数据
+   * 组件的初始数据
    */
   data: {
+    steps: [
+      {
+        text: '基本信息',
+      },
+      {
+        text: '比赛信息',
+      },
+      {
+        text: '组队卡片',
+      },
+    ],
+    group: {}
 
   },
+    /**
+     * 加载函数
+     */
+    onLoad: function (options) {
+      let {group} = this.data
+      group = wx.getStorageSync('group')
+      console.log(group)
+      this.setData({
+        group
+      })
+    },
+    showMoreText() {
+      this.setData({ isMoreText: !this.data.isMoreText });
+    },
 
+    handleLike() {
+      this.setData({ isLiked: !this.data.isLiked, likeNumber: this.data.likeNumber++ });
+      this.triggerEvent('like', {isLiked: this.data.isLiked});
+    },
+
+    handleUnlike() {
+      this.setData({ isUnliked: !this.data.isUnliked });
+      this.triggerEvent('unlike', {isUnliked: this.data.isUnliked});
+    },
+
+    handleDelete() {
+      this.triggerEvent('delete');
+    },
   /**
-   * 生命周期函数--监听页面加载
+   * 邀请好友
    */
-  onLoad: function (options) {
-
+  onShareAppMessage() {
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '邀请你加入'+this.data.group.teamName,
+          path: '/pages/square/index/index'
+        })
+      }, 2000)
+    })
+    return {
+      title: '邀请你加入'+this.data.group.teamName,
+      path: '/pages/square/index/index',
+      promise
+    }
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 返回广场
    */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  returnToSquare() {
+      wx.reLaunch ({
+        url: '/pages/square/index/index'
+      })
   }
+
+    // ignore the function since the share button be hidden
+    // handleShare() {
+    //   this.triggerEvent('share');
+    // }
 })

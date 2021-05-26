@@ -5,10 +5,12 @@
           active="1"
           active-icon="success"
           active-color="#38f"
-          bind:click-step="jumpToRegis2"
+          bind:click-step="jumpToRegister"
   />
 <form>
-  <button class="cu-btn bg-green shadow margin-top teamNameContainer" bindtap="jumpToRegis3">上一步</button>
+  <view class="padding-lr">
+    <button class="cu-btn block bg-gradual-green margin-tb-sm lg"  bindtap="jumpToRegis3" >上一步</button>
+  </view>
   <text class="bg-cyan cu-form-group margin-top teamNameContainer" space="ensp" >  比赛信息填写</text>
 	<view class="cu-form-group margin-top teamNameContainer">
     <view class="title">比赛类型</view>
@@ -74,10 +76,9 @@
     <view class="title">筛选项</view>
 	</view> -->
 </form>
-
-<button class="cu-btn bg-green shadow margin-top teamNameContainer" bindtap="jumpToRegister">完成</button>
-
-
+<view class="padding">
+  <button class="cu-btn block bg-gradual-green margin-tb-sm lg"  bindtap="jumpToRegister" >完成</button>
+</view>
 <!-- <form>
 	<view class="cu-form-group margin-top teamNameContainer">
 		<view class="title" >队伍名称</view>

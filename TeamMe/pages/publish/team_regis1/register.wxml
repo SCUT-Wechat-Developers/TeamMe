@@ -25,9 +25,9 @@
 		</view>
 		<view class="cu-form-group">
 			<view class="title">队长名:</view>
-			<view class="padding-right-xl">{{group.memberinfo[0].name}}</view>
+			<view class="padding-right-xl">{{group.memberinfo[0].nickName}}</view>
 			
-			<van-image class="padding-right" round width="40" height="40" fit="fill" src="{{group.captain.avatar}}" />
+			<van-image class="padding-right" round width="40" height="40" fit="fill" src="{{group.memberinfo[0].avatarUrl}}" />
 			
 		</view>
 
@@ -44,7 +44,9 @@
 
 
 </form>
-<view> </view>
-<button class="cu-btn bg-green shadow margin-top teamNameContainer" bindtap="jumpToRegis2">下一步</button>
-<!-- <button class="cu-btn bg-green shadow margin-top teamNameContainer" bindtap="jumpToRegister">完成</button> -->
+
+<view class="padding">
+	<button class="cu-btn block bg-gradual-green margin-tb-sm lg"  bindtap="jumpToRegis2" >下一步</button>
+</view>
+
 

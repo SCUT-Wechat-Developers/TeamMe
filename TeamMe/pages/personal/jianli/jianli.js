@@ -30,26 +30,28 @@ Page({
     text:"",
     _text:"",
     person:{
-      id:"",
-      teamid:[],
+      openid:"",
+      nickName:"",
       name:"",
       gender:0,
-      phone:0,
       mission:[{}],
       major:"",
       avatarUrl:"",
       categories:"",
       education:"",
-      awards:[""],
+      awards:[],
       skill:[""],
       text:"",
-      university:""
+      university:"",
+      followList:[{}],
+      hisTeamNum:0
     }
 
   },
 
   onLoad: function(res1) {
     
+
 
     var theid=wx.getStorageSync("personinf") 
     console.log(1)
@@ -69,10 +71,17 @@ Page({
       })
     }
      //  console.log(theid)
+     if(theid.awards){
+      this.setData({
+        conLists: theid.awards
+      })
+     }
     this.setData({
       person:theid,
       _name:theid.name,//杠号是未确认的数据存缓
+
       conLists: theid.awards,
+
       //genderNum:theid.person.gender,
       //_avatarUrl:theid.person.avatarUrl,
       
@@ -178,7 +187,7 @@ Page({
     var name ="person.name";
     var gender ="person.gender";
    // var phone ="person.phone";
-    var id ="person.id";
+    var openid ="person.openid";
     var major ="person.major";
     var categories ="person.categories";
     var education ="person.education";
@@ -188,16 +197,25 @@ Page({
     var avatarUrl="person.avatarUrl";
     var university="person.university";
     var mission="person.mission";
+    var followList="person.followList";
+    //hisTeamNum
+    var hisTeamNum="person.hisTeamNum";
     var genderNum=wx.getStorageSync("personinfo");
     //var genderNum="genderNum"
     //console
-    
+    var theid1=wx.getStorageSync("userinfo") 
+    var asd ="person.nickName";
+    console.log(theid1.nickName)
+    this.setData({
+      [asd]:theid1.nickName
+    })
     //genderNum=genderNum.gender
     var _avatarUrl=wx.getStorageSync("userinfo");
     console.log(_avatarUrl.avatarUrl)
     _avatarUrl=_avatarUrl.avatarUrl
     let phone = 'person.phone';
     var theid=wx.getStorageSync("openid")
+    console.log(theid)
     if((this.data._name.length == 0 ) ||
     (this.data._major.length == 0 ) ||
     (this.data._categories.length == 0 ) ||
@@ -211,9 +229,9 @@ Page({
       this.setData({
         [name]:this.data._name,
         [avatarUrl]:_avatarUrl,
-        [id]:theid,
+        [openid]:theid,
         [gender]:this.data.genderNum,
-        [phone]: this.data._phone,
+        //[phone]: this.data._phone,
         [major]:this.data._major,
         [categories]:this.data._categories,
         [education]:this.data._education,
@@ -222,7 +240,10 @@ Page({
         [skill]:this.data._skill,
         [text]:this.data._text,
         [university]: this.data._university,
-        [mission]:[]
+        [mission]:[],
+        [followList]:[],
+        [hisTeamNum]:0
+        
       })
       // console.log('名字：'+this.data.name);
       console.log(this.data.person);

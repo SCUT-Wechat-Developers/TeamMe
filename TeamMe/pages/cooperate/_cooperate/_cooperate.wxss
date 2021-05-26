@@ -1,109 +1,71 @@
-/**index.wxss**/
 page {
-  background-image: var(--gradualBlue);
-  width: 100vw;
-  overflow: hidden;
+    padding-top: 0rpx;
 }
 
-.DrawerPage {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  left: 0vw;
-  background-color: #f1f1f1;
-  transition: all 0.4s;
+.indexes {
+    position: relative;
 }
 
-.DrawerPage.show {
-  transform: scale(0.9, 0.9);
-  left: 85vw;
-  box-shadow: 0 0 60rpx rgba(0, 0, 0, 0.2);
-  transform-origin: 0;
+.indexBar {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    padding: 20rpx 20rpx 20rpx 60rpx;
+    display: flex;
+    align-items: center;
 }
 
-.DrawerWindow {
-  position: absolute;
-  width: 85vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  transform: scale(0.9, 0.9) translateX(-100%);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.4s;
+.indexBar .indexBar-box {
+    width: 40rpx;
+    height: auto;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+    border-radius: 10rpx;
 }
 
-.DrawerWindow.show {
-  transform: scale(1, 1) translateX(0%);
-  opacity: 1;
-  pointer-events: all;
+.indexBar-item {
+    flex: 1;
+    width: 40rpx;
+    height: 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24rpx;
+    color: #888;
 }
 
-.DrawerClose {
-  position: absolute;
-  width: 40vw;
-  height: 100vh;
-  right: 0;
-  top: 0;
-  color: transparent;
-  padding-bottom: 30rpx;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.6));
-  letter-spacing: 5px;
-  font-size: 50rpx;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.4s;
+movable-view.indexBar-item {
+    width: 40rpx;
+    height: 40rpx;
+    z-index: 9;
+    position: relative;
 }
 
-.DrawerClose.show {
-  opacity: 1;
-  pointer-events: all;
-  width: 15vw;
-  color: #fff;
+movable-view.indexBar-item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 10rpx;
+    height: 20rpx;
+    width: 4rpx;
+    background-color: #f37b1d;
 }
 
-.DrawerPage .cu-bar.tabbar .action button.icon {
-  width: 64rpx;
-  height: 64rpx;
-  line-height: 64rpx;
-  margin: 0;
-  display: inline-block;
+.indexToast {
+    position: fixed;
+    top: 0;
+    right: 80rpx;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+    margin: auto;
+    color: #fff;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 48rpx;
 }
-
-.DrawerPage .cu-bar.tabbar .action .cu-avatar {
-  margin: 0;
-}
-
-.DrawerPage .nav {
-  flex: 1;
-}
-
-.DrawerPage .nav .cu-item.cur {
-  border-bottom: 0;
-  position: relative;
-}
-
-.DrawerPage .nav .cu-item.cur::after {
-  content: "";
-  width: 10rpx;
-  height: 10rpx;
-  background-color: currentColor;
-  position: absolute;
-  bottom: 10rpx;
-  border-radius: 10rpx;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.DrawerPage .cu-bar.tabbar .action {
-  flex: initial;
-}
-
-.cu-form-group .title {
-  min-width: calc(4em + 30rpx);
-}
-

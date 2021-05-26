@@ -1,17 +1,18 @@
 {
   "pages":[
-    "pages/square/index/index","pages/personal/follow/follow",
+    "pages/square/index/index",
+    "pages/cooperate/captain/captain",
+    "pages/cooperate/_cooperate/_cooperate",
+    "pages/cooperate/member/member",
+    "pages/personal/follow/follow",
     "pages/cooperate/chat/chat",
-    
+
     "pages/publish/_teamUP/_teamUP",
     "pages/publish/team_regis2/register",
-    "pages/cooperate/member/member",
-    "pages/cooperate/captain/captain",
     "pages/cooperate/mission/mission",
     "pages/publish/team_regis1/register",
     "pages/personal/_inf/_inf",
     "pages/square/teamInfo/teamInfo",
-    "pages/cooperate/_cooperate/_cooperate",
     "pages/logs/logs",
     "pages/personal/jianli/jianli"
   ],
@@ -48,7 +49,14 @@
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom",
     "van-steps": "@vant/weapp/steps/index",
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-divider": "@vant/weapp/divider/index"
   },
   "useExtendedLib": {
     "kbone": true,

@@ -1,70 +1,35 @@
-<!--index.wxml-->
-<!-- 顶部导航栏-->
-
-<!-- <van-dropdown-menu>
-  <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}"  bind:change="bindViewTap" />
-  <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
-</van-dropdown-menu> -->
-
-
-
-
-
-
-
-<!--搜索栏（包含历史记录）-->
- <view>
-  <searchHistory id="history" dropOption="{{dropOption}}" dropValue="{{dropValue}}" bind:change = "selectTag"  bind:searchEvent = "searchTeam" bind:select="selectInfo" maxSize="5" placeholderText="请输入要搜索的队伍id" data-target="viewModal" leftText="筛选">
-  </searchHistory>
- </view>
-
-
-
-<scroll-view scroll-y bindrefresherrefresh="handleRefresher" refresher-enabled class="DrawerPage {{modalName=='viewModal'?'show':''}}">
-<!-- 组队卡片--> <!-- title="{{item.title}}" -->
-<view wx:for="{{selectTeamList.length != 0 ? selectTeamList : teamList}}" wx:key="teamId">
- <teamInsCard
-         isLiked="{{item.isLiked}}"
-         id="{{item.teamId}}"
-         needed="{{item.needNum}}"
-         candidated="{{item.candidateNum}}"
-         headerImg="{{item.teamImg}}"
-        
-         title="{{item.teamName}}"
-         isMoreText="false"
-         updateTime="{{item.updateTime}}"
-         context="{{item.content}}"
-         tag="{{item.tag}}"
-         tagColor='red'
-         isShowLike="{{true}}"
-         bind:like="handleLike"
-         bindtap="detailInformation">
-
- </teamInsCard>
-
-</view>
-
+<!--协作版块主页面-->
+<scroll-view scroll-y bindrefresherrefresh="handleRefresher" refresher-enabled class="scrollPage DrawerPage {{modalName=='viewModal'?'show':''}}">
+    <!--筛选搜索列表-->
+    <view class="cu-bar bg-white search fixed solid-top">
+        <view class="action">
+            <button class="cu-btn bg-green shadow round"  bindtap="showModal" data-target="DrawerModalL">筛选</button>
+        </view>
+        <view class="search-form round">
+            <text class="cuIcon-search"></text>
+            <input type="text" placeholder="输入搜索的关键词" confirm-type="search"></input>
+        </view>
+    </view>
+<!--    队伍卡片-->
+    <view class='nav-list' style="padding-top: 150rpx;">
+            <navigator url="/pages/cooperate/captain/captain" hover-class='none' class="nav-li bg-{{item.color}}" wx:for="{{myTeamList}}" wx:key>
+                <view class="nav-title">{{item.title}}</view>
+                <view class="nav-name">{{item.name}}</view>
+            </navigator>
+    </view>
+<!--    筛选栏展开-->
+    <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal">
+        <view class="cu-dialog basis-lg" catchtap >
+            <view class="cu-list menu text-left">
+                <view class="cu-item arrow" wx:for="{{3}}" wx:key>
+                    <view class="content">
+                        <view wx:if="{{item == 0}}">我是组长</view>
+                        <view wx:elif="{{item == 1}}">我是组员</view>
+                        <view wx:else>全部</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
 </scroll-view>
 
-
-<!--抽屉滑出筛选菜单-->
-
-<!--<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">-->
-<!-- &lt;!&ndash; 返回小图标 &ndash;&gt;-->
-<!-- <text class="cuIcon-pullright"></text>-->
-<!--</view>-->
-<!--<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">-->
-<!-- &lt;!&ndash;  筛选菜单&ndash;&gt;-->
-<!-- <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">-->
-<!--  <view class="cu-form-group margin-top">-->
-<!--   <view class="title">选择标签</view>-->
-<!--   <picker bindchange="tagPickerChange" id="{{tagIndex}}" range="{{tagList}}">-->
-<!--    <view class="picker">-->
-<!--     {{tagIndex?tagList[tagIndex]:'null'}}-->
-<!--    </view>-->
-<!--   </picker>-->
-<!--  </view>-->
-<!-- </view>-->
-<!-- <button bindtap="clickSelect">确定</button>-->
-<!-- <button bindtap="clickReset">重置</button>-->
-<!--</scroll-view>-->

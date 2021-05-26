@@ -6,7 +6,7 @@ Page({
      * openid: 确认用户唯一信息的id（微信自带）
      * nickName: 微信用户名（微信自带）
      * avatarUrl: 头像地址 （微信自带）
-     * sex: 性别 1：男 0:女 （当然我们同样设置了映射的字段男女字符串） Number
+     * gender: 性别 1：男 0:女 （当然我们同样设置了映射的字段男女字符串） Number
      * name: 真实姓名
      * university： 学校
      * major: 专业
@@ -18,13 +18,12 @@ Page({
      *
      * 团队协作版块需要字段：
      * missionList： 任务列表 [{missionInfo}]
-     * missionInfo: {teamId: 队伍Id, content: 内容, deadline: 截止日期, finished: boolean 是否完成}
+     * mission: {teamId: 队伍Id, content: 内容, deadline: 截止日期, finished: boolean 是否完成}
      *
      * 新的字段:
      * followList: 关注 Array
-     * teamList： 个人当前的队伍
-     * hisTeamNum: 总共的队伍数量 (这里还是不存历史所有的队伍先了，只简单统计数量)
-     *
+     * teamList： 个人当前的队伍 （暂时待定不要！！！！！！！！！！！！！！）
+     * hisTeamNum: 总共的队伍数量 (这里还是不存历史所有的队伍先了，只简单统计数量) Number
      *
      */
     userInfo:{
@@ -79,10 +78,8 @@ Page({
         const {userInfo}=res;
         wx.setStorageSync("userinfo", userInfo);
         wx.switchTab({
-          url: '/pages/square/index/index',
-        })({
-          delta: 1
-        });
+          url: '/pages/square/index/index'
+        })
       }
     })
   },
