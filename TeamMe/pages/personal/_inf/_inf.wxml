@@ -4,7 +4,7 @@
   <view class="UCenter-bg">
     <view wx:if="{{userinfo}}">
       <image class="avatar" mode="widthFix" src="{{userinfo.avatarUrl}}"></image>
-      <view class="text-xl">{{userinfo.nickName}}</view>
+      <view class="text-xl padding-lr">{{userinfo.nickName}}</view>
     </view>
 <!--    未登录可以登录-->
     <view wx:else class="login">
@@ -20,7 +20,7 @@
       <!-- 历史足迹 history_wrap  bg-gradual-blue   cu-form-group margin-top teamNameContainer -->
       <view class="history_wrap margin-top ">
 <!--        三个数量-->
-        <navigator class="grid col-1 margin-bottom text-center">
+        <navigator url="/pages/personal/follow/follow" class="grid col-1 margin-bottom text-center">
             <view class="his_num text-xxl text-apple-black">{{userInfo.followList.length}}</view>
             <view class="his_name text-df text-apple-black">关注数</view>
         </navigator>

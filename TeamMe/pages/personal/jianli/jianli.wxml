@@ -76,7 +76,7 @@
   <block wx:for="{{conLists}}" wx:key="index">
     <view class='template_title_list flex-x'>
       <view class="del" bindtap='del' data-index='{{index}}'>-</view>
-      <input placeholder='请填写奖项' bindinput='changeConTitle' data-index='{{index}}'></input>
+      <input placeholder='请填写奖项' bindinput='changeConTitle' data-index='{{index}}' value="{{item}}"></input>
     </view>
   </block>
   <view class='template_title flex-x' bindtap='add'>

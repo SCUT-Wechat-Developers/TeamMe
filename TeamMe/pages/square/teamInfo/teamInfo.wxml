@@ -10,23 +10,17 @@
     <text class="name">{{teamInfo.title}}</text>
     <view class="word"><text>{{teamInfo.tag}}</text></view>
     <view class="text-left padding-top"><text class="cuIcon-medalfill xl text-blue"></text ><text class="text-xl padding-left">队长信息</text></view>
-    <view class="info text-lg text-left padding-left-lg">
-      <text class="cuIcon-location lg text-gray icon"></text>
-      <text class="padding-left">{{teamInfo.memberinfo[0].name}}</text>
-    </view>
+<!--学校-->
     <view class="info text-lg text-left padding-left-lg">
       <text class="cuIcon-location lg text-gray icon"></text>
       <text class="padding-left">{{teamInfo.memberinfo[0].university}}</text>
     </view>
+<!--    专业-->
     <view class="info text-lg text-left padding-left-lg">
       <text class="cuIcon-choiceness lg text-gray icon"></text>
       <text class="padding-left">{{teamInfo.memberinfo[0].major}}</text>
     </view>
-    <view class="info text-lg text-left padding-left-lg">
-      <!-- <text class="cuIcon-appreciate ellipse lg text-gray icon"  >奖项</text> -->
-      <view class=""  >奖项</view>
-      <text class="cuIcon-appreciate ellipse lg text-gray icon padding-left ellipse" style="width:70%;" wx:for="{{teamInfo.memberinfo[0].awards}}">{{item}} </text>
-    </view>
+<!--    技能-->
     <view class="info text-lg text-left padding-left-lg">
       <text class="cuIcon-appreciate ellipse lg text-gray icon"></text>
       <text class="padding-left ellipse" style="width:70%;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</text>
@@ -39,7 +33,7 @@
   </view>
 </view>
 
-<!--  队员信息栏  这是嘉力哥的不要删-->
+<!--  队员信息栏-->
 
 <view class="padding" wx:if="{{teamInfo.memberAvatar.length > 1}}">
   <view class="padding-xl radius shadow-warp bg-white">

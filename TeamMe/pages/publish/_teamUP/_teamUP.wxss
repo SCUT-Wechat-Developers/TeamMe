@@ -1,123 +1,123 @@
-
 /* pages/_teamUP/_teamUP.wxss */
 
 .wx-cards-card {
-    margin: 30rpx 30rpx;
-    background-color: white;
-    border-radius: 40rpx;
-    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
-    overflow-y: scroll;
+  margin: 30rpx;
+  background-color: rgb(236, 238, 221);
+  border-radius: 40rpx;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
+  overflow: hidden;
 }
+
 .wx-cards-card .teamNo {
-    margin: 20rpx;
-    display: block;
-    color: rgba(95, 95, 95, 0.87);
-    font-size: 32rpx;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: 0.01071em;
-    text-align:right;
+  margin: 60rpx;
+  display: block;
+  color: rgba(95, 95, 95, 0.87);
+  font-size: 32rpx;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01071em;
+  text-align:right;
 }
 
 .wx-cards-card .teamPart {
-    margin: 10px 50rpx 10rpx 50rpx;
-    display: block;
-    color: rgba(0, 0, 0, 0.87);
+  margin: 10rpx 50rpx 10rpx 50rpx;
+  display: block;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .wx-cards-card .teamPicName {
-    margin-top: -100rpx;
-    margin-bottom: -200rpx;
-    color: rgba(0, 0, 0, 0.87);
-    width: 50%;
-    height: 50%;
+  padding-left: 45px;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .wx-cards-card.pc2 {
-    box-sizing: border-box;
-    flex: 0 0 auto;
-    width: 10rpx;
-    height: 10rpx;
-    display: flex;
-    position: relative;
-    overflow: fragments;
-    font-size: 1.25rem;
-    flex-shrink: 0;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    align-items: left;
-    user-select: none;
-    border-radius: 50%;
-    justify-content: left;
-    z-index: auto;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 20rpx;
+  height: 20rpx;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  align-items: left;
+  user-select: none;
+  border-radius: 50%;
+  justify-content: left;
+  z-index: auto;
 }
 
 .wx-cards-card .teamMes {
-    margin: 50rpx 0px;
-    font-size: 32rpx;
-    display: block;
-    color: rgba(0, 0, 0, 0.87);
+  font-size: 32rpx;
+  display: block;
+  color: rgba(0, 0, 0, 0.87);
 }
 
-.wx-cards-card .teamMes1 {
-    margin: 30rpx;
-    font-size: 36rpx;
-    color: rgba(59, 59, 59, 0.87);
-    display: inline-block;
+.wx-cards-card .mateMes1 {
+  margin: 50;
+  font-size: 30rpx;
+  display: block;
+  color: rgba(59, 59, 59, 0.87);
 }
 
-.wx-cards-card .teamMes11 {
-    display: inline-block;
-    color: rgba(0, 0, 0, 0.87);
-    font-weight:bold;
+.wx-cards-card .mateMes11 {
+  margin: 20rpx 50rpx 20rpx 50rpx;
+  display: block;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight:bold; 
 }
 
-.wx-cards-card .teamMes2 {
-    margin: 20rpx 50rpx 20rpx 50rpx;
-    color: rgba(0, 0, 0, 0.87);
-    font-weight:font;
-    font-size: 32rpx;
+.wx-cards-card .mateMes2 {
+  margin: 20rpx 50rpx 20rpx 50rpx;
+  padding-left: 60px;
+  margin-top: 0px;
+  display: block;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight:font; 
+  font-size: 28rpx;
 }
 
 .wx-cards-card .teamPicLeader {
-    display: flex;
-    justify-content: space-between;
-    padding: 16rpx;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 16rpx;
+  align-items: center;
 }
 
 .wx-cards-card .pc{
-    flex: 1 1 auto;
-    margin-left: 16rpx;
-    width: 160rpx;
-    height: 160rpx;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    font-size: 1.25rem;
-    flex-shrink: 0;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    align-items: center;
-    user-select: none;
-    border-radius: 50%;
-    justify-content: center;
-    z-index: auto;
+  flex: 1 1 auto;
+  margin-left: 16rpx;
+  width: 160rpx;
+  height: 160rpx;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  align-items: center;
+  user-select: none;
+  border-radius: 50%;
+  justify-content: center;
+  z-index: auto;
 }
 
 .wx-cards-card .pc3{
-    flex: 1 1 auto;
-    margin-left: 16rpx;
-    width: 150rpx;
-    height: 150rpx;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    font-size: 1.25rem;
-    flex-shrink: 0;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    align-items: right;
-    user-select: none;
-    border-radius: 50%;
-    justify-content: right;
-    z-index: auto;
+  flex: 1 1 auto;
+  margin-left: 16rpx;
+  width: 150rpx;
+  height: 150rpx;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  align-items: right;
+  user-select: none;
+  border-radius: 50%;
+  justify-content: right;
+  z-index: auto;
 }

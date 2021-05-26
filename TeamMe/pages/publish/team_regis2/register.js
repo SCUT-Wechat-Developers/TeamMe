@@ -148,8 +148,8 @@ Page({
       })
       wx.navigateTo({
 
-        url: '/pages/publish/_teamUP/_teamUP',
-        // url: '/pages/square/index/index',
+        // url: '/pages/publish/_teamUP/_teamUP',
+        url: '/pages/square/index/index',
 
       /*
       wx.navigateTo({

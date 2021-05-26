@@ -25,12 +25,10 @@
 		</view>
 		<view class="cu-form-group">
 			<view class="title">队长名:</view>
-			<view class="padding-right-xl">{{group.memberinfo[0].name}}</view>
-			
-			<van-image class="padding-right" round width="40" height="40" fit="fill" src="{{group.captain.avatar}}" />
-			
+			<view class="padding-right-xl">{{group.memberinfo[0].nickName}}</view>
+			<van-image class="padding-right" round width="40" height="40" fit="fill" src="{{group.memberinfo[0].avatarUrl}}" />
 		</view>
-
+		
 		<!--	<view class="cu-form-group">-->
 		<!--		<view class="title">组队卡图片</view>-->
 		<!--		<button bindtap='handleChooseAlbum'>选中图片</button>-->

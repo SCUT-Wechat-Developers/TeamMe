@@ -1,66 +1,73 @@
-// pages/_teamUP/_teamUP.js
-Page({
+// dist/cards/card/card.js
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    headerImg: String,
+    title: String,
+    updateTime: String,
+    img: String,
+    context: String,
+    moreText: String,
+    isShowLike: Boolean,
+    needed: Number,
+    candidated: Number,
+    isLiked: {
+      type: Boolean,
+      observer: function () { this.setData({ isLiked: this.properties.isLiked }); }
+    },
+    likeNumber: Number,
+    isShowUnlike: Boolean,
+    unlikeNumber: Number,
+    isUnliked: {
+      type: Boolean,
+      observer: function () { this.setData({ isUnliked: this.properties.isUnliked }); }
+    },
+    isShowDelete: Boolean,
+    tag: String,
+    tagColor: String,
+    // ignore the property since hide the share button
+    // isShowShare: {
+    //   type: Boolean,
+    //   value: true,
+    // }
+  },
 
   /**
-   * 页面的初始数据
+   * 组件的初始数据
    */
   data: {
-
+    isMoreText: false,
+    isLiked: false,
+    isUnlike: false,
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 组件的方法列表
    */
-  onLoad: function (options) {
+  methods: {
+    showMoreText() {
+      this.setData({ isMoreText: !this.data.isMoreText });
+    },
 
-  },
+    handleLike() {
+      this.setData({ isLiked: !this.data.isLiked, likeNumber: this.data.likeNumber++ });
+      this.triggerEvent('like', {isLiked: this.data.isLiked});
+    },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    handleUnlike() {
+      this.setData({ isUnliked: !this.data.isUnliked });
+      this.triggerEvent('unlike', {isUnliked: this.data.isUnliked});
+    },
 
-  },
+    handleDelete() {
+      this.triggerEvent('delete');
+    }
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    // ignore the function since the share button be hidden
+    // handleShare() {
+    //   this.triggerEvent('share');
+    // }
   }
 })

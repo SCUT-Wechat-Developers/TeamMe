@@ -6,14 +6,14 @@
 <!--        文本-->
         <view class="content">
 <!--            比赛队伍-->
-            <view class="text-black">文晓港</view>
+            <view class="text-black">队伍名称</view>
 <!--            比赛名称-->
             <view class="text-gray text-sm">
-                <text class="cuIcon-infofill text-red"></text> 消息未送达</view>
+                <text class="text-red"></text>全国数模竞赛</view>
         </view>
         <view class="action">
-            <view class="text-grey text-xs">22:20</view>
-            <view class="cu-tag round bg-grey sm">5</view>
+<!--            人数-->
+            <view class="cu-tag round bg-green sm">3</view>
         </view>
         <view class="move">
             <view class="bg-red">取消关注</view>
