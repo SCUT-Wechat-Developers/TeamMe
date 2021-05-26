@@ -1,5 +1,7 @@
 /* pages/_teamUP/_teamUP.wxss */
-
+page{
+  padding-bottom: 100rpx;
+}
 .wx-cards-card {
   margin: 30rpx;
   background-color: rgb(236, 238, 221);
@@ -7,7 +9,6 @@
   box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
   overflow: hidden;
 }
-
 .wx-cards-card .teamNo {
   margin: 60rpx;
   display: block;
@@ -55,21 +56,21 @@
   color: rgba(0, 0, 0, 0.87);
 }
 
-.wx-cards-card .mateMes1 {
+.wx-cards-card .teamMes1 {
   margin: 50;
   font-size: 30rpx;
   display: block;
   color: rgba(59, 59, 59, 0.87);
 }
 
-.wx-cards-card .mateMes11 {
+.wx-cards-card .teamMes11 {
   margin: 20rpx 50rpx 20rpx 50rpx;
   display: block;
   color: rgba(0, 0, 0, 0.87);
   font-weight:bold; 
 }
 
-.wx-cards-card .mateMes2 {
+.wx-cards-card .teamMes2 {
   margin: 20rpx 50rpx 20rpx 50rpx;
   padding-left: 60px;
   margin-top: 0px;

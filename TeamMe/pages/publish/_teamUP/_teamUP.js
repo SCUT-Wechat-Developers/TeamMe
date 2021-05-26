@@ -1,52 +1,38 @@
 // dist/cards/card/card.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    headerImg: String,
-    title: String,
-    updateTime: String,
-    img: String,
-    context: String,
-    moreText: String,
-    isShowLike: Boolean,
-    needed: Number,
-    candidated: Number,
-    isLiked: {
-      type: Boolean,
-      observer: function () { this.setData({ isLiked: this.properties.isLiked }); }
     },
     likeNumber: Number,
     isShowUnlike: Boolean,
     unlikeNumber: Number,
-    isUnliked: {
-      type: Boolean,
-      observer: function () { this.setData({ isUnliked: this.properties.isUnliked }); }
-    },
-    isShowDelete: Boolean,
-    tag: String,
-    tagColor: String,
-    // ignore the property since hide the share button
-    // isShowShare: {
-    //   type: Boolean,
-    //   value: true,
-    // }
-  },
-
+Page({
   /**
    * 组件的初始数据
    */
   data: {
-    isMoreText: false,
-    isLiked: false,
-    isUnlike: false,
-  },
+    steps: [
+      {
+        text: '基本信息',
+      },
+      {
+        text: '比赛信息',
+      },
+      {
+        text: '组队卡片',
+      },
+    ],
+    group: {}
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+  },
+    /**
+     * 加载函数
+     */
+    onLoad: function (options) {
+      let {group} = this.data
+      group = wx.getStorageSync('group')
+      console.log(group)
+      this.setData({
+        group
+      })
+    },
     showMoreText() {
       this.setData({ isMoreText: !this.data.isMoreText });
     },
@@ -63,11 +49,36 @@ Component({
 
     handleDelete() {
       this.triggerEvent('delete');
+    },
+  /**
+   * 邀请好友
+   */
+  onShareAppMessage() {
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '邀请你加入'+this.data.group.teamName,
+          path: '/pages/square/index/index'
+        })
+      }, 2000)
+    })
+    return {
+      title: '邀请你加入'+this.data.group.teamName,
+      path: '/pages/square/index/index',
+      promise
     }
+  },
+  /**
+   * 返回广场
+   */
+  returnToSquare() {
+      wx.reLaunch ({
+        url: '/pages/square/index/index'
+      })
+  }
 
     // ignore the function since the share button be hidden
     // handleShare() {
     //   this.triggerEvent('share');
     // }
-  }
 })

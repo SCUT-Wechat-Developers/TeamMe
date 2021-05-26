@@ -131,8 +131,7 @@ Page({
         title: '上限人数信息错误'
       })
     }
-    else{  
-
+    else{
       //组队成功，把数据传到后台服务器
       var groupMes=this.data.group;
       groupMes.memberinfo=JSON.stringify(this.data.group.memberinfo);
@@ -148,8 +147,8 @@ Page({
       })
       wx.navigateTo({
 
-        // url: '/pages/publish/_teamUP/_teamUP',
-        url: '/pages/square/index/index',
+        url: '/pages/publish/_teamUP/_teamUP',
+        // url: '/pages/square/index/index',
 
       /*
       wx.navigateTo({
