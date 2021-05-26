@@ -1,8 +1,4 @@
 // dist/cards/card/card.js
-    },
-    likeNumber: Number,
-    isShowUnlike: Boolean,
-    unlikeNumber: Number,
 Page({
   /**
    * 组件的初始数据
