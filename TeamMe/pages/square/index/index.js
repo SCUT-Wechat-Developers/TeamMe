@@ -255,9 +255,9 @@ Page({
 
     detailInformation (event) {
     let tid = event.currentTarget.id // 当前选中的队伍ID
-    //console.log(event)
+    console.log(event)
     let teamInformation = this.data.teamList.find(item => {
-      return item.teamId == tid
+      return item.teamID == tid
     })
     console.log('队伍的id',tid)
     this.setData({

@@ -5,7 +5,7 @@
 <view class="head text-center">
   <view class="padding-xl radius shadow-warp bg-white">
     <view class="flex justify-center t-img">
-      <image class="cu-avatar xxl round" src="{{teamInfo.memberAvatar[0]}}"></image>
+      <image class="cu-avatar xxl round" src="{{teamInfo.memberinfo[0].avatarUrl}}"></image>
     </view>
     <text class="name">{{teamInfo.title}}</text>
     <view class="word"><text>{{teamInfo.tag}}</text></view>
@@ -23,7 +23,7 @@
 <!--    技能-->
     <view class="info text-lg text-left padding-left-lg">
       <text class="cuIcon-appreciate ellipse lg text-gray icon"></text>
-      <text class="padding-left ellipse" style="width:70%;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</text>
+      <text class="padding-left ellipse" style="width:70%;">{{teamInfo.memberinfo[0].skill}}</text>
     </view>
     <view class="flex justify-center">
   <!--      联系方式-->

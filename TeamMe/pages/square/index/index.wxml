@@ -12,7 +12,7 @@
 
          images="{{item.memberinfo.avatarUrl}}"
          isLiked="{{item.isLiked}}"
-         id="{{item.teamId}}"
+         id="{{item.teamID}}"
          needed="{{item.needNum}}"
          candidated="{{item.candidateNum}}"
          title="{{item.title}}"
@@ -24,6 +24,7 @@
          isShowLike="{{true}}"
          bind:like="handleLike"
          bindtap="detailInformation">
+
  </teamInsCard>
 
 </view>
