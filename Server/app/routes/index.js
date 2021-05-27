@@ -21,18 +21,21 @@ var groupSchema=new Schema({
 })
 //
 var personSchema=new Schema({
-  id:"",
-  teamid:[],
-  name:"",
-  gender:"",
-  phone:0,
-  major:"",
-  avatarUrl:"",
-  categories:"",
-  education:"",
-  awards:[""],
-  skill:[""],
-  text:""
+  nickName: '',
+  name: '',
+  avatarUrl: '',
+  openid: '',
+  gender: '',
+  major: '',
+  categories: '',
+  education: '',
+  awards: '',
+  skill: '',
+  text: '',
+  university: '',
+  mission: '',
+  followList: '',
+  hisTeamNum: ''
 })
 
 var groupModel=Mongoose.model("groups",groupSchema);
