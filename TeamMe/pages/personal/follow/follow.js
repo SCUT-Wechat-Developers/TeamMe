@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
     data: {
+        person:{},
         StatusBar: app.globalData.StatusBar,
         CustomBar: app.globalData.CustomBar,
         iconList: [{
@@ -60,6 +61,28 @@ Page({
     showModal(e) {
         this.setData({
             modalName: e.currentTarget.dataset.target
+        })
+    },
+    onShow(){
+        let per=wx.getStorageSync('personinf')
+        this.setData({
+            person:per
+        })
+    },
+    out(e){
+        console.log(e)
+        this.data.person.followList.splice(e.currentTarget.dataset.item, 1);
+        let key='person'
+              this.setData({
+                  [key]: this.data.person
+                  
+        })
+        wx.setStorage({
+          data: this.data.person,
+          key: 'personinf',
+          success: (res) => {},
+          fail: (res) => {},
+          complete: (res) => {},
         })
     },
     hideModal(e) {

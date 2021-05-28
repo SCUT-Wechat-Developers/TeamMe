@@ -42,8 +42,12 @@ Page({
 
   onLoad: function (options) {
     var groupData=wx.getStorageSync('group')
+    // groupData.likeNum=1;
+    // console.log(1)
+    // console.log(groupData)
     this.setData({
       group: groupData
+
     })
   },
 
@@ -134,8 +138,10 @@ Page({
     else{
       //组队成功，把数据传到后台服务器
       var groupMes=this.data.group;
+      groupMes.likeNum='';
+      console.log(groupMes);
       groupMes.memberinfo=JSON.stringify(this.data.group.memberinfo);
-      //groupMes.candidateinfo=JSON.stringify(this.data.group.candidateinfo);
+      groupMes.candidateinfo=JSON.stringify(this.data.group.candidateinfo);
       wx.request({
         method:'post',
         url: 'http://localhost:3500/db',

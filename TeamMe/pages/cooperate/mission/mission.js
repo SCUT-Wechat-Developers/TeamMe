@@ -4,6 +4,7 @@ Page({
     teamId:"",
     teamName:"",
     personinfo:{},
+    teamInfo:{},
     mission:{
         content:"",
         deadline:"",
@@ -16,22 +17,23 @@ Page({
   },
   onLoad: function (options) {
     console.log(options)
-    let teamId = options.teamId
+    let teamId = options.teamID
     let teamName = options.teamName
-    console.log(teamId)
-    
     // 初始化队伍的信息
-    let personinfo = wx.getStorageSync('missioninfo')
+    let personinfo = wx.getStorageSync('personWithMis')
+    let teamInfo =wx.getStorageSync('tmpteam')
+    console.log(personinfo)
     console.log(personinfo)
     this.setData({
          personinfo,
          teamId,
-         teamName
+         teamName,
+         teamInfo
       //,
         //flag=0
     })
-    //console.log(this.data.teamInfo);
-    wx.removeStorageSync('missioninfo')
+    console.log(this.data.teamInfo);
+    wx.removeStorageSync('personWithMis')
 
 
   },
@@ -40,7 +42,7 @@ Page({
    */
   change: function (e) {
     var that = this;
-    //console.log(e);
+    console.log(e);
     console.log(e.currentTarget.dataset.item);
     var len=this.data.teamInfo.memberinfo.length;
     var success=0;
@@ -89,7 +91,10 @@ Page({
 
     console.log(this.data.teamInfo)
   },
-
+  /**
+   * 截止时间输入
+   * @param e
+   */
   bindDateChange: function(e) {
    // console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
@@ -97,7 +102,8 @@ Page({
     })
    // console.log(this.data.mission)
   },
-  needNumInput:function(e){
+
+  missionInput:function(e){
   console.log(this.data)
     this.setData({
       ['mission.content']:e.detail.value
@@ -145,7 +151,19 @@ Page({
             [key]: permission
           })
       console.log(this.data.personinfo)
-      
+      let asd=this.data.teamInfo
+      for (var i = 0; i < this.data.teamInfo.memberinfo.length; i++) {
+        if (this.data.teamInfo.memberinfo[i].openid == this.data.personinfo.openid) {
+          
+          console.log("guansdf")
+           asd.memberinfo[i]=this.data.personinfo
+
+          this.setData({
+            teamInfo: asd
+          })
+          break
+        }
+      }
       //组队成功，把数据传到后台服务器
       // wx.request({
       //   method:'post',
@@ -156,10 +174,15 @@ Page({
       //     console.log(res);
       //   }
       // })
+
+        console.log(this.data.teamInfo)
       wx.setStorageSync('missioninfo',this.data.personinfo)
       // wx.navigateTo({
       //   url: '../mission/mission?id='+this.data.personinfo.id+'&teamId='+this.data.teamId+'&teamName='+this.data.teamName
       // })
+      // wx.navigateTo({
+      //    url: '../mission/mission?id='+this.data.personinfo.id+'&teamId='+this.data.teamId+'&teamName='+this.data.teamName
+      //  })
     }
   },
 

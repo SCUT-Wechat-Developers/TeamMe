@@ -1,12 +1,13 @@
 <!--follow 关注列表-->
 <view class="cu-list menu-avatar">
-    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{person.followList}}"  
+    wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
 <!--        头像-->
         <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view>
 <!--        文本-->
         <view class="content">
 <!--            比赛队伍-->
-            <view class="text-black">队伍名称</view>
+            <view class="text-black">{{item.teamName}}</view>
 <!--            比赛名称-->
             <view class="text-gray text-sm">
                 <text class="text-red"></text>全国数模竞赛</view>
@@ -16,7 +17,7 @@
             <view class="cu-tag round bg-green sm">3</view>
         </view>
         <view class="move">
-            <view class="bg-red">取消关注</view>
+            <view class="bg-red" bindtap="out" data-item="{{index}}">取消关注</view>
         </view>
     </view>
 </view>

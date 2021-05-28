@@ -1,6 +1,6 @@
 {
-  "pages":[
-    "pages/square/index/index",
+  "pages":["pages/square/index/index",
+    "pages/personal/_inf/_inf",
     "pages/cooperate/captain/captain",
     "pages/cooperate/_cooperate/_cooperate",
     "pages/cooperate/member/member",
@@ -11,10 +11,12 @@
     "pages/publish/team_regis2/register",
     "pages/cooperate/mission/mission",
     "pages/publish/team_regis1/register",
-    "pages/personal/_inf/_inf",
+    
     "pages/square/teamInfo/teamInfo",
     "pages/logs/logs",
-    "pages/personal/jianli/jianli"
+    "pages/personal/jianli/jianli",
+    "pages/personal/personCard/_teamUP",
+    "pages/personal/personCard/1"
   ],
 
   "window": {

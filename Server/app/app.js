@@ -5,11 +5,16 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose=require('mongoose');
 var bodyParser=require('body-parser');
-mongoose.connect('mongodb://localhost/admin').then(()=>{
+mongoose.connect('mongodb://admin:Lr123456@1.116.195.231:10093/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false').then(()=>{
   console.log('connect to database successfully')
 }).catch(error=>{
   console.error('fail to connect to database',error)
 })
+// mongoose.connect('mongodb://localhost:27017').then(()=>{
+//   console.log('connect to database successfully')
+// }).catch(error=>{
+//   console.error('fail to connect to database',error)
+// })
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

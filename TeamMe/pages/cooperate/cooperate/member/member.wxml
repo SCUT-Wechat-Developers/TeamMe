@@ -1,0 +1,48 @@
+<!--队员页面-->
+<van-tabs animated color='#C76262' swipeable>
+  <!--    我的任务任务-->
+  <van-tab title="我的任务">
+<!--    进行中任务列表-->
+<!--    拟态提示窗口-->
+    <van-divider bindtap='bindLine' wx:if="{{unfinished.length>0}}" contentPosition="left" custom-style='margin:20rpx 20rpx 0'>进行中
+      <van-icon custom-style='margin-left:10rpx' name="question-o" /></van-divider>
+    <van-swipe-cell right-width="{{ 160 }}" wx:for='{{unfinished}}' wx:key='index'>
+      <view class='card'>
+        <!--                内容-->
+        <view class='titlebox'>
+          <view class='flex-center'>
+            <view class='color' wx:if='{{true}}' style='background-color:green'></view>
+            <view class='title'>{{item.content}}</view>
+          </view>
+<!--          右侧tag，这里可以一个插图吧-->
+
+        </view>
+        <!--                时间-->
+        <view class='time'>{{item.deadline}}</view>
+<!--这里也可以一个插图-->
+        <view slot="right" style='height:100%'>
+          <view class="van-swipe-cell-right celldelete" bindtap="bindDelete" data-index='{{item.missionId}}'>删除</view>
+          <view class="van-swipe-cell-right cellfinish" data-finish="1" bindtap="complete" data-index='{{item.missionId}}'>完成</view>
+        </view>
+      </view>
+    </van-swipe-cell>
+
+<!--    已完成任务列表-->
+    <van-divider bindtap='bindLine' wx:if="{{finished.length>0}}" contentPosition="left" custom-style='margin:30rpx 20rpx 0'>已完成
+      <van-icon custom-style='margin-left:10rpx' name="question-o" /></van-divider>
+    <van-swipe-cell right-width="{{ 160 }}" wx:for='{{finished}}' wx:key='index'>
+      <view class='card delete'>
+        <view class='titlebox'>
+          <view class='title'>{{item.content}}</view>
+<!--          插图-->
+        </view>
+        <view class='time' style='color:#dddee1'>{{item.deadline}}</view>
+<!--        插图-->
+      </view>
+      <view slot="right" style='height:100%'>
+        <view class="van-swipe-cell-right celldelete" bindtap="bindDelete" data-id='{{item.missionId}}'>删除</view>
+        <view class="van-swipe-cell-right cellunfinish" data-finish="0" bindtap="bindResetFinish" data-id='{{item.missionId}}'>取消完成</view>
+      </view>
+    </van-swipe-cell>
+  </van-tab>
+</van-tabs>

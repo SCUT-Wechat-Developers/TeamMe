@@ -1,6 +1,83 @@
 // pages/index/index.js
 Page({
-
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        flag:1,
+        modalName: null,  //   小框显示
+        introduction:null,  // 个人简历
+        teamInfo: {},       //队伍相关信息
+        candidateClick:{},  // 点击的候选人信息
+        finishedList: [],  // 队伍完成的任务
+        unfinishedList: []  // 队伍未完成的任务
+    },
+    /**
+     * 前端函数
+     *
+     */
+    showModal(e) {
+        this.setData({
+            modalName: e.currentTarget.dataset.target
+        })
+    },
+    hideModal(e) {
+        this.setData({
+            modalName: null
+        })
+    },
+    // 拟态提示窗口
+    bindLine() {
+        wx.showModal({
+            title: '提示',
+            content: '左划展开任务操作',
+            showCancel: false,
+            confirmText: '我知道了'
+        })
+    },
+    // ListTouch触摸开始
+    ListTouchStart(e) {
+        this.setData({
+            ListTouchStart: e.touches[0].pageX
+        })
+    },
+    // ListTouch计算方向
+    ListTouchMove(e) {
+        this.setData({
+            ListTouchDirection: e.touches[0].pageX - this.data.ListTouchStart > 0 ? 'right' : 'left'
+        })
+    },
+    // ListTouch计算滚动
+    ListTouchEnd(e) {
+        if (this.data.ListTouchDirection =='left'){
+            this.setData({
+                modalName: e.currentTarget.dataset.target
+            })
+        } else {
+            this.setData({
+                modalName: null
+            })
+        }
+        this.setData({
+            ListTouchDirection: null
+        })
+    },
+    // 跳转到候选人页面
+    candidateDetail (e) {
+        let {candidateClick} = this.data
+        candidateClick = e.currentTarget.dataset.item
+        // console.log(candidateClick)
+        if(candidateClick) {
+            wx.setStorageSync('candidatePerson',candidateClick)
+            wx.navigateTo({
+                url: '/pages/cooperate/candidateInfo/_teamUP?id='+ candidateClick.openid
+            })
+        }
+    },
+    /**
+     * 后端函数
+     * @param e
+     */
   change: function (e) {
     var that = this;
     //console.log(e);
@@ -12,7 +89,7 @@ Page({
     //     return -1;
     //   }
         for (var i = 0; i < this.data.teamInfo.candidateinfo.length; i++) {
-          if (this.data.teamInfo.candidateinfo[i].id == e.currentTarget.dataset.item.id) {
+          if (this.data.teamInfo.candidateinfo[i].openid == e.currentTarget.dataset.item.openid) {
             this.data.teamInfo.candidateinfo.splice(i, 1);
             success=1;
           }
@@ -57,14 +134,17 @@ Page({
 
 
   },
-
+    /**
+     * 删除组员
+     * @param e
+     */
   quit: function (e) {
     var that = this;
     console.log(e.currentTarget.dataset.item);
     var len=this.data.teamInfo.memberinfo.length;
     var success=0;
         for (var i = 1; i < this.data.teamInfo.memberinfo.length; i++) {
-          if (this.data.teamInfo.memberinfo[i].id == e.currentTarget.dataset.item.id) {
+          if (this.data.teamInfo.memberinfo[i].openid == e.currentTarget.dataset.item.openid) {
             this.data.teamInfo.memberinfo.splice(i, 1);
             success=1;
           }
@@ -77,11 +157,32 @@ Page({
     //   })
     console.log(this.data.teamInfo)
   },
+    /**
+     * 拒绝候选人
+     * @param e
+     */
+    deleteCandidate (e) {
+        let {teamInfo} = this.data
+        let len = teamInfo.candidateinfo.length
+        console.log(teamInfo)
+        for (let i = 0; i < len; i++) {
+            
+            if(teamInfo.candidateinfo[i].openid === e.currentTarget.dataset.item.openid) {
+                teamInfo.candidateinfo.splice(i,1)
+                break
+            }
+        }
+        this.setData({
+            teamInfo
+        })
+        console.log(teamInfo.candidateinfo)
+    },
 
   mission (event) {
      // console.log(event)
     //let tid = event.currentTarget.id // 当前选中的队伍ID
-    let memberone=event.currentTarget.dataset.item ;
+    let memberOne=event.currentTarget.dataset.item ;
+    console.log(event)
     // let teamInformation = this.data.teamList.find(item => {
     //   return item.teamId === tid
     // })
@@ -91,16 +192,16 @@ Page({
     //   teamInformation
     // })
     // console.log(teamInformation)
-
-    wx.setStorageSync('missioninfo',memberone)
+    wx.setStorageSync('tmpteam', this.data.teamInfo)
+    wx.setStorageSync('personWithMis',memberOne)
     //var detail1=wx.getStorageSync("detail") 
     //let detail1= wx.getStorage('detail')
     //console.log(detail1);
     console.log(event)
     console.log(123)
-    console.log(memberone.id)
+    console.log(memberOne.openid)
     wx.navigateTo({
-        url: '../mission/mission?id='+memberone.id+'&teamId='+this.data.teamInfo.teamId+'&teamName='+this.data.teamInfo.teamName
+        url: '../mission/mission?id='+memberOne.openid+'&teamId='+this.data.teamInfo.teamID+'&teamName='+this.data.teamInfo.teamName
        // url: '../mission/mission/captain?id='+tid
        // url: '../mission/mission?id='+tid+''
       })
@@ -134,15 +235,6 @@ Page({
   //   })
   //   console.log('活动订单id = ' + that.data.mobile);
   // },
-  /**
-   * 页面的初始数据
-   */
-  data: {
-      flag:1,
-      modalName: null,  //   小框显示
-      introduction:null,  // 个人简历
-      teamInfo: {},       //队伍相关信息
-  },
   /**
    * 显示和关闭个人简介小窗
    * @param e
@@ -192,14 +284,40 @@ Page({
   },
 
   /**
+     * 从服务器上拉取全部任务下来,并且为前端适配未完成与已完成的任务列表
+     */
+    loadAllMission () {
+        // 先加载缓存数据下来，未来会更改为服务器数据
+          let {teamInfo} = this.data
+          console.log(teamInfo)
+          let {unfinishedList,finishedList} = this.data
+          // 先置空！！！
+          finishedList = []
+          unfinishedList = []
+          // 任务存入对应列表
+          for(let x in teamInfo.memberinfo) {
+              for (let y in teamInfo.memberinfo[x].mission) {
+                  if(teamInfo.memberinfo[x].mission[y].finished) finishedList.push(teamInfo.memberinfo[x].mission[y])
+                  else unfinishedList.push(teamInfo.memberinfo[x].mission[y])
+              }
+          }
+          this.setData({
+              unfinishedList,
+              finishedList
+          })
+          console.log(unfinishedList)
+      },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //loadAllMission
     //console.log(options.i)
     let teamId = options.id
     console.log(teamId)
     console.log(teamId)
     // 初始化队伍的信息
+    //let teamInfo = wx.getStorageSync('group')
     let teamInfo = wx.getStorageSync('teamInfo')
     this.setData({
         teamInfo//,
@@ -208,7 +326,7 @@ Page({
     console.log(this.data.teamInfo);
     wx.removeStorageSync('teamInfo')
 
-
+    this.loadAllMission()
   },
 
   /**

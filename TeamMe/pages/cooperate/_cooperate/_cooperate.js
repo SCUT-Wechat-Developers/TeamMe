@@ -9,6 +9,9 @@ Page({
     addGlobalClass: true,
   },
   data: {
+    // 颜色数组
+    colors: ['cyan','blue','purple','mauve','pink','brown','red','orange','olive','green'],
+    colorIndex: 0,
     // 队伍名称
     myTeamList: [{
       title: '队伍名称1',
@@ -119,19 +122,7 @@ Page({
      *    喜欢（关注的人数） likeNum
      */
     teamInformation: {
-      captain: '',
-      teamId: '',
-      teamName: '',
-      teamImg: '',
-      title: '',
-      content: '',
-      needNum: 0,
-      candidateNum: 0,
-      tag: '',
-      endTime: Date,
-      updateTime: '',
-      likeNum: 0,
-      isLiked: false
+
     },  // 队伍信息
     selectTeamList: [],  // 筛选队伍
     userInfo: {},
@@ -154,7 +145,8 @@ Page({
     console.log(e.detail);
   },
 
-  // 自定义回调的下拉刷新列表
+
+// 自定义回调的下拉刷新列表
   handleRefresher () {
 
   },
@@ -167,12 +159,9 @@ Page({
       key: 'detail',
     })
     if (wx.getUserProfile) {
-      let {dropOption, dropValue} = this.data
       console.log(this.data.selectTeamList)
       this.setData({
-        dropValue: dropOption[dropOption.length-1].value,
-        canIUseGetUserProfile: true,
-        tagList: ['字节跳动杯','微信小程序竞赛']
+        canIUseGetUserProfile: true
       })
 
 
@@ -180,18 +169,56 @@ Page({
       // 获取全部队伍的信息
       // this.getAllTeamsData();
     }
-    
+    wx.request({
+      method:'get',
+      url: 'http://localhost:3500/square',
+      success:(res)=>{
+        //res.memberInfo=JSON.parse('res.memberInfo');
+        console.log(13122121);
+        console.log(res.data);
+        let asd=res.data;
+        this.setData({
+          teamList:res.data
+        })
+        console.log(this.data.teamList);
+
+      }
+    })
+    //console.log(this.data.teamList)
     var theid=wx.getStorageSync("group") 
+    console.log(123);
     console.log(theid);
     let cartList =this.data.teamList;
-    theid.memberinfo[0].id="oFwNE5bSgwt_QJaXT1zVTs8CiS7A";
-    theid.memberinfo[1].id="2";
+    theid.memberinfo[0].openid="oFwNE5bSgwt_QJaXT1zVTs8CiS7A";
+    theid.memberinfo[1].openid="0";
     
-    theid.candidateinfo[0].id="3";
-    theid.candidateinfo[1].id="4";
+    theid.candidateinfo[0].openid="3";
+    theid.candidateinfo[1].openid="4";
     //theid.memberinfo[0].name="asdas啊啊啊";
     theid.candidateinfo[1].name="啊啊啊";
     theid.candidateinfo[1].gender=0;
+    theid.memberinfo[0].mission=[{
+      content:"jvhasdasdasdsadadasdasdasdassdadadasdasdfhdhf",
+      deadline:"2020-11-22",
+      finished:0,
+      
+      teamId:"6"
+    },
+    {
+      content:"干饭啊",
+      deadline:"2020-11-22",
+      finished:1,
+      
+      teamId:"6"
+    },
+    {
+      content:"干饭啊萨达萨达萨达萨达",
+      deadline:"2020-11-22",
+      finished:0,
+      
+      teamId:"6"
+    }]
+    theid.teamID="1";
     //theid.title="";
     cartList.push(theid);
     
@@ -201,41 +228,42 @@ Page({
         })
     //theid.teamId="6";
 
+    console.log(this.data.teamList);
 
     let theid1=wx.getStorageSync("group") 
     console.log(theid1);
     let cartList1 =this.data.teamList;
     //let teamId=this.data.teamList
     cartList.push(theid1);
-    theid1.memberinfo[0].id="2";
-    //theid1.memberinfo[1].id="oFwNE5bSgwt_QJaXT1zVTs8CiS7A";
+    theid1.memberinfo[0].openid="34";
+    theid1.memberinfo[1].openid="oFwNE5bSgwt_QJaXT1zVTs8CiS7A";
     theid1.memberinfo[1].mission=[{
       content:"jvhdfhdhf",
       deadline:"2020-11-22",
-      finished:Boolean,
+      finished:0,
       
       teamId:"6"
     },
     {
       content:"干饭啊",
       deadline:"2020-11-22",
-      finished:Boolean,
+      finished:1,
       
       teamId:"6"
     },
     {
       content:"干饭啊萨达萨达萨达萨达",
       deadline:"2020-11-22",
-      finished:Boolean,
+      finished:0,
       
       teamId:"6"
     }
   ]
     console.log()
-    theid1.memberinfo[1].id="oFwNE5bSgwt_QJaXT1zVTs8CiS7A";
-    theid1.candidateinfo[0].id="7";
-    theid1.candidateinfo[1].id="8";
-    theid1.teamId="6";
+    //theid1.memberinfo[1].openid="";
+    theid1.candidateinfo[0].openid="7";
+    theid1.candidateinfo[1].openid="8";
+    theid1.teamID="2";
     theid1.title="非组长，组员";
     let key1='teamList'
     this.setData({
@@ -316,13 +344,14 @@ Page({
    *
    * @param v 选中的value值
    */
-  selectTag({detail}) {
-    console.log(detail.detail)
+  selectTag(detail) {
+    console.log(123)
+    console.log(detail.currentTarget.dataset.item)
+    let option = parseInt(detail.currentTarget.dataset.item)  //  筛选的选项 0 1 2
     wx.setStorage({
-      data: detail.detail,
+      data: option,
       key: 'detail',
     })
-    let option = detail.detail
     let len = this.data.dropOption.length
     // 点击全部则重置
     if (option === len-1) {
@@ -335,9 +364,10 @@ Page({
     //console.log(77)
     //console.log(theid)
     let selectTeamList;
-    if(!detail.detail){
+    let detail1=wx.getStorageSync('detail')
+    if(!detail1){
       selectTeamList = teamList.filter(item =>{
-      return item.memberinfo[0].id === theid.id
+      return item.memberinfo[0].openid === theid.openid
       })
     }
     else{
@@ -348,7 +378,7 @@ Page({
         console.log(item.memberinfo.length) ;
         for (var i=1;i<item.memberinfo.length;i++)
         { 
-            if(item.memberinfo[i].id === theid.id)flag=1;
+            if(item.memberinfo[i].openid === theid.openid)flag=1;
         }
         return flag;
       })
@@ -367,42 +397,61 @@ Page({
   },
 
   /**
-   * @description 查看队伍的详细信息
+   * @description 进入协作详情页面
    * @param event 事件
    */
   detailInformation (event) {
+    // 获取用户openid
+    let teamInformation
+    let user = wx.getStorageSync('personinf')
+    console.log(user)
     let tid = event.currentTarget.id // 当前选中的队伍ID
-    let teamInformation = this.data.teamList.find(item => {
-      return item.teamId === tid
-    })
+
+    console.log(this.data.teamList)
+    for(var i=0;i<this.data.teamList.length;i++){
+      let myGroup = this.data.teamList[i]
+      console.log(this.data.teamList[i])
+      
+      if(this.data.teamList[i].teamID == tid) {
+        teamInformation= this.data.teamList[i]
+
+        break
+      }
+    }
+    // let teamInformation = this.data.teamList.find(item => {
+    //   return item.teamID === tid
+    // })
+    console.log(teamInformation)
     console.log('队伍的id',tid)
     this.setData({
       teamInformation
     })
-    console.log(teamInformation)
+    console.log(this.data.teamInformation)
     wx.setStorageSync('teamInfo',teamInformation)
     var detail1=wx.getStorageSync("detail") 
     //let detail1= wx.getStorage('detail')
-    console.log(detail1);
-    // 跳转到队伍详细页面
-    if(tid && detail1===2){
+
+    console.log(user.openid);
+    // 跳转队长页面
+
+    console.log(this.data.teamInformation.memberinfo[0].openid)
+    
+    if(user.openid === this.data.teamInformation.memberinfo[0].openid){
       console.log(tid)
+      console.log(32)
       wx.navigateTo({
-        url: '../../square/teamInfo/teamInfo?id='+tid
+        url: '../../cooperate/captain/captain?id='+tid+'&teamID='+this.data.teamInformation.teamID
       })
     }
-    if(tid && detail1===0){
+    // 跳转队员页面
+    else{
       console.log(tid)
+      console.log(82)
       wx.navigateTo({
-        url: '../../cooperate/captain/captain?id='+tid
+        url: '../../cooperate/member/member?id='+tid+'&teamID='+this.data.teamInformation.teamID
       })
     }
-    if(tid && detail1===1){
-      console.log(tid)
-      wx.navigateTo({
-        url: '../../cooperate/member/member?id='+tid
-      })
-    }
+    
   },
 
   // 搜索

@@ -21,7 +21,7 @@ Page({
       teamID:'2',
       teamName:'',
       //teamImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
-      likeNum:0,
+      likeNum:Number,
       memberinfo:[],
       candidateinfo:[],
       title:'',

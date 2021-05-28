@@ -78,20 +78,20 @@ App({
             // })
           },
           fail:function (res){
-            wx.showModal({
-              title: '用户授权',
-              content: '获取你的昵称、头像、地区及性别',
-              success: function (res) {
-                if (res.confirm) {  
-                  console.log('点击确认操作')
-                  wx.navigateTo({
-                    url: '/pages/login/login',
-                  })
-                } else {   
-                  console.log('点击取消操作')
-                }
-              }
-            })
+            // wx.showModal({
+            //   title: '用户授权',
+            //   content: '获取你的昵称、头像、地区及性别',
+            //   success: function (res) {
+            //     if (res.confirm) {  
+            //       console.log('点击确认操作')
+            //       wx.navigateTo({
+            //         url: '/pages/login/login',
+            //       })
+            //     } else {   
+            //       console.log('点击取消操作')
+            //     }
+            //   }
+            // })
         }
         
 

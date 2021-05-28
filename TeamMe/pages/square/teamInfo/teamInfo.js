@@ -16,24 +16,37 @@ Page({
         console.log(e);
         console.log(e.currentTarget.dataset.item);
         let candidateone=wx.getStorageSync('personinf')
-        console.log(candidateone);
+        //console.log(candidateone);
+        // candidateone.openid="asdasd"
+        // console.log(candidateone);
         var len=this.data.teamInfo.memberinfo.length;
-        console.log(len);
-        var success=0;
+        //console.log(len);
+
+        let success=0;
+
+        // let key='teamInfo'
+        // this.setData({
+        //     [key]: e.currentTarget.dataset.item
+            
+        // })
+        console.log(this.data.teamInfo);
         //this.data.teamInfo.candidateinfo
         // remove: function(array, val) {
         //     return -1;
         //   }
             for (var i = 0; i < this.data.teamInfo.candidateinfo.length; i++) {
-              if (this.data.teamInfo.candidateinfo[i].id == e.currentTarget.dataset.item.id) {
+              if (this.data.teamInfo.candidateinfo[i].openid == candidateone.openid) {
                 //this.data.teamInfo.candidateinfo.splice(i, 1);
                 success=1;
+                return 0;
               }
             }
             for (var i = 0; i < this.data.teamInfo.memberinfo.length; i++) {
-                if (this.data.teamInfo.memberinfo[i].id == e.currentTarget.dataset.item.id) {
+                if (this.data.teamInfo.memberinfo[i].openid == candidateone.openid) {
                   //this.data.teamInfo.candidateinfo.splice(i, 1);
                   success=1;
+                  return 0;
+                  
                 }
               }
         
@@ -52,6 +65,7 @@ Page({
         // //console.log(theid);
         // //console.log(this.data.teamInfo.);
         // //let newList=  this.data.teamInfo.captaininfo
+        //console.log(success)
         if(!success){
             let cartList =this.data.teamInfo.candidateinfo
             //cartList.push(newList);
@@ -145,8 +159,24 @@ Page({
         this.setData({
             teamInfo
         })
-        wx.removeStorageSync('teamInfo')
+        //wx.removeStorageSync('teamInfo')
+        
         console.log(this.data.teamInfo)
+        //console.log(23)
+    },
+    onShow: function () {
+        let teamId = options.id
+        console.log(teamId)
+        //console.log(wx.getStorageSync('teamInfo'))
+        // 初始化队伍的信息
+        let teamInfo = wx.getStorageSync('teamInfo')
+        this.setData({
+            teamInfo
+        })
+        wx.removeStorageSync('teamInfo')
+        
+        console.log(this.data.teamInfo)
+        console.log(23)
     },
 
     /**

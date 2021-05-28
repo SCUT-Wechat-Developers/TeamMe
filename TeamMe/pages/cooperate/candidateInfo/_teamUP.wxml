@@ -1,0 +1,65 @@
+<!--_teamUP.wxml-->
+  <view class='.wx-cards-card'>
+
+  <!--  个人基本信息-->
+  <view class="teamPart">
+  <!--  个人信息标题图片-->
+  <view class="teamPicName">
+      <image class='pc2' mode='aspectFit' src="../image/SelfInfo.png" weight="10rpx"  style="width: 254rpx; height: 87rpx; display: inline-block; box-sizing: border-box; left: -127rpx; top: -5rpx; position: relative"></image>
+  </view>
+
+  <!--  个人头像图片-->
+  <view teamPicLeader style="width: 155rpx; height: 0rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+      <image class='pc' mode='aspectFit' src="{{candidatePerson.avatarUrl}}" style="position: relative; left: 441rpx; top: -59rpx; width: 180rpx; height: 180rpx; display: flex; box-sizing: border-box"></image>
+    </view>
+
+  <!--  个人基本信息内容-->
+  <view class="mateMes"  style="width: 596rpx; height: 758rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
+    <view class='mateMes1' style="width: 129rpx; height: 43rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">专业</view>
+
+    <text class='mateMes11' style="width: 497rpx; height: 43rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">{{candidatePerson.major}}</text>
+
+    <text class='mateMes1' style="width: 129rpx; height: 43rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">学科</text>
+
+    <text class='mateMes11'>{{candidatePerson.categories}}</text>
+    
+    <text class='mateMes1' style="width: 129rpx; height: 43rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">就读学校</text>
+
+    <text class='mateMes11'>{{candidatePerson.university}}</text>
+
+    <text class='mateMes1' style="width: 129rpx; height: 43rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">当前学历</text>
+
+    <text class='mateMes11'>{{candidatePerson.education}}</text>
+
+    <text class='mateMes1' style="width: 129rpx; height: 43rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">个人简介</text>
+
+  <textarea name="" id=""  class="mateMes11" colls="30" rows="10" style="width: 551rpx; height: 176rpx; display: block; box-sizing: border-box; left: 0rpx; top: 8rpx; position: relative" >
+    {{candidatePerson.text}}</textarea>
+</view>
+</view>
+    
+
+<view class="teamPart">
+  <view class="teamPicName">
+      <image class='pc2' mode='aspectFit' src="../image/personPrice.png" weight="10rpx"  style="width: 272rpx; height: 80rpx; display: inline-block; box-sizing: border-box; left: -153rpx; top: -26rpx; position: relative"></image>
+  </view>
+  <view class="mateMes">
+    <text class='mateMes1' style="width: 129rpx; height: 43rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">技能特长</text>
+
+    <textarea name="" id=""  class="mateMes11" colls="30" rows="10" style="width: 551rpx; height: 176rpx; display: block; box-sizing: border-box; left: 0rpx; top: 8rpx; position: relative" >
+      {{candidatePerson.skill}}</textarea>
+
+    <text class='mateMes1' style="width: 129rpx; height: 43rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">获奖情况</text>
+    <view wx:if="{{candidatePerson.awards.length === 0}}" name="" id=""  class="mateMes11" colls="30" rows="10" style="width: 551rpx; height: 176rpx; display: block; box-sizing: border-box; left: 0rpx; top: 8rpx; position: relative" >暂无比赛获奖信息</view>
+    <view wx:else>
+      <view wx:for="{{candidatePerson.awards}}" name="" id=""  class="mateMes11" colls="30" rows="10" style="width: 551rpx; height: 176rpx; display: block; box-sizing: border-box; left: 0rpx; top: 8rpx; position: relative" >{{item}}</view>
+    </view>
+  </view>
+</view>
+
+<!--  装饰图-->
+<view class="teamPicName">
+      <image class='pc3' mode='aspectFit' src="../image/team.png" weight="10rpx"  style="position: relative; left: 383rpx; top: -50rpx; width: 188rpx; height: 162rpx; display: flex; box-sizing: border-box"></image>
+  </view>
+
+  </view>

@@ -1,21 +1,24 @@
 <!--队长页面-->
-<van-tabs animated color='#C76262' swipeable>
-<!--    全部任务-->
-    <van-tab title="全部任务">
-        <van-divider bindtap='bindline' wx:if="{{unfinished.length>0}}" contentPosition="left" custom-style='margin:20rpx 20rpx 0'>进行中
+
+<van-tabs animated color='#C76262'>
+<!--    我的任务-->
+    <van-tab title="我的任务">
+<!--        进行中拟态提醒-->
+        <van-divider bindtap='bindLine' wx:if="{{unfinished.length>0}}" contentPosition="left" custom-style='margin:20rpx 20rpx 0'>进行中
             <van-icon custom-style='margin-left:10rpx' name="question-o" /></van-divider>
         <van-swipe-cell right-width="{{ 160 }}" wx:for='{{unfinished}}' wx:key='index' disabled="{{team.openid!=item.author}}">
             <view class='card' bindtap="bindmission" data-id="{{item._id}}">
+<!--                内容标题-->
                 <view class='titlebox'>
                     <view class='flex-center'>
-                        <view class='color' wx:if='{{item.color>0}}' style='background-color:{{color[item.color-1]}}'></view>
+                        <view class='color' wx:if='{{true}}' style='background-color:green'></view>
                         <view class='title'>{{item.name}}</view>
                     </view>
                     <van-tag color='#bbbec4' size="large">{{team.people[item.author].name}}</van-tag>
                 </view>
+<!--                时间-->
                 <view class='time'>{{item.date}}</view>
                 <van-tag custom-class='ctag' size='medium' type='{{item==team.openid?"primary":"default"}}' plain wx:for="{{item.people}}" wx:key='index'>{{team.people[item].name}}</van-tag>
-                <text class='detail'>{{item.detail}}</text>
             </view>
             <view slot="right" style='height:100%'>
                 <view class="van-swipe-cell-right celldelete" bindtap="binddelete" data-id='{{item._id}}'>删除</view>
@@ -40,41 +43,111 @@
             </view>
         </van-swipe-cell>
     </van-tab>
-<!--    我的任务-->
-    <van-tab title="我的任务">
-        <van-swipe-cell right-width="{{ 160 }}" wx:for='{{mine}}' wx:key='index' disabled="{{team.openid!=item.author}}">
-            <view class='card' bindtap="bindmission" data-id="{{item._id}}">
+
+    <!--    任务情况-->
+    <van-tab title="任务情况">
+        <!--        进行中拟态提醒-->
+        <!--        进行中任务-->
+        <van-divider bindtap='bindLine' wx:if="{{unfinishedList.length>0}}" contentPosition="left" custom-style='margin:20rpx 20rpx 0'>进行中
+            <van-icon custom-style='margin-left:10rpx' name="question-o" /></van-divider>
+        <van-cell right-width="{{ 160 }}" wx:for='{{unfinishedList}}' wx:key='index'>
+            <view class='card'>
+                <!--                内容标题-->
                 <view class='titlebox'>
                     <view class='flex-center'>
-                        <view class='color' wx:if='{{item.color>0}}' style='background-color:{{color[item.color-1]}}'></view>
-                        <view class='title'>{{item.name}}</view>
+                        <view class='color' wx:if='{{true}}' style='background-color:green'></view>
+                        <view class='title'>{{item.content}}</view>
                     </view>
-                    <van-tag color='#bbbec4' size="large">{{team.people[item.author].name}}</van-tag>
+
                 </view>
-                <view class='time'>{{item.date}}</view>
-                <van-tag custom-class='ctag' size='medium' type='{{item==team.openid?"primary":""}}' plain wx:for="{{item.people}}" wx:key='index'>{{team.people[item].name}}</van-tag>
-                <text class='detail'>{{item.detail}}</text>
+                <!--                时间-->
+                <view class='time'>{{item.deadline}}</view>
+<!--                这里可以放个人的头像-->
             </view>
-            <view slot="right" style='height:100%'>
-                <view class="van-swipe-cell-right celldelete" bindtap="binddelete" data-id='{{item._id}}'>删除</view>
-                <view class="van-swipe-cell-right cellfinish" data-finish="1" bindtap="bindfinish" data-id='{{item._id}}'>完成</view>
+        </van-cell>
+        <!--        已完成任务-->
+        <van-divider bindtap='bindLine' wx:if="{{finishedList.length>0}}" contentPosition="left" custom-style='margin:30rpx 20rpx 0'>已完成
+            <van-icon custom-style='margin-left:10rpx' name="question-o" /></van-divider>
+        <van-cell right-width="{{ 160 }}" wx:for='{{finishedList}}' wx:key='index'>
+            <view class='card delete'>
+                <view class='titlebox'>
+                    <view class='title'>{{item.content}}</view>
+
+                </view>
+                <view class='time' style='color:#dddee1'>{{item.deadline}}</view>
+
             </view>
-        </van-swipe-cell>
+        </van-cell>
+    </van-tab>
+
+<!--    分配任务-->
+    <van-tab title="分配任务">
+<!--        组长-->
+        <view class="cu-bar bg-white solid-bottom margin-top">
+            <view class="action">
+                <text class="cuIcon-title text-orange"></text> 组长
+            </view>
+        </view>
+        <view class="cu-list menu-avatar">
+            <!--            这里绑定跳转进去的页面-->
+            <view class="cu-item" data-item="{{teamInfo.memberinfo[0]}}" bindtap="mission">
+                <view wx:if="{{index != 0}}" class="cu-avatar round lg" style="background-image:url({{teamInfo.memberinfo[0].avatarUrl}});"></view>
+                <view class="content">
+                    <view class="text-black">{{teamInfo.memberinfo[0].nickName}}</view>
+                    <view class="text-gray text-sm flex">
+                        <text class="text-cut">
+                            <text class="cuIcon-friendfavor text-red  margin-right-xs"></text> {{teamInfo.memberinfo[0].name}}
+                        </text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-bar bg-white solid-bottom margin-top">
+            <view class="action">
+                <text class="cuIcon-title text-orange"></text> 组员列表
+            </view>
+        </view>
+<!--        组员列表-->
+        <view class="cu-list menu-avatar">
+<!--            这里绑定跳转进去的页面-->
+        <view class="cu-item" data-item="{{item}}" wx:if="{{index != 0}}" bindtap="mission" wx:for="{{teamInfo.memberinfo}}">
+            <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
+                <view class="content">
+                    <view class="text-black">{{item.nickName}}</view>
+                    <view class="text-gray text-sm flex">
+                        <text class="text-cut">
+                            <text class="cuIcon-friendfavor text-red  margin-right-xs"></text> {{item.name}}
+                        </text>
+                    </view>
+                </view>
+            </view>
+        </view>
     </van-tab>
 
 <!--    队长事务-->
 <!--    仅队长可见-->
     <van-tab wx:if="{{true}}" title="队长事务">
+        <view class="cu-bar bg-white solid-bottom margin-top">
+            <view class="action">
+                <text class="cuIcon-title text-orange"></text> 候选人列表
+            </view>
+        </view>
+<!--        候选人列表-->
         <view class="cu-list menu-avatar">
-            <view class="cu-item">
-                <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+<!--            跳转进入候选人界面-->
+            <view bindtap="candidateDetail" class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{teamInfo.candidateinfo}}"   bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+                <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
                 <view class="content">
-                    <view class="text-black">nickName</view>
+                    <view class="text-black">{{item.nickName}}</view>
                     <view class="text-gray text-sm flex">
                         <text class="text-cut">
-                            <text class="cuIcon-discoverfill text-green margin-right-xs "></text> 候选人简历xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                            <text class="cuIcon-discoverfill text-green margin-right-xs "></text> {{item.text}}
                         </text>
                     </view>
+                </view>
+                <view class="move">
+                    <view class="bg-green" data-item="{{item}}" catchtap="change">接受</view>
+                    <view class="bg-red" data-item="{{item}}" catchtap="deleteCandidate">拒绝</view>
                 </view>
             </view>
         </view>

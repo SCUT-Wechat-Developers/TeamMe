@@ -26,9 +26,12 @@ Page({
      * hisTeamNum: 总共的队伍数量 (这里还是不存历史所有的队伍先了，只简单统计数量) Number
      *
      */
+      personinf:{},
     userInfo:{
-      followList: ['wwww'],
-      teamList: ['wwwww'],
+     // followList: ['wwww'],
+    //  teamList: ['wwwww'],
+      followList:[] ,
+      teamList: [],
       hisTeamNum: 0
     },
   },
@@ -42,12 +45,13 @@ Page({
   },
   onShow(){
     this.tabBar()
+    let personinf=wx.getStorageSync('personinf')
     const userinfo=wx.getStorageSync("userinfo");
     const collect=wx.getStorageSync("collect")||[];
     //console.log(1); console.log(userinfo);
     //console.log({{personinf.name}});
 
-    this.setData({userinfo});
+    this.setData({userinfo,personinf});
       
   },
   /**

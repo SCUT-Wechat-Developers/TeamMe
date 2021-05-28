@@ -17,25 +17,23 @@ var groupSchema=new Schema({
     candidateNum:0,
     tag:'',
     endTime:'',
-    updateTime:''
+    updateTime:'',
+    likeNum:0,
 })
 //
 var personSchema=new Schema({
-  nickName: '',
-  name: '',
-  avatarUrl: '',
-  openid: '',
-  gender: '',
-  major: '',
-  categories: '',
-  education: '',
-  awards: '',
-  skill: '',
-  text: '',
-  university: '',
-  mission: '',
-  followList: '',
-  hisTeamNum: ''
+  id:"",
+  teamid:[],
+  name:"",
+  gender:"",
+  phone:0,
+  major:"",
+  avatarUrl:"",
+  categories:"",
+  education:"",
+  awards:[""],
+  skill:[""],
+  text:""
 })
 
 var groupModel=Mongoose.model("groups",groupSchema);
@@ -79,6 +77,7 @@ router.get('/square',async function(req,res,next){
   })
   for(let i=0;i<groups.length;i++){
       groups[i].memberinfo=JSON.parse(groups[i].memberinfo);
+      groups[i].candidateinfo=JSON.parse(groups[i].candidateinfo);
   }
   console.log(groups);
   res.send(groups);

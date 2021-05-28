@@ -6,12 +6,13 @@
  </view>
 
 <scroll-view enable-back-to-top scroll-y bindrefresherrefresh="handleRefresher" refresher-enabled class="DrawerPage {{modalName=='viewModal'?'show':''}}">
-<!-- 组队卡片-->
+<!-- 组队卡片--><!-- images="{{item.memberinfo.avatarUrl}}" -->
 <view wx:for="{{selectTeamList.length != 0 ? selectTeamList : teamList}}"  wx:key="teamId">
  <teamInsCard
 
-         images="{{item.memberinfo.avatarUrl}}"
-         isLiked="{{item.isLiked}}"
+         
+         images="{{[item.memberinfo[0].avatarUrl,item.memberinfo[1].avatarUrl,item.memberinfo[2].avatarUrl]}}"
+         isLiked="{{item.likeNum === '1'}}"
          id="{{item.teamID}}"
          needed="{{item.needNum}}"
          candidated="{{item.candidateNum}}"

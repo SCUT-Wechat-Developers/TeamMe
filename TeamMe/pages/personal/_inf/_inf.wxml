@@ -21,7 +21,9 @@
       <view class="history_wrap margin-top ">
 <!--        三个数量-->
         <navigator url="/pages/personal/follow/follow" class="grid col-1 margin-bottom text-center">
-            <view class="his_num text-xxl text-apple-black">{{userInfo.followList.length}}</view>
+            <!-- <view class="his_num text-xxl text-apple-black">{{userInfo.followList.length}}</view>
+             -->
+            <view class="his_num text-xxl text-apple-black">{{personinf.followList.length}}</view>
             <view class="his_name text-df text-apple-black">关注数</view>
         </navigator>
         <navigator url="/pages/cooperate/_cooperate/_cooperate" open-type="switchTab" class="grid col-1 margin-bottom text-center">
